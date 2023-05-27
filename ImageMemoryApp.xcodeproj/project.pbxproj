@@ -16,6 +16,10 @@
 		993F7C702A2208AF00FE8045 /* ImageMemoryAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7C6F2A2208AF00FE8045 /* ImageMemoryAppTests.swift */; };
 		993F7C7A2A2208AF00FE8045 /* ImageMemoryAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7C792A2208AF00FE8045 /* ImageMemoryAppUITests.swift */; };
 		993F7C7C2A2208AF00FE8045 /* ImageMemoryAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7C7B2A2208AF00FE8045 /* ImageMemoryAppUITestsLaunchTests.swift */; };
+		993F7C962A22121500FE8045 /* SelectImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7C942A22121500FE8045 /* SelectImageViewController.swift */; };
+		993F7C972A22121500FE8045 /* SelectImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993F7C952A22121500FE8045 /* SelectImageViewController.xib */; };
+		993F7C9F2A22172600FE8045 /* SelectImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7C9D2A22172600FE8045 /* SelectImageCollectionViewCell.swift */; };
+		993F7CA02A22172600FE8045 /* SelectImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993F7C9E2A22172600FE8045 /* SelectImageCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		993F7C752A2208AF00FE8045 /* ImageMemoryAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageMemoryAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		993F7C792A2208AF00FE8045 /* ImageMemoryAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMemoryAppUITests.swift; sourceTree = "<group>"; };
 		993F7C7B2A2208AF00FE8045 /* ImageMemoryAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMemoryAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		993F7C942A22121500FE8045 /* SelectImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageViewController.swift; sourceTree = "<group>"; };
+		993F7C952A22121500FE8045 /* SelectImageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectImageViewController.xib; sourceTree = "<group>"; };
+		993F7C9D2A22172600FE8045 /* SelectImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		993F7C9E2A22172600FE8045 /* SelectImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectImageCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +114,10 @@
 				993F7C612A2208AF00FE8045 /* Assets.xcassets */,
 				993F7C632A2208AF00FE8045 /* LaunchScreen.storyboard */,
 				993F7C662A2208AF00FE8045 /* Info.plist */,
+				993F7C942A22121500FE8045 /* SelectImageViewController.swift */,
+				993F7C952A22121500FE8045 /* SelectImageViewController.xib */,
+				993F7C9D2A22172600FE8045 /* SelectImageCollectionViewCell.swift */,
+				993F7C9E2A22172600FE8045 /* SelectImageCollectionViewCell.xib */,
 			);
 			path = ImageMemoryApp;
 			sourceTree = "<group>";
@@ -231,8 +243,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				993F7C972A22121500FE8045 /* SelectImageViewController.xib in Resources */,
 				993F7C652A2208AF00FE8045 /* LaunchScreen.storyboard in Resources */,
 				993F7C622A2208AF00FE8045 /* Assets.xcassets in Resources */,
+				993F7CA02A22172600FE8045 /* SelectImageCollectionViewCell.xib in Resources */,
 				993F7C602A2208A500FE8045 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,7 +272,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				993F7C962A22121500FE8045 /* SelectImageViewController.swift in Sources */,
 				993F7C5D2A2208A500FE8045 /* ViewController.swift in Sources */,
+				993F7C9F2A22172600FE8045 /* SelectImageCollectionViewCell.swift in Sources */,
 				993F7C592A2208A500FE8045 /* AppDelegate.swift in Sources */,
 				993F7C5B2A2208A500FE8045 /* SceneDelegate.swift in Sources */,
 			);
