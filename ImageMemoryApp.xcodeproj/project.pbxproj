@@ -23,6 +23,8 @@
 		993F7CA32A22356A00FE8045 /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 993F7CA22A22356A00FE8045 /* CropViewController */; };
 		993F7CA52A22356A00FE8045 /* TOCropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 993F7CA42A22356A00FE8045 /* TOCropViewController */; };
 		993F7CA72A223C3100FE8045 /* TrimmingImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7CA62A223C3100FE8045 /* TrimmingImageViewController.swift */; };
+		993F7CAA2A224DED00FE8045 /* CreateImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7CA82A224DED00FE8045 /* CreateImageViewController.swift */; };
+		993F7CAB2A224DED00FE8045 /* CreateImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993F7CA92A224DED00FE8045 /* CreateImageViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		993F7C9D2A22172600FE8045 /* SelectImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		993F7C9E2A22172600FE8045 /* SelectImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		993F7CA62A223C3100FE8045 /* TrimmingImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimmingImageViewController.swift; sourceTree = "<group>"; };
+		993F7CA82A224DED00FE8045 /* CreateImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateImageViewController.swift; sourceTree = "<group>"; };
+		993F7CA92A224DED00FE8045 /* CreateImageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateImageViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,8 @@
 				993F7C9D2A22172600FE8045 /* SelectImageCollectionViewCell.swift */,
 				993F7C9E2A22172600FE8045 /* SelectImageCollectionViewCell.xib */,
 				993F7CA62A223C3100FE8045 /* TrimmingImageViewController.swift */,
+				993F7CA82A224DED00FE8045 /* CreateImageViewController.swift */,
+				993F7CA92A224DED00FE8045 /* CreateImageViewController.xib */,
 			);
 			path = ImageMemoryApp;
 			sourceTree = "<group>";
@@ -257,6 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				993F7CAB2A224DED00FE8045 /* CreateImageViewController.xib in Resources */,
 				993F7C972A22121500FE8045 /* SelectImageViewController.xib in Resources */,
 				993F7C652A2208AF00FE8045 /* LaunchScreen.storyboard in Resources */,
 				993F7C622A2208AF00FE8045 /* Assets.xcassets in Resources */,
@@ -291,6 +298,7 @@
 				993F7CA72A223C3100FE8045 /* TrimmingImageViewController.swift in Sources */,
 				993F7C9F2A22172600FE8045 /* SelectImageCollectionViewCell.swift in Sources */,
 				993F7C592A2208A500FE8045 /* AppDelegate.swift in Sources */,
+				993F7CAA2A224DED00FE8045 /* CreateImageViewController.swift in Sources */,
 				993F7C5B2A2208A500FE8045 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

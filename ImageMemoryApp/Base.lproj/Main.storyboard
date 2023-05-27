@@ -19,7 +19,7 @@
         <!--Item-->
         <scene sceneID="lm0-Fj-rBH">
             <objects>
-                <viewController id="hpN-7Q-waC" sceneMemberID="viewController">
+                <viewController id="hpN-7Q-waC" customClass="CreateImageViewController" customModule="ImageMemoryApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Lu2-PL-XhW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yHz-Fz-koq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
