@@ -13,6 +13,7 @@ final class SelectImageViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBAction func pushSearchButton(_ sender: Any) {
+        
     }
     
     override func viewDidLoad() {
@@ -23,16 +24,23 @@ final class SelectImageViewController: UIViewController {
     }
 }
 
-extension SelectImageViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension SelectImageViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectImageCollectionViewCell", for: indexPath) as! SelectImageCollectionViewCell
-      //  cell.imageView.image =
+        cell.imageView.image = UIImage(named: "sampleImage")
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectImageCollectionViewCell", for: indexPath) as! SelectImageCollectionViewCell
+        cell.imageView.image = UIImage(named: "sampleImage")
+        guard let image = cell.imageView.image else {return}
+        TrimmingImageViewController(owner: self).open(image: image)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

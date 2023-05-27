@@ -20,6 +20,9 @@
 		993F7C972A22121500FE8045 /* SelectImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993F7C952A22121500FE8045 /* SelectImageViewController.xib */; };
 		993F7C9F2A22172600FE8045 /* SelectImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7C9D2A22172600FE8045 /* SelectImageCollectionViewCell.swift */; };
 		993F7CA02A22172600FE8045 /* SelectImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993F7C9E2A22172600FE8045 /* SelectImageCollectionViewCell.xib */; };
+		993F7CA32A22356A00FE8045 /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 993F7CA22A22356A00FE8045 /* CropViewController */; };
+		993F7CA52A22356A00FE8045 /* TOCropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 993F7CA42A22356A00FE8045 /* TOCropViewController */; };
+		993F7CA72A223C3100FE8045 /* TrimmingImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7CA62A223C3100FE8045 /* TrimmingImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,7 @@
 		993F7C952A22121500FE8045 /* SelectImageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectImageViewController.xib; sourceTree = "<group>"; };
 		993F7C9D2A22172600FE8045 /* SelectImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		993F7C9E2A22172600FE8045 /* SelectImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		993F7CA62A223C3100FE8045 /* TrimmingImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimmingImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				993F7CA52A22356A00FE8045 /* TOCropViewController in Frameworks */,
+				993F7CA32A22356A00FE8045 /* CropViewController in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +124,7 @@
 				993F7C952A22121500FE8045 /* SelectImageViewController.xib */,
 				993F7C9D2A22172600FE8045 /* SelectImageCollectionViewCell.swift */,
 				993F7C9E2A22172600FE8045 /* SelectImageCollectionViewCell.xib */,
+				993F7CA62A223C3100FE8045 /* TrimmingImageViewController.swift */,
 			);
 			path = ImageMemoryApp;
 			sourceTree = "<group>";
@@ -155,6 +162,10 @@
 			dependencies = (
 			);
 			name = ImageMemoryApp;
+			packageProductDependencies = (
+				993F7CA22A22356A00FE8045 /* CropViewController */,
+				993F7CA42A22356A00FE8045 /* TOCropViewController */,
+			);
 			productName = ImageMemoryApp;
 			productReference = 993F7C552A2208A500FE8045 /* ImageMemoryApp.app */;
 			productType = "com.apple.product-type.application";
@@ -227,6 +238,9 @@
 				Base,
 			);
 			mainGroup = 993F7C4C2A2208A500FE8045;
+			packageReferences = (
+				993F7CA12A22356A00FE8045 /* XCRemoteSwiftPackageReference "TOCropViewController" */,
+			);
 			productRefGroup = 993F7C562A2208A500FE8045 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -274,6 +288,7 @@
 			files = (
 				993F7C962A22121500FE8045 /* SelectImageViewController.swift in Sources */,
 				993F7C5D2A2208A500FE8045 /* ViewController.swift in Sources */,
+				993F7CA72A223C3100FE8045 /* TrimmingImageViewController.swift in Sources */,
 				993F7C9F2A22172600FE8045 /* SelectImageCollectionViewCell.swift in Sources */,
 				993F7C592A2208A500FE8045 /* AppDelegate.swift in Sources */,
 				993F7C5B2A2208A500FE8045 /* SceneDelegate.swift in Sources */,
@@ -612,6 +627,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		993F7CA12A22356A00FE8045 /* XCRemoteSwiftPackageReference "TOCropViewController" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TimOliver/TOCropViewController.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		993F7CA22A22356A00FE8045 /* CropViewController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 993F7CA12A22356A00FE8045 /* XCRemoteSwiftPackageReference "TOCropViewController" */;
+			productName = CropViewController;
+		};
+		993F7CA42A22356A00FE8045 /* TOCropViewController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 993F7CA12A22356A00FE8045 /* XCRemoteSwiftPackageReference "TOCropViewController" */;
+			productName = TOCropViewController;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 993F7C4D2A2208A500FE8045 /* Project object */;
 }
