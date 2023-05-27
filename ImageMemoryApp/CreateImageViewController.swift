@@ -7,6 +7,13 @@
 
 import UIKit
 
+// TODO: test用のため後ほど削除よてい-----
+let hoge = SampleView(frame: CGRect(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2, width: 100, height: 100))
+let fuga = SampleView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+var arrayhoge:[SampleView] = [hoge, fuga]
+
+// -------
+
 class CreateImageViewController: UIViewController {
     
     @IBOutlet weak var editScreenView: UIView!
@@ -14,7 +21,10 @@ class CreateImageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.editScreenView.addSubview(sampleView)
+        arrayhoge.append(sampleView)
+        for view in arrayhoge {
+            self.editScreenView.addSubview(view)
+        }
     }
 }
 
@@ -42,7 +52,9 @@ class SampleView: UIImageView {
     }
     
     @objc func tapObject(_ sender: UITapGestureRecognizer) {
-        self.backgroundColor = UIColor.red
+    //    self = arrayhoge[1]
+        // TODO: タップした画像を先頭に持ってくる実装をしたい(現状は効果なし)
+        self.bringSubviewToFront(self)
     }
     
     @objc func rotateObject(_ sender: UIRotationGestureRecognizer) {
