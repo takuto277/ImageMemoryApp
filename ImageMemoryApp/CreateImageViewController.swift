@@ -41,9 +41,11 @@ class SampleView: UIImageView {
         addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(longPressedObject(_:))))
         self.isUserInteractionEnabled = true
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     @objc func panObject(_ sender: UIPanGestureRecognizer) {
         if sender.state == .began {
             ownTransform = self.transform
@@ -52,9 +54,8 @@ class SampleView: UIImageView {
     }
     
     @objc func tapObject(_ sender: UITapGestureRecognizer) {
-    //    self = arrayhoge[1]
-        // TODO: タップした画像を先頭に持ってくる実装をしたい(現状は効果なし)
-        self.bringSubviewToFront(self)
+        // 触れたViewを最上面に持ってくる
+        sender.view?.superview?.bringSubviewToFront(sender.view!)
     }
     
     @objc func rotateObject(_ sender: UIRotationGestureRecognizer) {
@@ -64,12 +65,14 @@ class SampleView: UIImageView {
         }
         self.transform = ownTransform.rotated(by: rotation)
     }
+    
     @objc func pinchObject(_ sender: UIPinchGestureRecognizer) {
         if sender.state == .began {
             ownTransform = self.transform
         }
         self.transform = ownTransform.scaledBy(x: sender.scale, y: sender.scale)
     }
+    
     @objc func longPressedObject(_ :UILongPressGestureRecognizer) {
         UIView.animate(withDuration: 0.5, delay: 1.0, animations: {
             self.transform = CGAffineTransform(scaleX: 2, y: 2)
