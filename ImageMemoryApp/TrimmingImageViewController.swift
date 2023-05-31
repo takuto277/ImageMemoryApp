@@ -23,7 +23,10 @@ extension TrimmingImageViewController: CropViewControllerDelegate {
     }
     
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        //トリミング画面を閉じる
         owner?.dismiss(animated: true)
+        //画像選択画面を閉じる
+        owner?.navigationController?.popToRootViewController(animated: true)
     }
     
     func cropViewController(_ cropViewController: CropViewController, didCropToCircularImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
@@ -31,6 +34,7 @@ extension TrimmingImageViewController: CropViewControllerDelegate {
     }
     
     func cropViewController(_ cropViewController: CropViewController, didFinishCancelled cancelled: Bool) {
-        owner?.dismiss(animated: true)
+       owner?.dismiss(animated: true)
+        owner?.navigationController?.popToRootViewController(animated: true)
     }
 }

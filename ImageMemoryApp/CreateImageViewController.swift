@@ -18,7 +18,14 @@ class CreateImageViewController: UIViewController {
     
     @IBOutlet weak var editScreenView: UIView!
     let sampleView = SampleView(frame: CGRect(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2, width: 100, height: 100))
-
+    
+    
+    @IBAction func pushAddImageButton(_ sender: Any) {
+        let selectImageViewController = SelectImageViewController(nibName: String(describing: SelectImageViewController.self), bundle: nil)
+        navigationController?.pushViewController(selectImageViewController, animated: true)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         arrayhoge.append(sampleView)
