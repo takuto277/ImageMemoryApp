@@ -25,6 +25,12 @@
 		993F7CA72A223C3100FE8045 /* TrimmingImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7CA62A223C3100FE8045 /* TrimmingImageViewController.swift */; };
 		993F7CAA2A224DED00FE8045 /* CreateImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7CA82A224DED00FE8045 /* CreateImageViewController.swift */; };
 		993F7CAB2A224DED00FE8045 /* CreateImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993F7CA92A224DED00FE8045 /* CreateImageViewController.xib */; };
+		993F7CB02A28E69800FE8045 /* CreateImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7CAF2A28E69800FE8045 /* CreateImagePresenter.swift */; };
+		993F7CB22A28E6D400FE8045 /* CreateImageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7CB12A28E6D400FE8045 /* CreateImageProtocol.swift */; };
+		993F7CB52A28E7B200FE8045 /* SelectImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7CB42A28E7B200FE8045 /* SelectImagePresenter.swift */; };
+		993F7CB72A28E7C800FE8045 /* SelectImageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7CB62A28E7C800FE8045 /* SelectImageProtocol.swift */; };
+		993F7CBB2A28E84700FE8045 /* TrimmingImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7CBA2A28E84700FE8045 /* TrimmingImagePresenter.swift */; };
+		993F7CBD2A28E85D00FE8045 /* TrimmingImageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7CBC2A28E85D00FE8045 /* TrimmingImageProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +71,12 @@
 		993F7CA62A223C3100FE8045 /* TrimmingImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimmingImageViewController.swift; sourceTree = "<group>"; };
 		993F7CA82A224DED00FE8045 /* CreateImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateImageViewController.swift; sourceTree = "<group>"; };
 		993F7CA92A224DED00FE8045 /* CreateImageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateImageViewController.xib; sourceTree = "<group>"; };
+		993F7CAF2A28E69800FE8045 /* CreateImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateImagePresenter.swift; sourceTree = "<group>"; };
+		993F7CB12A28E6D400FE8045 /* CreateImageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateImageProtocol.swift; sourceTree = "<group>"; };
+		993F7CB42A28E7B200FE8045 /* SelectImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImagePresenter.swift; sourceTree = "<group>"; };
+		993F7CB62A28E7C800FE8045 /* SelectImageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageProtocol.swift; sourceTree = "<group>"; };
+		993F7CBA2A28E84700FE8045 /* TrimmingImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimmingImagePresenter.swift; sourceTree = "<group>"; };
+		993F7CBC2A28E85D00FE8045 /* TrimmingImageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimmingImageProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +129,10 @@
 		993F7C572A2208A500FE8045 /* ImageMemoryApp */ = {
 			isa = PBXGroup;
 			children = (
+				993F7CB92A28E82400FE8045 /* TrimmingImage */,
+				993F7CB82A28E7DE00FE8045 /* Cell */,
+				993F7CB32A28E77600FE8045 /* SelectImage */,
+				993F7CAE2A28E65C00FE8045 /* CreateImage */,
 				993F7C582A2208A500FE8045 /* AppDelegate.swift */,
 				993F7C5A2A2208A500FE8045 /* SceneDelegate.swift */,
 				993F7C5C2A2208A500FE8045 /* ViewController.swift */,
@@ -124,13 +140,6 @@
 				993F7C612A2208AF00FE8045 /* Assets.xcassets */,
 				993F7C632A2208AF00FE8045 /* LaunchScreen.storyboard */,
 				993F7C662A2208AF00FE8045 /* Info.plist */,
-				993F7C942A22121500FE8045 /* SelectImageViewController.swift */,
-				993F7C952A22121500FE8045 /* SelectImageViewController.xib */,
-				993F7C9D2A22172600FE8045 /* SelectImageCollectionViewCell.swift */,
-				993F7C9E2A22172600FE8045 /* SelectImageCollectionViewCell.xib */,
-				993F7CA62A223C3100FE8045 /* TrimmingImageViewController.swift */,
-				993F7CA82A224DED00FE8045 /* CreateImageViewController.swift */,
-				993F7CA92A224DED00FE8045 /* CreateImageViewController.xib */,
 			);
 			path = ImageMemoryApp;
 			sourceTree = "<group>";
@@ -150,6 +159,47 @@
 				993F7C7B2A2208AF00FE8045 /* ImageMemoryAppUITestsLaunchTests.swift */,
 			);
 			path = ImageMemoryAppUITests;
+			sourceTree = "<group>";
+		};
+		993F7CAE2A28E65C00FE8045 /* CreateImage */ = {
+			isa = PBXGroup;
+			children = (
+				993F7CA92A224DED00FE8045 /* CreateImageViewController.xib */,
+				993F7CA82A224DED00FE8045 /* CreateImageViewController.swift */,
+				993F7CAF2A28E69800FE8045 /* CreateImagePresenter.swift */,
+				993F7CB12A28E6D400FE8045 /* CreateImageProtocol.swift */,
+			);
+			path = CreateImage;
+			sourceTree = "<group>";
+		};
+		993F7CB32A28E77600FE8045 /* SelectImage */ = {
+			isa = PBXGroup;
+			children = (
+				993F7C952A22121500FE8045 /* SelectImageViewController.xib */,
+				993F7C942A22121500FE8045 /* SelectImageViewController.swift */,
+				993F7CB42A28E7B200FE8045 /* SelectImagePresenter.swift */,
+				993F7CB62A28E7C800FE8045 /* SelectImageProtocol.swift */,
+			);
+			path = SelectImage;
+			sourceTree = "<group>";
+		};
+		993F7CB82A28E7DE00FE8045 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				993F7C9E2A22172600FE8045 /* SelectImageCollectionViewCell.xib */,
+				993F7C9D2A22172600FE8045 /* SelectImageCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		993F7CB92A28E82400FE8045 /* TrimmingImage */ = {
+			isa = PBXGroup;
+			children = (
+				993F7CA62A223C3100FE8045 /* TrimmingImageViewController.swift */,
+				993F7CBA2A28E84700FE8045 /* TrimmingImagePresenter.swift */,
+				993F7CBC2A28E85D00FE8045 /* TrimmingImageProtocol.swift */,
+			);
+			path = TrimmingImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,9 +347,15 @@
 				993F7C5D2A2208A500FE8045 /* ViewController.swift in Sources */,
 				993F7CA72A223C3100FE8045 /* TrimmingImageViewController.swift in Sources */,
 				993F7C9F2A22172600FE8045 /* SelectImageCollectionViewCell.swift in Sources */,
+				993F7CB72A28E7C800FE8045 /* SelectImageProtocol.swift in Sources */,
+				993F7CBD2A28E85D00FE8045 /* TrimmingImageProtocol.swift in Sources */,
+				993F7CB02A28E69800FE8045 /* CreateImagePresenter.swift in Sources */,
 				993F7C592A2208A500FE8045 /* AppDelegate.swift in Sources */,
+				993F7CB52A28E7B200FE8045 /* SelectImagePresenter.swift in Sources */,
 				993F7CAA2A224DED00FE8045 /* CreateImageViewController.swift in Sources */,
+				993F7CBB2A28E84700FE8045 /* TrimmingImagePresenter.swift in Sources */,
 				993F7C5B2A2208A500FE8045 /* SceneDelegate.swift in Sources */,
+				993F7CB22A28E6D400FE8045 /* CreateImageProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
