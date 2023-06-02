@@ -15,13 +15,23 @@ var arrayhoge:[SampleView] = [hoge, fuga]
 // -------
 
 class CreateImageViewController: UIViewController {
+    private let presenter: CreateImageProtocol
+    
+    init(presenter: CreateImageProtocol) {
+        self.presenter = presenter
+        super.init(nibName: String(describing: CreateImageViewController.self), bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     @IBOutlet weak var editScreenView: UIView!
     let sampleView = SampleView(frame: CGRect(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2, width: 100, height: 100))
     
     
     @IBAction func pushAddImageButton(_ sender: Any) {
-        let selectImageViewController = SelectImageViewController(nibName: String(describing: SelectImageViewController.self), bundle: nil)
+        let selectImageViewController = ViewControllerFactory.selectImageViewController()
         navigationController?.pushViewController(selectImageViewController, animated: true)
         
     }

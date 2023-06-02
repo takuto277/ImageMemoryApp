@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Create Image View Controller-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CreateImageViewController" customModule="ImageMemoryApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="QWc-cv-Oag"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -29,7 +29,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="sPL-ZS-hUD">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="cHZ-Fa-8xs" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" id="cHZ-Fa-8xs" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AN2-kc-RkU">
                         <autoresizingMask key="autoresizingMask"/>

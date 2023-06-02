@@ -8,9 +8,21 @@
 import UIKit
 
 final class SelectImageViewController: UIViewController {
+    private let presenter: SelectImageProtocol
+    
+    init(presenter: SelectImageProtocol) {
+        self.presenter = presenter
+        super.init(nibName: String(describing: SelectImageViewController.self), bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     @IBOutlet weak var SearchTextField: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    
     
     @IBAction func pushSearchButton(_ sender: Any) {
         

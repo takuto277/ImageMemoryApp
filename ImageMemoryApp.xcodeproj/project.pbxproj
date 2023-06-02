@@ -31,6 +31,8 @@
 		993F7CB72A28E7C800FE8045 /* SelectImageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7CB62A28E7C800FE8045 /* SelectImageProtocol.swift */; };
 		993F7CBB2A28E84700FE8045 /* TrimmingImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7CBA2A28E84700FE8045 /* TrimmingImagePresenter.swift */; };
 		993F7CBD2A28E85D00FE8045 /* TrimmingImageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7CBC2A28E85D00FE8045 /* TrimmingImageProtocol.swift */; };
+		993F7CC12A28EBF900FE8045 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7CC02A28EBF900FE8045 /* ViewControllerFactory.swift */; };
+		993F7CC32A28EECC00FE8045 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7CC22A28EECB00FE8045 /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		993F7CB62A28E7C800FE8045 /* SelectImageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageProtocol.swift; sourceTree = "<group>"; };
 		993F7CBA2A28E84700FE8045 /* TrimmingImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimmingImagePresenter.swift; sourceTree = "<group>"; };
 		993F7CBC2A28E85D00FE8045 /* TrimmingImageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimmingImageProtocol.swift; sourceTree = "<group>"; };
+		993F7CC02A28EBF900FE8045 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
+		993F7CC22A28EECB00FE8045 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,7 @@
 		993F7C572A2208A500FE8045 /* ImageMemoryApp */ = {
 			isa = PBXGroup;
 			children = (
+				993F7CBE2A28EBD000FE8045 /* Models */,
 				993F7CB92A28E82400FE8045 /* TrimmingImage */,
 				993F7CB82A28E7DE00FE8045 /* Cell */,
 				993F7CB32A28E77600FE8045 /* SelectImage */,
@@ -140,6 +145,7 @@
 				993F7C612A2208AF00FE8045 /* Assets.xcassets */,
 				993F7C632A2208AF00FE8045 /* LaunchScreen.storyboard */,
 				993F7C662A2208AF00FE8045 /* Info.plist */,
+				993F7CC22A28EECB00FE8045 /* TabBarViewController.swift */,
 			);
 			path = ImageMemoryApp;
 			sourceTree = "<group>";
@@ -200,6 +206,22 @@
 				993F7CBC2A28E85D00FE8045 /* TrimmingImageProtocol.swift */,
 			);
 			path = TrimmingImage;
+			sourceTree = "<group>";
+		};
+		993F7CBE2A28EBD000FE8045 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				993F7CBF2A28EBD900FE8045 /* DI */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		993F7CBF2A28EBD900FE8045 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				993F7CC02A28EBF900FE8045 /* ViewControllerFactory.swift */,
+			);
+			path = DI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				993F7C962A22121500FE8045 /* SelectImageViewController.swift in Sources */,
+				993F7CC12A28EBF900FE8045 /* ViewControllerFactory.swift in Sources */,
 				993F7C5D2A2208A500FE8045 /* ViewController.swift in Sources */,
 				993F7CA72A223C3100FE8045 /* TrimmingImageViewController.swift in Sources */,
 				993F7C9F2A22172600FE8045 /* SelectImageCollectionViewCell.swift in Sources */,
@@ -355,6 +378,7 @@
 				993F7CAA2A224DED00FE8045 /* CreateImageViewController.swift in Sources */,
 				993F7CBB2A28E84700FE8045 /* TrimmingImagePresenter.swift in Sources */,
 				993F7C5B2A2208A500FE8045 /* SceneDelegate.swift in Sources */,
+				993F7CC32A28EECC00FE8045 /* TabBarViewController.swift in Sources */,
 				993F7CB22A28E6D400FE8045 /* CreateImageProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -535,8 +559,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ImageMemoryApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchStoryboardName = Main.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -562,8 +585,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ImageMemoryApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchStoryboardName = Main.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

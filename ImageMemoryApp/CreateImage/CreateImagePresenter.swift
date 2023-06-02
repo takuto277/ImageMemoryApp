@@ -10,3 +10,9 @@ import Foundation
 class CreateImagePresenter {
     
 }
+
+extension CreateImagePresenter: CreateImageProtocol {
+    func viewDidLoad() {
+        
+    }
+}
