@@ -8,5 +8,10 @@
 import Foundation
 
 protocol CreateImageProtocol: AnyObject {
+    func attachView(_ view: CreateImageViewProtocol)
     func viewDidLoad()
+}
+
+protocol CreateImageViewProtocol: AnyObject {
+    func setImageOnEditScreenView(images: [SampleView])
 }

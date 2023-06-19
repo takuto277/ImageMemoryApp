@@ -8,9 +8,6 @@
 import UIKit
 
 // TODO: test用のため後ほど削除よてい-----
-let hoge = SampleView(frame: CGRect(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2, width: 100, height: 100))
-let fuga = SampleView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-var arrayhoge:[SampleView] = [hoge, fuga]
 
 // -------
 
@@ -38,8 +35,14 @@ class CreateImageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        arrayhoge.append(sampleView)
-        for view in arrayhoge {
+        presenter.attachView(self)
+        presenter.viewDidLoad()
+    }
+}
+
+extension CreateImageViewController: CreateImageViewProtocol {
+    func setImageOnEditScreenView(images: [SampleView]) {
+        for view in images {
             self.editScreenView.addSubview(view)
         }
     }
