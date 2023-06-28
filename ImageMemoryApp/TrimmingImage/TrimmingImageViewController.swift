@@ -23,6 +23,8 @@ extension TrimmingImageViewController: CropViewControllerDelegate {
     }
     
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        let hoge = SampleView(frame: CGRect(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2, width: 100, height: 100))
+        ImageEditScreen.shared.addImages(image: hoge)
         //トリミング画面を閉じる
         owner?.dismiss(animated: true)
         //画像選択画面を閉じる

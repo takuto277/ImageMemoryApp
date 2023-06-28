@@ -19,13 +19,11 @@ extension CreateImagePresenter: CreateImageProtocol {
     }
     
     func viewDidLoad() {
+    }
+    
+    func viewWillAppear() {
         //現在の画像を取得
-        //
-        //TODO: テスト用で後で削除
-        let hoge = SampleView(frame: CGRect(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2, width: 100, height: 100))
-        let fuga = SampleView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        let arrayhoge:[SampleView] = [hoge, fuga, hoge, hoge]
-        //----
+        let arrayhoge:[SampleView] = ImageEditScreen.shared.getImages()
         self.view?.setImageOnEditScreenView(images: arrayhoge)
     }
 }

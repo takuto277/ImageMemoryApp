@@ -10,6 +10,7 @@ import Foundation
 protocol CreateImageProtocol: AnyObject {
     func attachView(_ view: CreateImageViewProtocol)
     func viewDidLoad()
+    func viewWillAppear()
 }
 
 protocol CreateImageViewProtocol: AnyObject {

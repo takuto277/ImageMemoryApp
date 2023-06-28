@@ -33,6 +33,7 @@
 		993F7CBD2A28E85D00FE8045 /* TrimmingImageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7CBC2A28E85D00FE8045 /* TrimmingImageProtocol.swift */; };
 		993F7CC12A28EBF900FE8045 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7CC02A28EBF900FE8045 /* ViewControllerFactory.swift */; };
 		993F7CC32A28EECC00FE8045 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7CC22A28EECB00FE8045 /* TabBarViewController.swift */; };
+		994BB85E2A4C86F800715CF4 /* ImageEditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994BB85D2A4C86F800715CF4 /* ImageEditScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		993F7CBC2A28E85D00FE8045 /* TrimmingImageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimmingImageProtocol.swift; sourceTree = "<group>"; };
 		993F7CC02A28EBF900FE8045 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		993F7CC22A28EECB00FE8045 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		994BB85D2A4C86F800715CF4 /* ImageEditScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 		993F7C572A2208A500FE8045 /* ImageMemoryApp */ = {
 			isa = PBXGroup;
 			children = (
+				994BB85C2A4C854800715CF4 /* Singleton */,
 				993F7CBE2A28EBD000FE8045 /* Models */,
 				993F7CB92A28E82400FE8045 /* TrimmingImage */,
 				993F7CB82A28E7DE00FE8045 /* Cell */,
@@ -222,6 +225,14 @@
 				993F7CC02A28EBF900FE8045 /* ViewControllerFactory.swift */,
 			);
 			path = DI;
+			sourceTree = "<group>";
+		};
+		994BB85C2A4C854800715CF4 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				994BB85D2A4C86F800715CF4 /* ImageEditScreen.swift */,
+			);
+			path = Singleton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,6 +385,7 @@
 				993F7CBD2A28E85D00FE8045 /* TrimmingImageProtocol.swift in Sources */,
 				993F7CB02A28E69800FE8045 /* CreateImagePresenter.swift in Sources */,
 				993F7C592A2208A500FE8045 /* AppDelegate.swift in Sources */,
+				994BB85E2A4C86F800715CF4 /* ImageEditScreen.swift in Sources */,
 				993F7CB52A28E7B200FE8045 /* SelectImagePresenter.swift in Sources */,
 				993F7CAA2A224DED00FE8045 /* CreateImageViewController.swift in Sources */,
 				993F7CBB2A28E84700FE8045 /* TrimmingImagePresenter.swift in Sources */,
