@@ -11,6 +11,9 @@ final public class ImageEditScreen {
     private init() {}
     public static let shared = ImageEditScreen()
     
+    static var editScreenWidth: CGFloat = 0
+    static var editScreenheight: CGFloat = 0
+    
     private var Images: [SampleView] = []
     func addImages(image: SampleView) {
         Images.append(image)
@@ -19,8 +22,9 @@ final public class ImageEditScreen {
     func getImages() -> [SampleView]{
         return Images
     }
-//    private var s: [String: Any] = ["Theme": "Vivid", "Brightness": 50]
-//    public func keyString(forkey key: String) -> String? {
-//        return settings[key] as? String
-//    }
+    
+    func deleteImage(image: SampleView){
+        Images.removeAll(where: { $0.frame == image.frame})
+        
+    }
 }
