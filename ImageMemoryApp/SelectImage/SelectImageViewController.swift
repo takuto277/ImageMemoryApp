@@ -6,9 +6,21 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class SelectImageViewController: UIViewController {
     private let presenter: SelectImageProtocol
+    
+    
+    // -----修正予定
+    var odaiManager = OdaiManager()
+
+    var hits: [Hits] = []
+    private var imageString = ""
+
+    private var count = 0
+    
+    // ------
     
     init(presenter: SelectImageProtocol) {
         self.presenter = presenter
@@ -19,13 +31,28 @@ final class SelectImageViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @IBOutlet weak var SearchTextField: UITextField!
+    @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
     
     
     
     @IBAction func pushSearchButton(_ sender: Any) {
-        
+        if let text = searchTextField.text {
+            odaiManager.getImages(with: text) { (hits) in
+                guard let data = hits,
+                      data.count != 0 else{
+                    return
+                }
+                self.hits = data
+
+                self.imageString = hits![self.count].webformatURL
+
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -43,8 +70,13 @@ extension SelectImageViewController: UICollectionViewDataSource, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectImageCollectionViewCell", for: indexPath) as! SelectImageCollectionViewCell
-        cell.imageView.image = UIImage(named: "sampleImage")
-        
+        if !self.imageString.isEmpty{
+            DispatchQueue.main.async {
+                cell.imageView.sd_setImage(with: URL(string:self.imageString), completed: nil)
+            }
+        }else{
+            cell.imageView.image = UIImage(named: "sampleImage")
+        }
         return cell
     }
     
@@ -68,3 +100,52 @@ extension SelectImageViewController: UICollectionViewDataSource, UICollectionVie
     }
 }
 
+struct OdaiModel:Codable{
+    let hits:[Hits]
+}
+
+struct Hits:Codable {
+    let webformatURL:String
+}
+
+
+
+struct OdaiManager {
+    func getImages(with keyword:String,completion:@escaping ([Hits]?) -> ()){
+        //APIKey 22576227-26b7f5cefaed90131ae202127
+        
+        let urlString = "https://pixabay.com/api/?key=\(AccessTokens.share.pixabayAPIKey)&q=\(keyword)"
+
+        //①URL型に変換
+        if let url = URL(string: urlString) {
+
+            //②URLSessionを作る
+            let session = URLSession(configuration: .default)
+            //③SessionTaskを与える
+            let task = session.dataTask(with: url) { data, response, error in
+                if error != nil {
+                    print(error!)
+
+                    completion(nil)
+                }
+
+                if let safeData = data {
+                    // print(response)
+                    let decoder = JSONDecoder()
+                    do {
+                        let decodedData = try decoder.decode(OdaiModel.self, from: safeData)
+
+                        completion(decodedData.hits)
+
+                        //print(decodedData.hits[0].webformaturl)
+
+                    } catch  {
+                        print(String(describing: error))
+                    }
+                }
+            }
+            //④Taskを始める
+            task.resume()
+        }
+    }
+}

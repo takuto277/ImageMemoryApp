@@ -10,8 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectImageViewController" customModule="ImageMemoryApp" customModuleProvider="target">
             <connections>
-                <outlet property="SearchTextField" destination="EF8-gO-j3m" id="Tjc-bO-BmB"/>
                 <outlet property="collectionView" destination="dQd-CI-tCT" id="nuH-nr-9m4"/>
+                <outlet property="searchTextField" destination="EF8-gO-j3m" id="Tjc-bO-BmB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
