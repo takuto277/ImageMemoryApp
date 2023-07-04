@@ -13,10 +13,10 @@ final class SelectImageViewController: UIViewController {
     
     
     // -----修正予定
-    var odaiManager = OdaiManager()
+    var searchImageManager = SearchImageManager()
 
     var hits: [Hits] = []
-    private var imageString = ""
+    private var imageArray: [String] = []
 
     private var count = 0
     
@@ -38,14 +38,20 @@ final class SelectImageViewController: UIViewController {
     
     @IBAction func pushSearchButton(_ sender: Any) {
         if let text = searchTextField.text {
-            odaiManager.getImages(with: text) { (hits) in
+            searchImageManager.getImages(with: text) { (hits) in
                 guard let data = hits,
                       data.count != 0 else{
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "検索にヒットしませんでした", message: nil, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
                     return
                 }
                 self.hits = data
-
-                self.imageString = hits![self.count].webformatURL
+                self.hits.forEach({ hit in
+                    self.imageArray.append(hit.webformatURL)
+                })
 
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
@@ -70,9 +76,9 @@ extension SelectImageViewController: UICollectionViewDataSource, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectImageCollectionViewCell", for: indexPath) as! SelectImageCollectionViewCell
-        if !self.imageString.isEmpty{
+        if !self.imageArray.isEmpty{
             DispatchQueue.main.async {
-                cell.imageView.sd_setImage(with: URL(string:self.imageString), completed: nil)
+                cell.imageView.sd_setImage(with: URL(string:self.imageArray[indexPath.row]), completed: nil)
             }
         }else{
             cell.imageView.image = UIImage(named: "sampleImage")
@@ -82,9 +88,14 @@ extension SelectImageViewController: UICollectionViewDataSource, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectImageCollectionViewCell", for: indexPath) as! SelectImageCollectionViewCell
-        cell.imageView.image = UIImage(named: "sampleImage")
-        guard let image = cell.imageView.image else {return}
-        TrimmingImageViewController(owner: self).open(image: image)
+       // cell.imageView.image = UIImage(named: "sampleImage")
+        
+        cell.imageView.sd_setImage(with: URL(string:self.imageArray[indexPath.row]),
+                       completed: { (image, error,cacheType, url) in
+                // here image is the UIImage
+            guard let image = image else { return }
+            TrimmingImageViewController(owner: self).open(image: image)
+        })
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -100,7 +111,7 @@ extension SelectImageViewController: UICollectionViewDataSource, UICollectionVie
     }
 }
 
-struct OdaiModel:Codable{
+struct SearchImageModel:Codable{
     let hits:[Hits]
 }
 
@@ -110,7 +121,7 @@ struct Hits:Codable {
 
 
 
-struct OdaiManager {
+struct SearchImageManager {
     func getImages(with keyword:String,completion:@escaping ([Hits]?) -> ()){
         //APIKey 22576227-26b7f5cefaed90131ae202127
         
@@ -133,7 +144,7 @@ struct OdaiManager {
                     // print(response)
                     let decoder = JSONDecoder()
                     do {
-                        let decodedData = try decoder.decode(OdaiModel.self, from: safeData)
+                        let decodedData = try decoder.decode(SearchImageModel.self, from: safeData)
 
                         completion(decodedData.hits)
 
