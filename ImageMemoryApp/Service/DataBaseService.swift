@@ -8,6 +8,12 @@
 import Foundation
 import SQLite3
 
+struct WordData {
+    let imageURL: String
+    let wordName: String
+    let number: Int
+}
+
 final class DataBaseService {
     static let shared = DataBaseService()
     
@@ -19,6 +25,7 @@ final class DataBaseService {
         if !createTable() {
             print("Failed to create table")
         }
+        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true))
     }
     
     private func openDatabase() -> OpaquePointer? {
@@ -40,8 +47,10 @@ final class DataBaseService {
     
     private func createTable() -> Bool {
         let createSql = """
-      CREATE TABLE IF NOT EXISTS movieData (
-          image TEXT NOT NULL,
+      CREATE TABLE IF NOT EXISTS wordData (
+          imageURL TEXT NOT NULL,
+      wordName TEXT NOT NULL,
+      
           number INTEGER NOT NULL PRIMARY KEY
       );
       """
@@ -71,12 +80,12 @@ final class DataBaseService {
         }
     }
     
-    func insertStudent(movieData: MovieData) -> Bool {
+    func insertStudent(wordData: WordData) -> Bool {
         let insertSql = """
                         INSERT INTO students
-                            (image, number)
+                            (imageURL, wordName, number)
                             VALUES
-                            (?, ?);
+                            (?, ?, ?);
                         """;
 
         var insertStmt: OpaquePointer? = nil
@@ -86,8 +95,9 @@ final class DataBaseService {
             return false
         }
         
-        sqlite3_bind_text(insertStmt, 1, (movieData.image as NSString).utf8String, -1, nil)
-        sqlite3_bind_int(insertStmt, 2,Int32(movieData.number))
+        sqlite3_bind_text(insertStmt, 1, (wordData.imageURL as NSString).utf8String, -1, nil)
+        sqlite3_bind_text(insertStmt, 2, (wordData.wordName as NSString).utf8String, -1, nil)
+        sqlite3_bind_int(insertStmt, 3,Int32(wordData.number))
         
         if sqlite3_step(insertStmt) != SQLITE_DONE {
             print("db error: \(getDBErrorMessage(db))")
@@ -98,10 +108,11 @@ final class DataBaseService {
         return true
     }
     
-    func updateStudent(movieData: MovieData) -> Bool {
+    func updateStudent(wordData: WordData) -> Bool {
         let updateSql = """
         UPDATE  movieData
-        SET     image = ?,
+        SET     imageURL = ?,
+                wordName = ?,
                 number = ?
         WHERE   number = ?
         """
@@ -112,7 +123,7 @@ final class DataBaseService {
             return false
         }
 
-        sqlite3_bind_text(updateStmt, 1, (movieData.image as NSString).utf8String, -1, nil)
+        sqlite3_bind_text(updateStmt, 1, (wordData.imageURL as NSString).utf8String, -1, nil)
 
         if sqlite3_step(updateStmt) != SQLITE_DONE {
             print("db error: \(getDBErrorMessage(db))")
@@ -123,36 +134,37 @@ final class DataBaseService {
         return true
     }
     
-    func getStudent(number: Int) -> (success: Bool, errorMessage: String?, movieData: MovieData?) {
+    func getWordData(number: Int) -> (success: Bool, errorMessage: String?, wordData: WordData?) {
      
-        var movieData: MovieData? = nil
+        var wordData: WordData? = nil
         
         let sql = """
-            SELECT  image, number
-            FROM    movieData
+            SELECT  imageURL, wordName, number
+            FROM    wordData
             WHERE   number = ?;
             """
         
         var stmt: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, (sql as NSString).utf8String, -1, &stmt, nil) != SQLITE_OK {
-            return (false, "Unexpected error: \(getDBErrorMessage(db)).", movieData)
+            return (false, "Unexpected error: \(getDBErrorMessage(db)).", wordData)
         }
         
         sqlite3_bind_int(stmt, 1, Int32(number))
         
         if sqlite3_step(stmt) == SQLITE_ROW {
-            let image = String(describing: String(cString: sqlite3_column_text(stmt, 0)))
-            let number = Int(sqlite3_column_int(stmt, 1))
+            let imageURL = String(describing: String(cString: sqlite3_column_text(stmt, 0)))
+            let wordName = String(describing: String(cString: sqlite3_column_text(stmt, 1)))
+            let number = Int(sqlite3_column_int(stmt, 2))
             
-            movieData = MovieData(image: image, number: number)
+            wordData = WordData(imageURL: imageURL, wordName: wordName, number: number)
         }
         
         sqlite3_finalize(stmt)
-        return (true, nil, movieData)
+        return (true, nil, wordData)
     }
     
-    func deleteStudent(number: Int) -> Bool {
-        let deleteSql = "DELETE FROM movieData WHERE number = ?;";
+    func deleteWordData(number: Int) -> Bool {
+        let deleteSql = "DELETE FROM wordData WHERE number = ?;";
         var deleteStmt: OpaquePointer? = nil
         
         if sqlite3_prepare_v2(db, (deleteSql as NSString).utf8String, -1, &deleteStmt, nil) != SQLITE_OK {
