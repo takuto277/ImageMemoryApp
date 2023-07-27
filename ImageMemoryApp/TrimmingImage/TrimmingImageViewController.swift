@@ -7,6 +7,9 @@
 import UIKit
 import CropViewController
 
+struct SaveImageData: Codable {
+}
+
 class TrimmingImageViewController: NSObject {
     weak var owner: UIViewController?
     

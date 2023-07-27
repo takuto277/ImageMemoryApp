@@ -40,6 +40,9 @@
                             <rect key="frame" x="167.33333333333334" y="20.666666666666629" width="58.666666666666657" height="35"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="作成"/>
+                            <connections>
+                                <action selector="createdButton:" destination="-1" eventType="touchUpInside" id="C11-p7-MNO"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>

@@ -48,10 +48,9 @@ final class DataBaseService {
     private func createTable() -> Bool {
         let createSql = """
       CREATE TABLE IF NOT EXISTS wordData (
-          imageURL TEXT NOT NULL,
-      wordName TEXT NOT NULL,
-      
-          number INTEGER NOT NULL PRIMARY KEY
+        imageURL TEXT NOT NULL,
+        wordName TEXT NOT NULL,
+        number INTEGER NOT NULL PRIMARY KEY
       );
       """
         
@@ -82,7 +81,7 @@ final class DataBaseService {
     
     func insertStudent(wordData: WordData) -> Bool {
         let insertSql = """
-                        INSERT INTO students
+                        INSERT INTO wordData
                             (imageURL, wordName, number)
                             VALUES
                             (?, ?, ?);

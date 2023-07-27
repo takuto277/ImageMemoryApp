@@ -34,6 +34,31 @@ class CreateImageViewController: UIViewController {
         
     }
     
+    
+    @IBAction func createdButton(_ sender: Any) {
+      //  let data = try? JSONEncoder().encode(editImage)
+        UIGraphicsBeginImageContextWithOptions(self.editScreenView.frame.size, false, 0.0)
+      //  view.drawHierarchy(in: view.frame, afterScreenUpdates: true)
+        self.editScreenView.drawHierarchy(in: self.editScreenView.frame, afterScreenUpdates: true)
+        let screenShotImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!  //スリーンショットがUIImage型で取得できる
+        UIGraphicsEndImageContext()
+        
+        guard let imageURL = self.encodeImageToBase64(screenShotImage) else { return }
+        let wordData = WordData(imageURL: imageURL, wordName: "test", number: 1)
+        if DataBaseService.shared.insertStudent(wordData: wordData) {
+            print("登録成功")
+        }
+    }
+    
+    // UIImageをBase64エンコードして文字列に変換する関数
+    func encodeImageToBase64(_ image: UIImage) -> String? {
+        if let imageData = image.jpegData(compressionQuality: 1.0) {
+            let base64String = imageData.base64EncodedString()
+            return base64String
+        }
+        return nil
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.attachView(self)
@@ -56,7 +81,7 @@ extension CreateImageViewController: CreateImageViewProtocol {
     }
 }
 
-class SampleView: UIImageView {
+class SampleView: UIImageView{
     var ownTransform: CGAffineTransform!
     var parentVC: UIViewController?
     override init(frame: CGRect) {
