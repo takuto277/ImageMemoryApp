@@ -18,11 +18,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let scene = (scene as? UIWindowScene) else { return }
 
-        let firstViewController = TabBarController()
-        let navigationController = UINavigationController(rootViewController: firstViewController)
+   //     let firstViewController = TabBarController()
+     //   navigationController
+      //  let hoge = UITabBarController()
+     //   let fuga = hoge.setViewControllers(firstViewController.viewControllers, animated: true)
 
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = navigationController
+        window?.rootViewController = TabBarController()
         window?.makeKeyAndVisible()
     }
 
