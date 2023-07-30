@@ -79,7 +79,7 @@ final class DataBaseService {
         }
     }
     
-    func insertStudent(wordData: WordData) -> Bool {
+    func insertWordData(wordData: WordData) -> Bool {
         let insertSql = """
                         INSERT INTO wordData
                             (imageURL, wordName, number)
@@ -107,9 +107,9 @@ final class DataBaseService {
         return true
     }
     
-    func updateStudent(wordData: WordData) -> Bool {
+    func updateWordData(wordData: WordData) -> Bool {
         let updateSql = """
-        UPDATE  movieData
+        UPDATE  wordData
         SET     imageURL = ?,
                 wordName = ?,
                 number = ?
