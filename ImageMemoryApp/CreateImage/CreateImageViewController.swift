@@ -45,7 +45,7 @@ class CreateImageViewController: UIViewController {
         
         guard let imageURL = self.encodeImageToBase64(screenShotImage) else { return }
         let wordData = WordData(imageURL: imageURL, wordName: "test", number: 1)
-        if DataBaseService.shared.insertStudent(wordData: wordData) {
+        if DataBaseService.shared.insertWordData(wordData: wordData) {
             print("登録成功")
         }
     }
@@ -55,6 +55,16 @@ class CreateImageViewController: UIViewController {
         if let imageData = image.jpegData(compressionQuality: 1.0) {
             let base64String = imageData.base64EncodedString()
             return base64String
+        }
+        return nil
+    }
+    
+    // Base64エンコードされた文字列からUIImageを作成する関数
+    func decodeBase64ToImage(_ base64String: String) -> UIImage? {
+        if let imageData = Data(base64Encoded: base64String) {
+            if let image = UIImage(data: imageData) {
+                return image
+            }
         }
         return nil
     }
