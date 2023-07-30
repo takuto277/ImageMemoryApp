@@ -122,7 +122,6 @@ struct Hits:Codable {
 
 struct SearchImageManager {
     func getImages(with keyword:String,completion:@escaping ([Hits]?) -> ()){
-        //APIKey 22576227-26b7f5cefaed90131ae202127
         
         let urlString = "https://pixabay.com/api/?key=\(AccessTokens.share.pixabayAPIKey)&q=\(keyword)"
 
