@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,38 +22,75 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8TU-c5-HJ6">
                     <rect key="frame" x="0.0" y="97" width="393" height="645"/>
-                    <color key="backgroundColor" red="0.40089327409999997" green="0.78039215689999997" blue="0.72480812689999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" name="gold"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tII-kE-bRe">
                     <rect key="frame" x="0.0" y="742" width="393" height="76"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AsL-me-Ld3">
-                            <rect key="frame" x="278.66666666666669" y="20.666666666666629" width="110.66666666666669" height="35"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="ひとつ進む"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bmt-A0-GwM">
-                            <rect key="frame" x="3.6666666666666643" y="20.666666666666629" width="110.66666666666669" height="35"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="ひとつ戻る"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Nr-YZ-PlG">
-                            <rect key="frame" x="167.33333333333334" y="20.666666666666629" width="58.666666666666657" height="35"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="作成"/>
-                            <connections>
-                                <action selector="createdButton:" destination="-1" eventType="touchUpInside" id="C11-p7-MNO"/>
-                            </connections>
-                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Mv-jM-WVF">
+                            <rect key="frame" x="0.0" y="0.0" width="196.66666666666666" height="76"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="halfButtonFlame2" translatesAutoresizingMaskIntoConstraints="NO" id="pZ1-lI-fzF">
+                                    <rect key="frame" x="0.0" y="0.0" width="196.66666666666666" height="76"/>
+                                </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bmt-A0-GwM">
+                                    <rect key="frame" x="0.0" y="0.0" width="196.66666666666666" height="76"/>
+                                    <color key="tintColor" name="gold"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="全削除"/>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="labelColor"/>
+                            <constraints>
+                                <constraint firstItem="Bmt-A0-GwM" firstAttribute="centerX" secondItem="7Mv-jM-WVF" secondAttribute="centerX" id="0Ru-8x-ZMQ"/>
+                                <constraint firstItem="pZ1-lI-fzF" firstAttribute="centerY" secondItem="7Mv-jM-WVF" secondAttribute="centerY" id="RKZ-Gm-iUs"/>
+                                <constraint firstItem="pZ1-lI-fzF" firstAttribute="width" secondItem="7Mv-jM-WVF" secondAttribute="width" id="SHX-cp-uhB"/>
+                                <constraint firstItem="Bmt-A0-GwM" firstAttribute="width" secondItem="pZ1-lI-fzF" secondAttribute="width" id="SvT-Ug-aVf"/>
+                                <constraint firstItem="pZ1-lI-fzF" firstAttribute="height" secondItem="7Mv-jM-WVF" secondAttribute="height" id="b5x-Wo-LXN"/>
+                                <constraint firstItem="Bmt-A0-GwM" firstAttribute="centerY" secondItem="7Mv-jM-WVF" secondAttribute="centerY" id="fN7-2l-589"/>
+                                <constraint firstItem="Bmt-A0-GwM" firstAttribute="height" secondItem="pZ1-lI-fzF" secondAttribute="height" id="mj8-HW-gMr"/>
+                                <constraint firstItem="pZ1-lI-fzF" firstAttribute="centerX" secondItem="7Mv-jM-WVF" secondAttribute="centerX" id="ugx-K4-7EJ"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qqx-Nj-u82">
+                            <rect key="frame" x="196.66666666666663" y="0.0" width="196.33333333333337" height="76"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="halfButtonFlame2" translatesAutoresizingMaskIntoConstraints="NO" id="4eS-0B-YKK">
+                                    <rect key="frame" x="0.0" y="0.0" width="196.33333333333334" height="76"/>
+                                </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Nr-YZ-PlG" userLabel="作成">
+                                    <rect key="frame" x="0.0" y="0.0" width="196.33333333333334" height="76"/>
+                                    <color key="tintColor" name="gold"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="作成"/>
+                                    <connections>
+                                        <action selector="createdButton:" destination="-1" eventType="touchUpInside" id="C11-p7-MNO"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="labelColor"/>
+                            <constraints>
+                                <constraint firstItem="0Nr-YZ-PlG" firstAttribute="width" secondItem="4eS-0B-YKK" secondAttribute="width" id="0gb-20-mYC"/>
+                                <constraint firstItem="4eS-0B-YKK" firstAttribute="centerY" secondItem="Qqx-Nj-u82" secondAttribute="centerY" id="3J6-ll-A1w"/>
+                                <constraint firstItem="4eS-0B-YKK" firstAttribute="centerX" secondItem="Qqx-Nj-u82" secondAttribute="centerX" id="9A3-dr-oWO"/>
+                                <constraint firstItem="0Nr-YZ-PlG" firstAttribute="height" secondItem="4eS-0B-YKK" secondAttribute="height" id="GeW-Za-KRP"/>
+                                <constraint firstItem="4eS-0B-YKK" firstAttribute="height" secondItem="Qqx-Nj-u82" secondAttribute="height" id="Qw2-mQ-Tdz"/>
+                                <constraint firstItem="0Nr-YZ-PlG" firstAttribute="centerY" secondItem="Qqx-Nj-u82" secondAttribute="centerY" id="kga-F3-mAb"/>
+                                <constraint firstItem="4eS-0B-YKK" firstAttribute="width" secondItem="Qqx-Nj-u82" secondAttribute="width" id="scM-j5-h16"/>
+                                <constraint firstItem="0Nr-YZ-PlG" firstAttribute="centerX" secondItem="Qqx-Nj-u82" secondAttribute="centerX" id="zGp-q4-kqY"/>
+                            </constraints>
+                        </view>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" systemColor="labelColor"/>
                     <constraints>
-                        <constraint firstItem="Bmt-A0-GwM" firstAttribute="centerX" secondItem="tII-kE-bRe" secondAttribute="centerX" multiplier="0.3" id="8DY-DE-hCH"/>
-                        <constraint firstItem="Bmt-A0-GwM" firstAttribute="centerY" secondItem="tII-kE-bRe" secondAttribute="centerY" id="938-4n-zlx"/>
-                        <constraint firstItem="0Nr-YZ-PlG" firstAttribute="centerX" secondItem="tII-kE-bRe" secondAttribute="centerX" id="QrC-uZ-SPh"/>
-                        <constraint firstItem="AsL-me-Ld3" firstAttribute="centerX" secondItem="tII-kE-bRe" secondAttribute="centerX" multiplier="1.7" id="SuB-pS-euy"/>
-                        <constraint firstItem="0Nr-YZ-PlG" firstAttribute="centerY" secondItem="tII-kE-bRe" secondAttribute="centerY" id="lwN-8M-Fpr"/>
-                        <constraint firstItem="AsL-me-Ld3" firstAttribute="centerY" secondItem="tII-kE-bRe" secondAttribute="centerY" id="z9C-Xi-dKk"/>
+                        <constraint firstItem="Qqx-Nj-u82" firstAttribute="leading" secondItem="7Mv-jM-WVF" secondAttribute="trailing" id="2Iv-gV-e6a"/>
+                        <constraint firstItem="7Mv-jM-WVF" firstAttribute="centerY" secondItem="tII-kE-bRe" secondAttribute="centerY" id="3mm-NB-kmI"/>
+                        <constraint firstItem="Qqx-Nj-u82" firstAttribute="height" secondItem="7Mv-jM-WVF" secondAttribute="height" id="5qc-EE-22J"/>
+                        <constraint firstItem="7Mv-jM-WVF" firstAttribute="width" secondItem="tII-kE-bRe" secondAttribute="width" multiplier="0.5" id="9Nv-B5-vBY"/>
+                        <constraint firstItem="Qqx-Nj-u82" firstAttribute="width" secondItem="7Mv-jM-WVF" secondAttribute="width" id="NxH-Es-WCe"/>
+                        <constraint firstItem="7Mv-jM-WVF" firstAttribute="leading" secondItem="tII-kE-bRe" secondAttribute="leading" id="pk2-6H-wG8"/>
+                        <constraint firstItem="7Mv-jM-WVF" firstAttribute="height" secondItem="tII-kE-bRe" secondAttribute="height" id="rDT-8S-0sU"/>
+                        <constraint firstItem="Qqx-Nj-u82" firstAttribute="centerY" secondItem="tII-kE-bRe" secondAttribute="centerY" id="yi3-Ee-jd3"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p9d-05-daD">
@@ -64,6 +102,7 @@
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4CY-fa-nuI">
                                     <rect key="frame" x="-3" y="1" width="47" height="35"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="tintColor" name="gold"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
                                     <connections>
@@ -71,18 +110,20 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" systemColor="labelColor"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7cP-vq-jAZ">
                             <rect key="frame" x="0.0" y="0.0" width="353.66666666666669" height="38"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="こちらに単語を入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="52Y-5c-LzU">
                                     <rect key="frame" x="35.333333333333343" y="2" width="283" height="34"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="tintColor" name="gold"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" systemColor="labelColor"/>
                             <constraints>
                                 <constraint firstItem="52Y-5c-LzU" firstAttribute="centerX" secondItem="7cP-vq-jAZ" secondAttribute="centerX" id="Vc4-b2-Tbu"/>
                                 <constraint firstItem="52Y-5c-LzU" firstAttribute="centerY" secondItem="7cP-vq-jAZ" secondAttribute="centerY" id="i3V-sU-jrX"/>
@@ -90,7 +131,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBrownColor"/>
+                    <color key="backgroundColor" systemColor="labelColor"/>
                     <constraints>
                         <constraint firstItem="7cP-vq-jAZ" firstAttribute="top" secondItem="p9d-05-daD" secondAttribute="top" id="6gw-6o-YPj"/>
                         <constraint firstAttribute="bottom" secondItem="Nja-7M-aLN" secondAttribute="bottom" id="Epg-ME-prZ"/>
@@ -102,7 +143,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" systemColor="labelColor"/>
             <constraints>
                 <constraint firstItem="p9d-05-daD" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" multiplier="0.05" id="98W-Kb-v0L"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="p9d-05-daD" secondAttribute="trailing" id="A4t-ji-Azp"/>
@@ -119,16 +160,17 @@
                 <constraint firstItem="tII-kE-bRe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="taa-Kg-j5Z"/>
                 <constraint firstItem="8TU-c5-HJ6" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" multiplier="0.85" id="ypO-8a-vFB"/>
             </constraints>
-            <point key="canvasLocation" x="118" y="21"/>
+            <point key="canvasLocation" x="116.79389312977099" y="20.422535211267608"/>
         </view>
     </objects>
     <resources>
+        <image name="halfButtonFlame2" width="653.33331298828125" height="253.33332824707031"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBrownColor">
-            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="gold">
+            <color red="0.72156864399999998" green="0.62745100259999997" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
