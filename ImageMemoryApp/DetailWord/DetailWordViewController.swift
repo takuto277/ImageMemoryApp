@@ -46,9 +46,9 @@ class DetailWordViewController: UIViewController {
         // 画像のアスペクト比を計算します
         let imageAspectRatio = image.size.width / image.size.height
         // imageViewの幅と高さの制約を設定します
-                imageView?.translatesAutoresizingMaskIntoConstraints = false
+        imageView?.translatesAutoresizingMaskIntoConstraints = false
         imageView?.widthAnchor.constraint(equalTo: imageView!.heightAnchor, multiplier: imageAspectRatio).isActive = true
-
+        
         // ここにコードを追加してcontentModeの値を出力します
         if let contentMode = self.imageView?.contentMode {
             print("ImageView contentMode: \(contentMode)")
@@ -58,15 +58,26 @@ class DetailWordViewController: UIViewController {
         self.imageView?.image = self.image
         self.sentenceTextView?.text = sentence
         // プレースホルダーのテキストを設定
-        let placeholderText = "英文を入力してください。"
-        self.sentenceTextView?.text = placeholderText
-        self.sentenceTextView?.textColor = UIColor.gray
+        if self.sentenceTextView?.text == nil {
+            let placeholderText = "英文を入力してください。"
+            self.sentenceTextView?.text = placeholderText
+            self.sentenceTextView?.textColor = UIColor.gray
+        }
     }
     
     @IBAction func decisionButton(_ sender: Any) {
         guard let image = self.imageView?.image,
-              let word = self.wordTextView?.text,
-              let imageURL = Converter().encodeImageToBase64(image) else { return }
+              let word = self.wordTextView?.text, !word.isEmpty,
+              let imageURL = Converter().encodeImageToBase64(image) else {
+          DispatchQueue.main.async {
+              let alert = UIAlertController(title: "英単語を入力してください", message: nil, preferredStyle: .alert)
+              alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+              self.present(alert, animated: true, completion: nil)
+          }
+            return }
+        if sentenceTextView?.text == "英文を入力してください。" && sentenceTextView?.textColor == UIColor.gray {
+            self.sentence = nil
+        }
         let wordData = WordData(imageURL: imageURL, wordName: word, number: 3)
         if DataBaseService.shared.insertWordData(wordData: wordData) {
             print("登録成功")
