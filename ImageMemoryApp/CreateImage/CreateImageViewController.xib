@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateImageViewController" customModule="ImageMemoryApp" customModuleProvider="target">
             <connections>
+                <outlet property="editScreenFrame" destination="GN6-Z1-2IK" id="psg-qn-nXu"/>
                 <outlet property="editScreenView" destination="8TU-c5-HJ6" id="DlI-et-LBP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="wordTextField" destination="52Y-5c-LzU" id="PO9-7I-qmo"/>
@@ -96,7 +97,7 @@
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="createImageFrame" translatesAutoresizingMaskIntoConstraints="NO" id="GN6-Z1-2IK">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="607"/>
                         </imageView>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8TU-c5-HJ6">
+                        <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="8TU-c5-HJ6">
                             <rect key="frame" x="29" y="48.333333333333343" width="335" height="510.33333333333326"/>
                             <color key="backgroundColor" name="gold"/>
                         </view>
@@ -199,7 +200,7 @@
         <image name="halfButtonFlame2" width="653.33331298828125" height="253.33332824707031"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="gold">
-            <color red="0.72156864399999998" green="0.62745100259999997" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.72200000286102295" green="0.62699997425079346" blue="0.3449999988079071" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

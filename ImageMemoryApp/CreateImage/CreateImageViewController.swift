@@ -11,6 +11,7 @@ class CreateImageViewController: UIViewController {
     private let presenter: CreateImageProtocol
     
     @IBOutlet weak var wordTextField: UITextField!
+    @IBOutlet weak var editScreenFrame: UIImageView!
     
     init(presenter: CreateImageProtocol) {
         self.presenter = presenter
@@ -48,11 +49,16 @@ class CreateImageViewController: UIViewController {
             }
             return
         }
-      //  let data = try? JSONEncoder().encode(editImage)
-        UIGraphicsBeginImageContextWithOptions(self.editScreenView.frame.size, false, 0.0)
-      //  view.drawHierarchy(in: view.frame, afterScreenUpdates: true)
-        self.editScreenView.drawHierarchy(in: self.editScreenView.frame, afterScreenUpdates: true)
-        let screenShotImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!  //スリーンショットがUIImage型で取得できる
+        
+        // 親ビューの範囲を取得
+        guard let parentView = self.editScreenView.superview else {
+            return
+        }
+        
+        // 詳細画面に遷移前にスクリーンショットを取得
+        UIGraphicsBeginImageContextWithOptions(parentView.frame.size, false, 0.0)
+        parentView.drawHierarchy(in: parentView.bounds, afterScreenUpdates: true)
+        let screenShotImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
         // 詳細画面に遷移
