@@ -46,6 +46,7 @@
 		99D727322A76AE8A00AAB311 /* CatalogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99D727302A76AE8A00AAB311 /* CatalogTableViewCell.xib */; };
 		99D727362A7968A800AAB311 /* DetailWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D727342A7968A800AAB311 /* DetailWordViewController.swift */; };
 		99D727372A7968A800AAB311 /* DetailWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99D727352A7968A800AAB311 /* DetailWordViewController.xib */; };
+		99D727392A7F91A200AAB311 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D727382A7F91A200AAB311 /* Converter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		99D727302A76AE8A00AAB311 /* CatalogTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogTableViewCell.xib; sourceTree = "<group>"; };
 		99D727342A7968A800AAB311 /* DetailWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWordViewController.swift; sourceTree = "<group>"; };
 		99D727352A7968A800AAB311 /* DetailWordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailWordViewController.xib; sourceTree = "<group>"; };
+		99D727382A7F91A200AAB311 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				993F7C662A2208AF00FE8045 /* Info.plist */,
 				993F7CC22A28EECB00FE8045 /* TabBarViewController.swift */,
 				99D7271A2A51731700AAB311 /* AccessTokens.swift */,
+				99D727382A7F91A200AAB311 /* Converter.swift */,
 			);
 			path = ImageMemoryApp;
 			sourceTree = "<group>";
@@ -303,8 +306,8 @@
 		99D727332A79684600AAB311 /* DetailWord */ = {
 			isa = PBXGroup;
 			children = (
-				99D727342A7968A800AAB311 /* DetailWordViewController.swift */,
 				99D727352A7968A800AAB311 /* DetailWordViewController.xib */,
+				99D727342A7968A800AAB311 /* DetailWordViewController.swift */,
 			);
 			path = DetailWord;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				993F7CBD2A28E85D00FE8045 /* TrimmingImageProtocol.swift in Sources */,
 				993F7CB02A28E69800FE8045 /* CreateImagePresenter.swift in Sources */,
 				993F7C592A2208A500FE8045 /* AppDelegate.swift in Sources */,
+				99D727392A7F91A200AAB311 /* Converter.swift in Sources */,
 				994BB85E2A4C86F800715CF4 /* ImageEditScreen.swift in Sources */,
 				993F7CB52A28E7B200FE8045 /* SelectImagePresenter.swift in Sources */,
 				99D7271B2A51731700AAB311 /* AccessTokens.swift in Sources */,

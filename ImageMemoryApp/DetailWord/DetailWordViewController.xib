@@ -11,7 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailWordViewController" customModule="ImageMemoryApp" customModuleProvider="target">
             <connections>
+                <outlet property="imageView" destination="fja-4m-UDd" id="gyx-9f-PR9"/>
+                <outlet property="sentenceField" destination="et4-LS-Yrh" id="X8w-Xf-hIz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="wordTextView" destination="AkF-Tq-urd" id="gB0-Vu-fZJ"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -77,6 +80,9 @@
                                                     <state key="normal" title="決定">
                                                         <color key="titleColor" name="gold"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="decisionButton:" destination="-1" eventType="touchUpInside" id="59V-il-BpY"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBlueColor"/>

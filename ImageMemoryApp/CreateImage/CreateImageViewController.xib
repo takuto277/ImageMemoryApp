@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="editScreenView" destination="8TU-c5-HJ6" id="DlI-et-LBP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="wordTextField" destination="52Y-5c-LzU" id="PO9-7I-qmo"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

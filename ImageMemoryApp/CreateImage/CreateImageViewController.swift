@@ -10,6 +10,8 @@ import UIKit
 class CreateImageViewController: UIViewController {
     private let presenter: CreateImageProtocol
     
+    @IBOutlet weak var wordTextField: UITextField!
+    
     init(presenter: CreateImageProtocol) {
         self.presenter = presenter
         super.init(nibName: String(describing: CreateImageViewController.self), bundle: nil)
@@ -36,6 +38,16 @@ class CreateImageViewController: UIViewController {
     
     
     @IBAction func createdButton(_ sender: Any) {
+        // 英単語のバリデーションチェック
+        guard let wordName = wordTextField.text,
+              !wordName.isEmpty else {
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "英単語を入力してください", message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+            return
+        }
       //  let data = try? JSONEncoder().encode(editImage)
         UIGraphicsBeginImageContextWithOptions(self.editScreenView.frame.size, false, 0.0)
       //  view.drawHierarchy(in: view.frame, afterScreenUpdates: true)
@@ -43,30 +55,9 @@ class CreateImageViewController: UIViewController {
         let screenShotImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!  //スリーンショットがUIImage型で取得できる
         UIGraphicsEndImageContext()
         
-        guard let imageURL = self.encodeImageToBase64(screenShotImage) else { return }
-        let wordData = WordData(imageURL: imageURL, wordName: "test", number: 1)
-        if DataBaseService.shared.insertWordData(wordData: wordData) {
-            print("登録成功")
-        }
-    }
-    
-    // UIImageをBase64エンコードして文字列に変換する関数
-    func encodeImageToBase64(_ image: UIImage) -> String? {
-        if let imageData = image.jpegData(compressionQuality: 1.0) {
-            let base64String = imageData.base64EncodedString()
-            return base64String
-        }
-        return nil
-    }
-    
-    // Base64エンコードされた文字列からUIImageを作成する関数
-    func decodeBase64ToImage(_ base64String: String) -> UIImage? {
-        if let imageData = Data(base64Encoded: base64String) {
-            if let image = UIImage(data: imageData) {
-                return image
-            }
-        }
-        return nil
+        // 詳細画面に遷移
+        let detailWordViewController = ViewControllerFactory.detailWordViewController(wordName, screenShotImage, nil)
+        navigationController?.pushViewController(detailWordViewController, animated: true)
     }
     
     override func viewDidLoad() {
