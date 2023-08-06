@@ -44,6 +44,8 @@
 		99D7272E2A72DDD400AAB311 /* CatalogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99D7272C2A72DDD400AAB311 /* CatalogViewController.xib */; };
 		99D727312A76AE8A00AAB311 /* CatalogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D7272F2A76AE8A00AAB311 /* CatalogTableViewCell.swift */; };
 		99D727322A76AE8A00AAB311 /* CatalogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99D727302A76AE8A00AAB311 /* CatalogTableViewCell.xib */; };
+		99D727362A7968A800AAB311 /* DetailWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D727342A7968A800AAB311 /* DetailWordViewController.swift */; };
+		99D727372A7968A800AAB311 /* DetailWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99D727352A7968A800AAB311 /* DetailWordViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,8 @@
 		99D7272C2A72DDD400AAB311 /* CatalogViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogViewController.xib; sourceTree = "<group>"; };
 		99D7272F2A76AE8A00AAB311 /* CatalogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogTableViewCell.swift; sourceTree = "<group>"; };
 		99D727302A76AE8A00AAB311 /* CatalogTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogTableViewCell.xib; sourceTree = "<group>"; };
+		99D727342A7968A800AAB311 /* DetailWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWordViewController.swift; sourceTree = "<group>"; };
+		99D727352A7968A800AAB311 /* DetailWordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailWordViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,7 @@
 		993F7C572A2208A500FE8045 /* ImageMemoryApp */ = {
 			isa = PBXGroup;
 			children = (
+				99D727332A79684600AAB311 /* DetailWord */,
 				99D727262A72DB8800AAB311 /* Catalog */,
 				99D727252A72DB7E00AAB311 /* Home */,
 				99D727222A55B38800AAB311 /* Service */,
@@ -295,6 +300,15 @@
 			path = Catalog;
 			sourceTree = "<group>";
 		};
+		99D727332A79684600AAB311 /* DetailWord */ = {
+			isa = PBXGroup;
+			children = (
+				99D727342A7968A800AAB311 /* DetailWordViewController.swift */,
+				99D727352A7968A800AAB311 /* DetailWordViewController.xib */,
+			);
+			path = DetailWord;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -410,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				993F7CAB2A224DED00FE8045 /* CreateImageViewController.xib in Resources */,
+				99D727372A7968A800AAB311 /* DetailWordViewController.xib in Resources */,
 				993F7C972A22121500FE8045 /* SelectImageViewController.xib in Resources */,
 				993F7C652A2208AF00FE8045 /* LaunchScreen.storyboard in Resources */,
 				993F7C622A2208AF00FE8045 /* Assets.xcassets in Resources */,
@@ -447,6 +462,7 @@
 				993F7CC12A28EBF900FE8045 /* ViewControllerFactory.swift in Sources */,
 				99D727292A72DDB400AAB311 /* HomeViewController.swift in Sources */,
 				99D727242A55B3B100AAB311 /* DataBaseService.swift in Sources */,
+				99D727362A7968A800AAB311 /* DetailWordViewController.swift in Sources */,
 				993F7C5D2A2208A500FE8045 /* ViewController.swift in Sources */,
 				993F7CA72A223C3100FE8045 /* TrimmingImageViewController.swift in Sources */,
 				993F7C9F2A22172600FE8045 /* SelectImageCollectionViewCell.swift in Sources */,
