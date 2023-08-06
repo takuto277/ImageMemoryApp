@@ -12,7 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailWordViewController" customModule="ImageMemoryApp" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="fja-4m-UDd" id="gyx-9f-PR9"/>
-                <outlet property="sentenceField" destination="et4-LS-Yrh" id="X8w-Xf-hIz"/>
+                <outlet property="sentenceTextView" destination="hyx-3T-J7Y" id="hDx-Nf-cCv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="wordTextView" destination="AkF-Tq-urd" id="gB0-Vu-fZJ"/>
             </connections>
@@ -31,37 +31,53 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="46L-1g-0Uq">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="102.33333333333333"/>
                                     <subviews>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AkF-Tq-urd">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tableViewFlame" translatesAutoresizingMaskIntoConstraints="NO" id="JY0-mA-AHe">
+                                            <rect key="frame" x="0.0" y="5" width="393" height="92"/>
+                                        </imageView>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AkF-Tq-urd">
                                             <rect key="frame" x="39.333333333333343" y="25.666666666666671" width="314.33333333333326" height="51"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                            <color key="textColor" systemColor="labelColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="backgroundColor" systemColor="labelColor"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemBrownColor"/>
+                                    <color key="backgroundColor" name="gold"/>
                                     <constraints>
                                         <constraint firstItem="AkF-Tq-urd" firstAttribute="centerY" secondItem="46L-1g-0Uq" secondAttribute="centerY" id="HGO-pA-4Lb"/>
                                         <constraint firstItem="AkF-Tq-urd" firstAttribute="centerX" secondItem="46L-1g-0Uq" secondAttribute="centerX" id="JuL-2V-fYw"/>
                                         <constraint firstItem="AkF-Tq-urd" firstAttribute="width" secondItem="46L-1g-0Uq" secondAttribute="width" multiplier="0.8" id="OSo-ax-xAP"/>
+                                        <constraint firstItem="JY0-mA-AHe" firstAttribute="centerX" secondItem="46L-1g-0Uq" secondAttribute="centerX" id="Uhw-E9-cph"/>
+                                        <constraint firstItem="JY0-mA-AHe" firstAttribute="centerY" secondItem="46L-1g-0Uq" secondAttribute="centerY" id="gCd-Cr-bcI"/>
+                                        <constraint firstItem="JY0-mA-AHe" firstAttribute="width" secondItem="46L-1g-0Uq" secondAttribute="width" id="luT-NV-k03"/>
                                         <constraint firstItem="AkF-Tq-urd" firstAttribute="height" secondItem="46L-1g-0Uq" secondAttribute="height" multiplier="0.5" id="umM-Ke-8qv"/>
+                                        <constraint firstItem="JY0-mA-AHe" firstAttribute="height" secondItem="46L-1g-0Uq" secondAttribute="height" multiplier="0.9" id="yfX-im-7Ty"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TqH-6C-sov">
                                     <rect key="frame" x="0.0" y="511.33333333333331" width="393" height="204.33333333333331"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="et4-LS-Yrh">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="halfButtonFlame2" translatesAutoresizingMaskIntoConstraints="NO" id="jDg-Zu-pXP">
+                                            <rect key="frame" x="0.0" y="10.000000000000057" width="393" height="184"/>
+                                        </imageView>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyx-3T-J7Y">
                                             <rect key="frame" x="39.333333333333343" y="30.666666666666686" width="314.33333333333326" height="143"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
+                                            <color key="backgroundColor" systemColor="labelColor"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                    <color key="backgroundColor" name="gold"/>
                                     <constraints>
-                                        <constraint firstItem="et4-LS-Yrh" firstAttribute="centerY" secondItem="TqH-6C-sov" secondAttribute="centerY" id="3BK-HJ-5Q4"/>
-                                        <constraint firstItem="et4-LS-Yrh" firstAttribute="height" secondItem="TqH-6C-sov" secondAttribute="height" multiplier="0.7" id="ilN-T1-jjl"/>
-                                        <constraint firstItem="et4-LS-Yrh" firstAttribute="centerX" secondItem="TqH-6C-sov" secondAttribute="centerX" id="l9q-ti-VT2"/>
-                                        <constraint firstItem="et4-LS-Yrh" firstAttribute="width" secondItem="TqH-6C-sov" secondAttribute="width" multiplier="0.8" id="oFK-Vp-nPc"/>
+                                        <constraint firstItem="hyx-3T-J7Y" firstAttribute="centerX" secondItem="TqH-6C-sov" secondAttribute="centerX" id="54B-gO-AW3"/>
+                                        <constraint firstItem="jDg-Zu-pXP" firstAttribute="centerX" secondItem="TqH-6C-sov" secondAttribute="centerX" id="Acf-07-v3o"/>
+                                        <constraint firstItem="hyx-3T-J7Y" firstAttribute="centerY" secondItem="TqH-6C-sov" secondAttribute="centerY" id="F59-XO-dEJ"/>
+                                        <constraint firstItem="jDg-Zu-pXP" firstAttribute="width" secondItem="TqH-6C-sov" secondAttribute="width" id="GWY-HE-i6X"/>
+                                        <constraint firstItem="jDg-Zu-pXP" firstAttribute="centerY" secondItem="TqH-6C-sov" secondAttribute="centerY" id="OVM-7H-VNH"/>
+                                        <constraint firstItem="jDg-Zu-pXP" firstAttribute="height" secondItem="TqH-6C-sov" secondAttribute="height" multiplier="0.9" id="W9a-D3-lgL"/>
+                                        <constraint firstItem="hyx-3T-J7Y" firstAttribute="height" secondItem="TqH-6C-sov" secondAttribute="height" multiplier="0.7" id="Y7J-Hy-UeO"/>
+                                        <constraint firstItem="hyx-3T-J7Y" firstAttribute="width" secondItem="TqH-6C-sov" secondAttribute="width" multiplier="0.8" id="l7u-lj-1PS"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="87p-GP-AUL">
@@ -109,16 +125,17 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CdU-lf-rbY">
                                     <rect key="frame" x="0.0" y="102.33333333333331" width="393" height="409"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fja-4m-UDd">
-                                            <rect key="frame" x="39.333333333333343" y="40.666666666666657" width="314.33333333333326" height="327.33333333333337"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fja-4m-UDd">
+                                            <rect key="frame" x="59" y="40.666666666666657" width="275" height="327.33333333333337"/>
+                                            <color key="backgroundColor" systemColor="labelColor"/>
                                         </imageView>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="linkColor"/>
+                                    <color key="backgroundColor" systemColor="labelColor"/>
                                     <constraints>
-                                        <constraint firstItem="fja-4m-UDd" firstAttribute="height" secondItem="CdU-lf-rbY" secondAttribute="height" multiplier="0.8" id="3Yy-dJ-gXx"/>
-                                        <constraint firstItem="fja-4m-UDd" firstAttribute="width" secondItem="CdU-lf-rbY" secondAttribute="width" multiplier="0.8" id="d3z-tx-Yim"/>
-                                        <constraint firstItem="fja-4m-UDd" firstAttribute="centerY" secondItem="CdU-lf-rbY" secondAttribute="centerY" id="deC-zu-xg9"/>
-                                        <constraint firstItem="fja-4m-UDd" firstAttribute="centerX" secondItem="CdU-lf-rbY" secondAttribute="centerX" id="kvL-uy-8iu"/>
+                                        <constraint firstItem="fja-4m-UDd" firstAttribute="centerX" secondItem="CdU-lf-rbY" secondAttribute="centerX" id="8b6-3f-3Yw"/>
+                                        <constraint firstItem="fja-4m-UDd" firstAttribute="centerY" secondItem="CdU-lf-rbY" secondAttribute="centerY" id="a9u-bV-5Hb"/>
+                                        <constraint firstItem="fja-4m-UDd" firstAttribute="width" secondItem="CdU-lf-rbY" secondAttribute="width" multiplier="0.7" id="ag3-vR-2m2"/>
+                                        <constraint firstItem="fja-4m-UDd" firstAttribute="height" secondItem="CdU-lf-rbY" secondAttribute="height" multiplier="0.8" id="fOM-Zx-fV4"/>
                                     </constraints>
                                 </view>
                             </subviews>
@@ -129,13 +146,13 @@
                                 <constraint firstItem="CdU-lf-rbY" firstAttribute="top" secondItem="46L-1g-0Uq" secondAttribute="bottom" id="A3o-Y5-Vsb"/>
                                 <constraint firstItem="CdU-lf-rbY" firstAttribute="height" secondItem="kkO-yJ-qp0" secondAttribute="height" multiplier="0.4" id="Ire-Du-qxA"/>
                                 <constraint firstItem="TqH-6C-sov" firstAttribute="width" secondItem="46L-1g-0Uq" secondAttribute="width" id="Sb7-cN-4iR"/>
+                                <constraint firstItem="CdU-lf-rbY" firstAttribute="centerX" secondItem="kkO-yJ-qp0" secondAttribute="centerX" id="SlR-Yb-yoE"/>
                                 <constraint firstItem="87p-GP-AUL" firstAttribute="width" secondItem="46L-1g-0Uq" secondAttribute="width" id="WDy-IC-buH"/>
                                 <constraint firstItem="87p-GP-AUL" firstAttribute="height" secondItem="kkO-yJ-qp0" secondAttribute="height" multiplier="0.3" id="aLz-T0-bA6"/>
                                 <constraint firstItem="46L-1g-0Uq" firstAttribute="top" secondItem="kkO-yJ-qp0" secondAttribute="top" id="g1J-jr-UY3"/>
                                 <constraint firstItem="TqH-6C-sov" firstAttribute="height" secondItem="kkO-yJ-qp0" secondAttribute="height" multiplier="0.2" id="o7m-EV-2o7"/>
                                 <constraint firstItem="TqH-6C-sov" firstAttribute="top" secondItem="CdU-lf-rbY" secondAttribute="bottom" id="pLl-fA-AdU"/>
                                 <constraint firstItem="87p-GP-AUL" firstAttribute="top" secondItem="TqH-6C-sov" secondAttribute="bottom" id="qg4-e3-cX4"/>
-                                <constraint firstItem="CdU-lf-rbY" firstAttribute="centerX" secondItem="kkO-yJ-qp0" secondAttribute="centerX" id="qhg-Ac-5wt"/>
                                 <constraint firstItem="87p-GP-AUL" firstAttribute="centerX" secondItem="kkO-yJ-qp0" secondAttribute="centerX" id="rGg-dC-8Z7"/>
                                 <constraint firstItem="CdU-lf-rbY" firstAttribute="width" secondItem="46L-1g-0Uq" secondAttribute="width" id="sRm-gS-7XG"/>
                                 <constraint firstItem="TqH-6C-sov" firstAttribute="centerX" secondItem="kkO-yJ-qp0" secondAttribute="centerX" id="tfD-ms-rae"/>
@@ -168,14 +185,13 @@
     </objects>
     <resources>
         <image name="halfButtonFlame" width="62.666667938232422" height="17"/>
+        <image name="halfButtonFlame2" width="653.33331298828125" height="253.33332824707031"/>
+        <image name="tableViewFlame" width="131" height="227"/>
         <namedColor name="gold">
-            <color red="0.72156864399999998" green="0.62745100259999997" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.72200000286102295" green="0.62699997425079346" blue="0.3449999988079071" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -183,14 +199,8 @@
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemBrownColor">
-            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemCyanColor">
             <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
