@@ -47,6 +47,7 @@
 		99D727362A7968A800AAB311 /* DetailWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D727342A7968A800AAB311 /* DetailWordViewController.swift */; };
 		99D727372A7968A800AAB311 /* DetailWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99D727352A7968A800AAB311 /* DetailWordViewController.xib */; };
 		99D727392A7F91A200AAB311 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D727382A7F91A200AAB311 /* Converter.swift */; };
+		99E3CE732A812FDE00F1E2B7 /* FMDB in Frameworks */ = {isa = PBXBuildFile; productRef = 99E3CE722A812FDE00F1E2B7 /* FMDB */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99E3CE732A812FDE00F1E2B7 /* FMDB in Frameworks */,
 				99D7271E2A5334A400AAB311 /* SDWebImage in Frameworks */,
 				993F7CA52A22356A00FE8045 /* TOCropViewController in Frameworks */,
 				99D727202A5334A400AAB311 /* SDWebImageMapKit in Frameworks */,
@@ -333,6 +335,7 @@
 				993F7CA42A22356A00FE8045 /* TOCropViewController */,
 				99D7271D2A5334A400AAB311 /* SDWebImage */,
 				99D7271F2A5334A400AAB311 /* SDWebImageMapKit */,
+				99E3CE722A812FDE00F1E2B7 /* FMDB */,
 			);
 			productName = ImageMemoryApp;
 			productReference = 993F7C552A2208A500FE8045 /* ImageMemoryApp.app */;
@@ -409,6 +412,7 @@
 			packageReferences = (
 				993F7CA12A22356A00FE8045 /* XCRemoteSwiftPackageReference "TOCropViewController" */,
 				99D7271C2A5334A400AAB311 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				99E3CE712A812FDE00F1E2B7 /* XCRemoteSwiftPackageReference "fmdb" */,
 			);
 			productRefGroup = 993F7C562A2208A500FE8045 /* Products */;
 			projectDirPath = "";
@@ -836,6 +840,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		99E3CE712A812FDE00F1E2B7 /* XCRemoteSwiftPackageReference "fmdb" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ccgus/fmdb";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -858,6 +870,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 99D7271C2A5334A400AAB311 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImageMapKit;
+		};
+		99E3CE722A812FDE00F1E2B7 /* FMDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99E3CE712A812FDE00F1E2B7 /* XCRemoteSwiftPackageReference "fmdb" */;
+			productName = FMDB;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

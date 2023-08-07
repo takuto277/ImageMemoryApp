@@ -11,18 +11,18 @@ class DetailWordViewController: UIViewController {
     
     @IBOutlet weak var wordTextView: UITextView?
     @IBOutlet weak var imageView: UIImageView? {
-        didSet {
-            self.imageView?.contentMode = .scaleAspectFit
-            self.imageView?.clipsToBounds = true
-            self.imageView?.translatesAutoresizingMaskIntoConstraints = false
+        willSet {
+            newValue?.contentMode = .scaleAspectFit
+            newValue?.clipsToBounds = true
+            newValue?.translatesAutoresizingMaskIntoConstraints = false
         }
     }
     @IBOutlet weak var sentenceTextView: UITextView? {
-        didSet {
-            self.sentenceTextView?.delegate = self
+        willSet {
+            newValue?.delegate = self
             // UITextFieldの枠線を表示する
-            self.sentenceTextView?.layer.borderColor = UIColor(named: "gold")?.cgColor
-            self.sentenceTextView?.layer.borderWidth = 1.0
+            newValue?.layer.borderColor = UIColor(named: "gold")?.cgColor
+            newValue?.layer.borderWidth = 1.0
         }
     }
     
@@ -78,7 +78,12 @@ class DetailWordViewController: UIViewController {
         if sentenceTextView?.text == "英文を入力してください。" && sentenceTextView?.textColor == UIColor.gray {
             self.sentence = nil
         }
-        let wordData = WordData(imageURL: imageURL, wordName: word, number: 3)
+        let wordData = WordData(imageURL: imageURL,
+                                wordName: word,
+                                sentence: self.sentence,
+                                proficiency: "0",
+                                priorityNumber: "0",
+                                number: 4)
         if DataBaseService.shared.insertWordData(wordData: wordData) {
             print("登録成功")
         }
