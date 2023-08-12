@@ -9,10 +9,14 @@ import Foundation
 import SQLite3
 import FMDB
 
+enum myError: Error {
+    case case1
+}
+
 struct WordData {
     let imageURL: String
     let wordName: String
-    let sentence: String?
+    let sentence: String
     let proficiency: String
     let priorityNumber: String
     let number: Int
@@ -43,7 +47,7 @@ final class DataBaseService {
         CREATE TABLE IF NOT EXISTS wordData (
                 imageURL TEXT NOT NULL,
                 wordName TEXT NOT NULL,
-                sentence TEXT,
+                sentence TEXT NOT NULL,
                 proficiency TEXT NOT NULL,
                 priorityNumber TEXT NOT NULL,
                 number INTEGER NOT NULL PRIMARY KEY
@@ -90,18 +94,38 @@ final class DataBaseService {
         }
     }
     
-    func getWordData(number: Int) {
-        guard let database = self.database else { return }
+    func getWordData(number: Int) throws -> WordData {
+        guard let database = self.database else {
+            throw myError.case1
+        }
+        var wordData: WordData?
         // クエリの実行
-        let querySQL = "SELECT * FROM users"
+        let querySQL = "SELECT * FROM wordData"
         if let resultSet = database.executeQuery(querySQL, withArgumentsIn: []) {
             while resultSet.next() {
-                let id = resultSet.int(forColumn: "id")
-                let name = resultSet.string(forColumn: "name")
-                let age = resultSet.int(forColumn: "age")
-                print("ID: \(id), Name: \(name ?? ""), Age: \(age)")
+                guard let imageURL = resultSet.string(forColumn: "imageURL"),
+                let wordName = resultSet.string(forColumn: "wordName"),
+                let sentence = resultSet.string(forColumn: "sentence"),
+                let proficiency = resultSet.string(forColumn: "proficiency"),
+                let priorityNumber = resultSet.string(forColumn: "priorityNumber") else {
+                    throw myError.case1
+                }
+                let number = Int(resultSet.int(forColumn: "number"))
+                wordData = WordData(imageURL: imageURL,
+                                wordName: wordName,
+                                sentence: sentence,
+                                proficiency: proficiency,
+                                priorityNumber: priorityNumber,
+                                number: number)
+                
             }
         }
+        guard let wordData = wordData else {
+            throw myError.case1
+            
+        }
+        return wordData
+        
     }
     
     func databaseClose() {

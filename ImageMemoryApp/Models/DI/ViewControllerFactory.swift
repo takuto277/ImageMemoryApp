@@ -35,7 +35,7 @@ struct ViewControllerFactory {
         return vc
     }
     
-    static func detailWordViewController(_ wordText: String, _ image: UIImage, _ sentence: String?) -> UIViewController {
+    static func detailWordViewController(_ wordText: String, _ image: UIImage, _ sentence: String) -> UIViewController {
         let vc = DetailWordViewController(wordText, image, sentence)
         return vc
     }

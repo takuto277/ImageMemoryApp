@@ -28,9 +28,9 @@ class DetailWordViewController: UIViewController {
     
     private let wordText: String
     private let image: UIImage
-    private var sentence: String?
+    private var sentence: String
     
-    init(_ wordText: String, _ image: UIImage, _ sentence: String?) {
+    init(_ wordText: String, _ image: UIImage, _ sentence: String = "") {
         self.wordText = wordText
         self.image = image
         self.sentence = sentence
@@ -58,7 +58,7 @@ class DetailWordViewController: UIViewController {
         self.imageView?.image = self.image
         self.sentenceTextView?.text = sentence
         // プレースホルダーのテキストを設定
-        if self.sentenceTextView?.text == nil {
+        if self.sentenceTextView?.text == "" {
             let placeholderText = "英文を入力してください。"
             self.sentenceTextView?.text = placeholderText
             self.sentenceTextView?.textColor = UIColor.gray
@@ -76,7 +76,7 @@ class DetailWordViewController: UIViewController {
           }
             return }
         if sentenceTextView?.text == "英文を入力してください。" && sentenceTextView?.textColor == UIColor.gray {
-            self.sentence = nil
+            self.sentence = ""
         }
         let wordData = WordData(imageURL: imageURL,
                                 wordName: word,
