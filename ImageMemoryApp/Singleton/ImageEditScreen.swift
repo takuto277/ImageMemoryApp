@@ -27,4 +27,7 @@ final public class ImageEditScreen {
         Images.removeAll(where: { $0.frame == image.frame})
         
     }
+    func deleteImageAll() {
+        Images.removeAll()
+    }
 }
