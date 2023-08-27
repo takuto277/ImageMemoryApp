@@ -26,6 +26,8 @@ class DetailWordViewController: UIViewController {
         }
     }
     
+    weak var delegate: DetailWordViewControllerDelegate?
+    
     private let wordText: String
     private let image: UIImage
     private var sentence: String
@@ -75,6 +77,7 @@ class DetailWordViewController: UIViewController {
               self.present(alert, animated: true, completion: nil)
           }
             return }
+        let number = DataBaseService.shared.getWordDataCount() + 1
         if sentenceTextView?.text == "英文を入力してください。" && sentenceTextView?.textColor == UIColor.gray {
             self.sentence = ""
         }
@@ -83,12 +86,13 @@ class DetailWordViewController: UIViewController {
                                 sentence: self.sentence,
                                 proficiency: "0",
                                 priorityNumber: "0",
-                                number: 4)
+                                number: number)
         if DataBaseService.shared.insertWordData(wordData: wordData) {
             print("登録成功")
         }
         if let navigationController = self.navigationController {
             navigationController.popToRootViewController(animated: true)
+            self.delegate?.didDismissViewController(self)
             self.dismiss(animated: true)
         }
     }

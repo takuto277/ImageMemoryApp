@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol DetailWordViewControllerDelegate: AnyObject {
+    func didDismissViewController(_ viewController: UIViewController)
+}
+
 class CreateImageViewController: UIViewController {
     private let presenter: CreateImageProtocol
     
@@ -62,7 +66,7 @@ class CreateImageViewController: UIViewController {
         UIGraphicsEndImageContext()
         
         // 詳細画面に遷移
-        let detailWordViewController = ViewControllerFactory.detailWordViewController(wordName, screenShotImage, nil)
+        let detailWordViewController = ViewControllerFactory.detailWordViewController(wordName, screenShotImage, "", self)
         navigationController?.pushViewController(detailWordViewController, animated: true)
     }
     
@@ -84,6 +88,18 @@ extension CreateImageViewController: CreateImageViewProtocol {
             self.editScreenView.addSubview(view)
             view.parentVC = self
             
+        }
+    }
+}
+
+extension CreateImageViewController: DetailWordViewControllerDelegate {
+    func didDismissViewController(_ viewController: UIViewController) {
+        if viewController is DetailWordViewController {
+            self.wordTextField.text = ""
+            ImageEditScreen.shared.deleteImageAll()
+            self.editScreenView.subviews.forEach { subView in
+                subView.removeFromSuperview()
+            }
         }
     }
 }
