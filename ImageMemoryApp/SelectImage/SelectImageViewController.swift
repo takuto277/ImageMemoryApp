@@ -118,8 +118,6 @@ extension SelectImageViewController: UICollectionViewDataSource, UICollectionVie
             DispatchQueue.main.async {
                 cell.imageView.sd_setImage(with: URL(string:self.imageArray[indexPath.row]), completed: nil)
             }
-        }else{
-            cell.imageView.image = UIImage(named: "sampleImage")
         }
         return cell
     }
