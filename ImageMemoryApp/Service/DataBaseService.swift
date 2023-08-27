@@ -128,6 +128,19 @@ final class DataBaseService {
         
     }
     
+    func getWordDataCount() -> Int {
+        var count = 0
+        let querySQL = "SELECT COUNT (*) as count FROM wordData"
+        if let resultSet = database?.executeQuery(querySQL, withArgumentsIn: []) {
+            while resultSet.next() {
+                count = Int(resultSet.int(forColumn: "count"))
+            }
+            return count
+        }
+        print("英単語数の取得失敗")
+        return 0
+    }
+    
     func databaseClose() {
         guard let database = self.database else { return }
         // データベースを閉じる
