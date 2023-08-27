@@ -37,6 +37,7 @@ final class SelectImageViewController: UIViewController {
     
     
     @IBAction func pushSearchButton(_ sender: Any) {
+        self.imageArray.removeAll()
         if let text = searchTextField.text {
             searchImageManager.getImages(with: text) { (hits) in
                 guard let data = hits,
@@ -67,11 +68,48 @@ final class SelectImageViewController: UIViewController {
         self.collectionView.delegate = self
         self.collectionView.register(UINib(nibName: String(describing: SelectImageCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: "SelectImageCollectionViewCell")
     }
+    
+    func displayPopupView() {
+        if (view.subviews.first(where: { $0.tag == 999 }) == nil) {
+            let popupView = UIView()
+            popupView.layer.cornerRadius = 10
+            popupView.frame = CGRect(x: 0, y: 0, width: 200, height: 150)
+            popupView.center = view.center
+            popupView.tag = 999
+            
+            let label = UILabel()
+            label.text = "画像を検索してください"
+            label.textColor = .white
+            label.textAlignment = .center
+            label.frame = CGRect(x: 0, y: 0, width: 220, height: 50)
+            label.center = CGPoint(x: popupView.bounds.width / 2, y: popupView.bounds.height / 2)
+            
+            popupView.addSubview(label)
+            view.addSubview(popupView)
+        }
+    }
+    
+    func removePopupView() {
+        // 画面内に配置されたUIViewを取得
+        if let popupView = view.subviews.first(where: { $0.tag == 999 }) {
+            // UIViewを親ビューから取り除く
+            popupView.removeFromSuperview()
+        }
+    }
 }
 
 extension SelectImageViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        if imageArray.isEmpty {
+            self.displayPopupView()
+            return 0
+        } else {
+            removePopupView()
+            if imageArray.count <= 10 {
+                return imageArray.count
+            }
+            return 10
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
