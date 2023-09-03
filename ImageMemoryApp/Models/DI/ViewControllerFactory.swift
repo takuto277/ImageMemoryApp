@@ -16,9 +16,8 @@ struct ViewControllerFactory {
     }
     
     static func catalogViewController() -> UIViewController {
-    //    let presenter = SelectImagePresenter()
         let vc = CatalogViewController()
-  //      vc.modalPresentationStyle = .fullScreen
+        vc.presenter = CatalogPresenter(dataBaseRepository: DataBaseRepository())
         return vc
     }
     static func createImageViewController() -> UIViewController {
