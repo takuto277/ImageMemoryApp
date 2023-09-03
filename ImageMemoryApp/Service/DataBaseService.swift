@@ -14,12 +14,14 @@ enum myError: Error {
 }
 
 struct WordData {
-    let imageURL: String
-    let wordName: String
-    let sentence: String
+    let englishWordName: String
+    let japanWordName: String
+    let englishSentence: String
+    let japanSentence: String
     let proficiency: String
     let priorityNumber: String
     let number: Int
+    let imageURL: String
 }
 
 final class DataBaseService {
@@ -45,21 +47,25 @@ final class DataBaseService {
             // テーブルの作成
             let createTableSQL = """
         CREATE TABLE IF NOT EXISTS wordData (
-                imageURL TEXT NOT NULL,
-                wordName TEXT NOT NULL,
-                sentence TEXT NOT NULL,
+                englishWordName TEXT NOT NULL,
+                japanWordName TEXT NOT NULL,
+                englishSentence TEXT NOUT NULL,
+                japanSentence TEXT NOT NULL,
                 proficiency TEXT NOT NULL,
                 priorityNumber TEXT NOT NULL,
-                number INTEGER NOT NULL PRIMARY KEY
+                number INTEGER NOT NULL PRIMARY KEY,
+                imageURL TEXT NOT NULL
         )
         """
             /*
-             imageURL: 画像URLの文字列
-             wordName: 英単語の名前
-             sentence: 英文
+             englishWordName: 英単語の名前
+             japanWordName: 日本での名前
+             englishSentence: 英文
+             japanSentence: 日本文
              proficiency: 習熟度フラグ
              priorityNumber: 学習する優先度
              number: pk
+             imageURL: 画像URLの文字列
              */
             if database.executeUpdate(createTableSQL, withArgumentsIn: []) {
                 print("テーブル作成成功")
@@ -75,16 +81,18 @@ final class DataBaseService {
         // データの挿入
         let insertSQL = """
         INSERT INTO wordData (
-        imageURL, wordName, sentence, proficiency, priorityNumber, number)
+        englishWordName, japanWordName, englishSentence, japanSentence, proficiency, priorityNumber, number, imageURL)
         VALUES (
-        :imageURL, :wordName, :sentence, :proficiency, :priorityNumber, :number)
+        :englishWordName, :japanWordName, :englishSentence, :japanSentence, :proficiency, :priorityNumber, :number, :imageURL)
         """
-        let param = ["imageURL": wordData.imageURL,
-                     "wordName": wordData.wordName,
-                     "sentence": wordData.sentence,
+        let param = ["englishWordName": wordData.englishWordName,
+                     "japanWordName": wordData.japanWordName,
+                     "englishSentence": wordData.englishSentence,
+                     "japanSentence": wordData.japanSentence,
                      "proficiency": wordData.proficiency,
                      "priorityNumber": wordData.priorityNumber,
-                     "number": wordData.number] as [String : Any]
+                     "number": wordData.number,
+                     "imageURL": wordData.imageURL,] as [String : Any]
         if database.executeUpdate(insertSQL, withParameterDictionary: param as [AnyHashable : Any]) {
             print("データ挿入成功")
             return true
@@ -103,20 +111,24 @@ final class DataBaseService {
         let querySQL = "SELECT * FROM wordData"
         if let resultSet = database.executeQuery(querySQL, withArgumentsIn: []) {
             while resultSet.next() {
-                guard let imageURL = resultSet.string(forColumn: "imageURL"),
-                let wordName = resultSet.string(forColumn: "wordName"),
-                let sentence = resultSet.string(forColumn: "sentence"),
-                let proficiency = resultSet.string(forColumn: "proficiency"),
-                let priorityNumber = resultSet.string(forColumn: "priorityNumber") else {
+                guard let englishWordName = resultSet.string(forColumn: "englishWordName"),
+                      let japanWordName = resultSet.string(forColumn: "japanWordName"),
+                      let englishSentence = resultSet.string(forColumn: "englishSentence"),
+                      let japanSentence = resultSet.string(forColumn: "japanSentence"),
+                      let proficiency = resultSet.string(forColumn: "proficiency"),
+                      let priorityNumber = resultSet.string(forColumn: "priorityNumber"),
+                      let imageURL = resultSet.string(forColumn: "imageURL") else {
                     throw myError.case1
                 }
                 let number = Int(resultSet.int(forColumn: "number"))
-                wordData = WordData(imageURL: imageURL,
-                                wordName: wordName,
-                                sentence: sentence,
-                                proficiency: proficiency,
-                                priorityNumber: priorityNumber,
-                                number: number)
+                wordData = WordData(englishWordName: englishWordName,
+                                    japanWordName: japanWordName,
+                                    englishSentence: englishSentence,
+                                    japanSentence: japanSentence,
+                                    proficiency: proficiency,
+                                    priorityNumber: priorityNumber,
+                                    number: number,
+                                    imageURL: imageURL)
                 
             }
         }
@@ -125,6 +137,41 @@ final class DataBaseService {
             
         }
         return wordData
+        
+    }
+    
+    func getAllWordData() throws -> [WordData] {
+        guard let database = self.database else {
+            throw myError.case1
+        }
+        var wordDataArray = [WordData]()
+        // クエリの実行
+        let querySQL = "SELECT * FROM wordData"
+        if let resultSet = database.executeQuery(querySQL, withArgumentsIn: []) {
+            while resultSet.next() {
+                guard let englishWordName = resultSet.string(forColumn: "englishWordName"),
+                      let japanWordName = resultSet.string(forColumn: "japanWordName"),
+                      let englishSentence = resultSet.string(forColumn: "englishSentence"),
+                      let japanSentence = resultSet.string(forColumn: "japanSentence"),
+                      let proficiency = resultSet.string(forColumn: "proficiency"),
+                      let priorityNumber = resultSet.string(forColumn: "priorityNumber"),
+                      let imageURL = resultSet.string(forColumn: "imageURL") else {
+                    throw myError.case1
+                }
+                let number = Int(resultSet.int(forColumn: "number"))
+                let wordData = WordData(englishWordName: englishWordName,
+                                    japanWordName: japanWordName,
+                                    englishSentence: englishSentence,
+                                    japanSentence: japanSentence,
+                                    proficiency: proficiency,
+                                    priorityNumber: priorityNumber,
+                                    number: number,
+                                    imageURL: imageURL)
+                wordDataArray.append(wordData)
+                
+            }
+        }
+        return wordDataArray
         
     }
     

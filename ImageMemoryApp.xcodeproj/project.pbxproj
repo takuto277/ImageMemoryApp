@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9910447B2AA450B900C94636 /* DataBaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9910447A2AA450B900C94636 /* DataBaseRepository.swift */; };
+		9910447D2AA452E900C94636 /* DataBaseRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9910447C2AA452E900C94636 /* DataBaseRepositoryProtocol.swift */; };
+		9910447F2AA454FC00C94636 /* CatalogPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9910447E2AA454FC00C94636 /* CatalogPresenter.swift */; };
+		991044812AA4555D00C94636 /* CatalogProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991044802AA4555D00C94636 /* CatalogProtocol.swift */; };
+		991044842AA4E28800C94636 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991044832AA4E28800C94636 /* Enum.swift */; };
 		993F7C592A2208A500FE8045 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7C582A2208A500FE8045 /* AppDelegate.swift */; };
 		993F7C5B2A2208A500FE8045 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7C5A2A2208A500FE8045 /* SceneDelegate.swift */; };
 		993F7C5D2A2208A500FE8045 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7C5C2A2208A500FE8045 /* ViewController.swift */; };
@@ -68,6 +73,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9910447A2AA450B900C94636 /* DataBaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseRepository.swift; sourceTree = "<group>"; };
+		9910447C2AA452E900C94636 /* DataBaseRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseRepositoryProtocol.swift; sourceTree = "<group>"; };
+		9910447E2AA454FC00C94636 /* CatalogPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogPresenter.swift; sourceTree = "<group>"; };
+		991044802AA4555D00C94636 /* CatalogProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogProtocol.swift; sourceTree = "<group>"; };
+		991044832AA4E28800C94636 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		993F7C552A2208A500FE8045 /* ImageMemoryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageMemoryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		993F7C582A2208A500FE8045 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		993F7C5A2A2208A500FE8045 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +150,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		991044792AA4509400C94636 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				9910447A2AA450B900C94636 /* DataBaseRepository.swift */,
+				9910447C2AA452E900C94636 /* DataBaseRepositoryProtocol.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		991044822AA4E25D00C94636 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				991044832AA4E28800C94636 /* Enum.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		993F7C4C2A2208A500FE8045 = {
 			isa = PBXGroup;
 			children = (
@@ -163,11 +190,13 @@
 		993F7C572A2208A500FE8045 /* ImageMemoryApp */ = {
 			isa = PBXGroup;
 			children = (
+				991044822AA4E25D00C94636 /* Enum */,
 				99D727332A79684600AAB311 /* DetailWord */,
 				99D727262A72DB8800AAB311 /* Catalog */,
 				99D727252A72DB7E00AAB311 /* Home */,
 				99D727222A55B38800AAB311 /* Service */,
 				99D727212A55B34C00AAB311 /* Data */,
+				991044792AA4509400C94636 /* Repository */,
 				994BB85C2A4C854800715CF4 /* Singleton */,
 				993F7CBE2A28EBD000FE8045 /* Models */,
 				993F7CB92A28E82400FE8045 /* TrimmingImage */,
@@ -301,6 +330,8 @@
 			children = (
 				99D7272C2A72DDD400AAB311 /* CatalogViewController.xib */,
 				99D7272B2A72DDD400AAB311 /* CatalogViewController.swift */,
+				9910447E2AA454FC00C94636 /* CatalogPresenter.swift */,
+				991044802AA4555D00C94636 /* CatalogProtocol.swift */,
 			);
 			path = Catalog;
 			sourceTree = "<group>";
@@ -472,6 +503,7 @@
 				99D727362A7968A800AAB311 /* DetailWordViewController.swift in Sources */,
 				993F7C5D2A2208A500FE8045 /* ViewController.swift in Sources */,
 				993F7CA72A223C3100FE8045 /* TrimmingImageViewController.swift in Sources */,
+				9910447B2AA450B900C94636 /* DataBaseRepository.swift in Sources */,
 				993F7C9F2A22172600FE8045 /* SelectImageCollectionViewCell.swift in Sources */,
 				993F7CB72A28E7C800FE8045 /* SelectImageProtocol.swift in Sources */,
 				99D727312A76AE8A00AAB311 /* CatalogTableViewCell.swift in Sources */,
@@ -480,13 +512,17 @@
 				993F7C592A2208A500FE8045 /* AppDelegate.swift in Sources */,
 				99D727392A7F91A200AAB311 /* Converter.swift in Sources */,
 				994BB85E2A4C86F800715CF4 /* ImageEditScreen.swift in Sources */,
+				991044812AA4555D00C94636 /* CatalogProtocol.swift in Sources */,
 				993F7CB52A28E7B200FE8045 /* SelectImagePresenter.swift in Sources */,
 				99D7271B2A51731700AAB311 /* AccessTokens.swift in Sources */,
 				993F7CAA2A224DED00FE8045 /* CreateImageViewController.swift in Sources */,
+				9910447F2AA454FC00C94636 /* CatalogPresenter.swift in Sources */,
 				993F7CBB2A28E84700FE8045 /* TrimmingImagePresenter.swift in Sources */,
 				993F7C5B2A2208A500FE8045 /* SceneDelegate.swift in Sources */,
+				991044842AA4E28800C94636 /* Enum.swift in Sources */,
 				993F7CC32A28EECC00FE8045 /* TabBarViewController.swift in Sources */,
 				993F7CB22A28E6D400FE8045 /* CreateImageProtocol.swift in Sources */,
+				9910447D2AA452E900C94636 /* DataBaseRepositoryProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
