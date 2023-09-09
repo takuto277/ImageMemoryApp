@@ -36,6 +36,7 @@ struct ViewControllerFactory {
     
     static func detailWordViewController(_ wordText: String, _ image: UIImage, _ sentence: String, _ viewController: UIViewController?) -> UIViewController {
         let vc = DetailWordViewController(wordText, image, sentence)
+        vc.presenter = DetailWordPresenter(dataBaseRepository: DataBaseRepository())
         vc.delegate = viewController as? DetailWordViewControllerDelegate
         return vc
     }

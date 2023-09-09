@@ -39,6 +39,8 @@
 		993F7CC12A28EBF900FE8045 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7CC02A28EBF900FE8045 /* ViewControllerFactory.swift */; };
 		993F7CC32A28EECC00FE8045 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7CC22A28EECB00FE8045 /* TabBarViewController.swift */; };
 		994BB85E2A4C86F800715CF4 /* ImageEditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994BB85D2A4C86F800715CF4 /* ImageEditScreen.swift */; };
+		99BA75892AAC886B000AB1A7 /* DetailWordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BA75882AAC886B000AB1A7 /* DetailWordPresenter.swift */; };
+		99BA758B2AAC887A000AB1A7 /* DetailWordProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BA758A2AAC887A000AB1A7 /* DetailWordProtocol.swift */; };
 		99D7271B2A51731700AAB311 /* AccessTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D7271A2A51731700AAB311 /* AccessTokens.swift */; };
 		99D7271E2A5334A400AAB311 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 99D7271D2A5334A400AAB311 /* SDWebImage */; };
 		99D727202A5334A400AAB311 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 99D7271F2A5334A400AAB311 /* SDWebImageMapKit */; };
@@ -107,6 +109,8 @@
 		993F7CC02A28EBF900FE8045 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		993F7CC22A28EECB00FE8045 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		994BB85D2A4C86F800715CF4 /* ImageEditScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditScreen.swift; sourceTree = "<group>"; };
+		99BA75882AAC886B000AB1A7 /* DetailWordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWordPresenter.swift; sourceTree = "<group>"; };
+		99BA758A2AAC887A000AB1A7 /* DetailWordProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWordProtocol.swift; sourceTree = "<group>"; };
 		99D7271A2A51731700AAB311 /* AccessTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokens.swift; sourceTree = "<group>"; };
 		99D727232A55B3B100AAB311 /* DataBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseService.swift; sourceTree = "<group>"; };
 		99D727272A72DDB400AAB311 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -341,6 +345,8 @@
 			children = (
 				99D727352A7968A800AAB311 /* DetailWordViewController.xib */,
 				99D727342A7968A800AAB311 /* DetailWordViewController.swift */,
+				99BA75882AAC886B000AB1A7 /* DetailWordPresenter.swift */,
+				99BA758A2AAC887A000AB1A7 /* DetailWordProtocol.swift */,
 			);
 			path = DetailWord;
 			sourceTree = "<group>";
@@ -503,6 +509,7 @@
 				99D727362A7968A800AAB311 /* DetailWordViewController.swift in Sources */,
 				993F7C5D2A2208A500FE8045 /* ViewController.swift in Sources */,
 				993F7CA72A223C3100FE8045 /* TrimmingImageViewController.swift in Sources */,
+				99BA758B2AAC887A000AB1A7 /* DetailWordProtocol.swift in Sources */,
 				9910447B2AA450B900C94636 /* DataBaseRepository.swift in Sources */,
 				993F7C9F2A22172600FE8045 /* SelectImageCollectionViewCell.swift in Sources */,
 				993F7CB72A28E7C800FE8045 /* SelectImageProtocol.swift in Sources */,
@@ -511,6 +518,7 @@
 				993F7CB02A28E69800FE8045 /* CreateImagePresenter.swift in Sources */,
 				993F7C592A2208A500FE8045 /* AppDelegate.swift in Sources */,
 				99D727392A7F91A200AAB311 /* Converter.swift in Sources */,
+				99BA75892AAC886B000AB1A7 /* DetailWordPresenter.swift in Sources */,
 				994BB85E2A4C86F800715CF4 /* ImageEditScreen.swift in Sources */,
 				991044812AA4555D00C94636 /* CatalogProtocol.swift in Sources */,
 				993F7CB52A28E7B200FE8045 /* SelectImagePresenter.swift in Sources */,

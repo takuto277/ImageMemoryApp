@@ -8,7 +8,26 @@
 import UIKit
 
 class DetailWordViewController: UIViewController {
+    var presenter: DetailWordProtocol?
+    weak var delegate: DetailWordViewControllerDelegate?
     
+    // private
+    private let wordText: String
+    private let image: UIImage
+    private var sentence: String
+    
+    init(_ wordText: String, _ image: UIImage, _ sentence: String = "") {
+        self.wordText = wordText
+        self.image = image
+        self.sentence = sentence
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+// MARK: - IBOutlet
     @IBOutlet weak var englishWordTextView: UITextView?
     @IBOutlet weak var japanWordTextView: UITextView? {
         willSet {
@@ -40,57 +59,17 @@ class DetailWordViewController: UIViewController {
         }
     }
     
-    weak var delegate: DetailWordViewControllerDelegate?
-    
-    private let wordText: String
-    private let image: UIImage
-    private var sentence: String
-    
-    init(_ wordText: String, _ image: UIImage, _ sentence: String = "") {
-        self.wordText = wordText
-        self.image = image
-        self.sentence = sentence
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+//MARK: - Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 画像のアスペクト比を計算します
-        let imageAspectRatio = image.size.width / image.size.height
-        // imageViewの幅と高さの制約を設定します
-        imageView?.translatesAutoresizingMaskIntoConstraints = false
-        imageView?.widthAnchor.constraint(equalTo: imageView!.heightAnchor, multiplier: imageAspectRatio).isActive = true
-        
-        // ここにコードを追加してcontentModeの値を出力します
-        if let contentMode = self.imageView?.contentMode {
-            print("ImageView contentMode: \(contentMode)")
-        }
-        
-        self.englishWordTextView?.text = self.wordText
-        self.imageView?.image = self.image
-        self.englishSentenceTextView?.text = sentence
-        // プレースホルダーのテキストを設定
-        if self.japanWordTextView?.text == "" {
-            let placeholderText = "英単語の日本語訳を入力"
-            self.japanWordTextView?.text = placeholderText
-            self.japanWordTextView?.textColor = UIColor.gray
-        }
-        if self.englishSentenceTextView?.text == "" {
-            let placeholderText = "英文を入力してください。"
-            self.englishSentenceTextView?.text = placeholderText
-            self.englishSentenceTextView?.textColor = UIColor.gray
-        }
-        if self.japanSentenceTextView?.text == "" {
-            let placeholderText = "英文の日本語訳を入力してください。"
-            self.japanSentenceTextView?.text = placeholderText
-            self.japanSentenceTextView?.textColor = UIColor.gray
-        }
+        self.presenter?.attachView(self)
+        // 初期設定
+        self.setImageSetting()
+        self.setInitalWordData()
     }
     
+//MARK: - @IBAction
     @IBAction func decisionButton(_ sender: Any) {
         guard let image = self.imageView?.image,
               let imageURL = Converter().encodeImageToBase64(image) else {
@@ -125,26 +104,50 @@ class DetailWordViewController: UIViewController {
             self.japanSentenceTextView?.text = ""
         }
         
-        let number = DataBaseService.shared.getWordDataCount() + 1
-        
-        let wordData = WordData(englishWordName: englishWordName,
-                                japanWordName: japanWordName,
-                                englishSentence: self.sentence,
-                                japanSentence: self.japanSentenceTextView?.text ?? "",
-                                proficiency: "0",
-                                priorityNumber: "0",
-                                number: number,
-                                imageURL: imageURL)
-        if DataBaseService.shared.insertWordData(wordData: wordData) {
-            print("登録成功")
+        self.presenter?.saveWordData(WordData(englishWordName: englishWordName,
+                                              japanWordName: japanWordName,
+                                              englishSentence: self.sentence,
+                                              japanSentence: self.japanSentenceTextView?.text ?? "",
+                                              proficiency: "0",
+                                              priorityNumber: "0",
+                                              number: 0,
+                                              deleteFlg: "0",
+                                              imageURL: imageURL))
+    }
+    
+// MARK: - Private method
+    private func setImageSetting() {
+        // 画像のアスペクト比を計算します
+        let imageAspectRatio = image.size.width / image.size.height
+        // imageViewの幅と高さの制約を設定します
+        imageView?.translatesAutoresizingMaskIntoConstraints = false
+        imageView?.widthAnchor.constraint(equalTo: imageView!.heightAnchor, multiplier: imageAspectRatio).isActive = true
+    }
+    
+    private func setInitalWordData() {
+        self.englishWordTextView?.text = self.wordText
+        self.imageView?.image = self.image
+        self.englishSentenceTextView?.text = sentence
+        // プレースホルダーのテキストを設定
+        if self.japanWordTextView?.text == "" {
+            let placeholderText = "英単語の日本語訳を入力"
+            self.japanWordTextView?.text = placeholderText
+            self.japanWordTextView?.textColor = UIColor.gray
         }
-        if let navigationController = self.navigationController {
-            navigationController.popToRootViewController(animated: true)
-            self.delegate?.didDismissViewController(self)
-            self.dismiss(animated: true)
+        if self.englishSentenceTextView?.text == "" {
+            let placeholderText = "英文を入力してください。"
+            self.englishSentenceTextView?.text = placeholderText
+            self.englishSentenceTextView?.textColor = UIColor.gray
+        }
+        if self.japanSentenceTextView?.text == "" {
+            let placeholderText = "英文の日本語訳を入力してください。"
+            self.japanSentenceTextView?.text = placeholderText
+            self.japanSentenceTextView?.textColor = UIColor.gray
         }
     }
 }
+
+// MARK: - TextView
 
 extension DetailWordViewController: UITextViewDelegate {
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
@@ -177,6 +180,18 @@ extension DetailWordViewController: UITextViewDelegate {
             let placeholderText = "英文の日本語訳を入力してください。"
             textView.text = placeholderText
             textView.textColor = UIColor.gray
+        }
+    }
+}
+
+// MARK: - Protocol
+
+extension DetailWordViewController: DetailWordViewControllerProtocol {
+    func dismissScreen() {
+        if let navigationController = self.navigationController {
+            navigationController.popToRootViewController(animated: true)
+            self.delegate?.didDismissViewController(self)
+            self.dismiss(animated: true)
         }
     }
 }

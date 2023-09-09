@@ -20,7 +20,7 @@ struct WordData {
     let japanSentence: String
     let proficiency: String
     let priorityNumber: String
-    let number: Int
+    var number: Int = 0
     let deleteFlg: String
     let imageURL: String
 }

@@ -19,4 +19,12 @@ extension DataBaseRepository: DataBaseRepositoryProtocol {
             throw myError.case1
         }
     }
+    
+    func getWordDataCount() throws -> Int {
+        return dataBaseService.getWordDataCount()
+    }
+    
+    func insertWordData(wordData: WordData) -> Bool {
+        return dataBaseService.insertWordData(wordData: wordData)
+    }
 }
