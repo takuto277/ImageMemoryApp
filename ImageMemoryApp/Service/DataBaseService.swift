@@ -21,6 +21,7 @@ struct WordData {
     let proficiency: String
     let priorityNumber: String
     let number: Int
+    let deleteFlg: String
     let imageURL: String
 }
 
@@ -54,6 +55,7 @@ final class DataBaseService {
                 proficiency TEXT NOT NULL,
                 priorityNumber TEXT NOT NULL,
                 number INTEGER NOT NULL PRIMARY KEY,
+                deleteFlg TEXT NOT NULL,
                 imageURL TEXT NOT NULL
         )
         """
@@ -65,6 +67,7 @@ final class DataBaseService {
              proficiency: 習熟度フラグ
              priorityNumber: 学習する優先度
              number: pk
+             deleteFlg: 削除フラグ
              imageURL: 画像URLの文字列
              */
             if database.executeUpdate(createTableSQL, withArgumentsIn: []) {
@@ -81,9 +84,9 @@ final class DataBaseService {
         // データの挿入
         let insertSQL = """
         INSERT INTO wordData (
-        englishWordName, japanWordName, englishSentence, japanSentence, proficiency, priorityNumber, number, imageURL)
+        englishWordName, japanWordName, englishSentence, japanSentence, proficiency, priorityNumber, number, deleteFlg, imageURL)
         VALUES (
-        :englishWordName, :japanWordName, :englishSentence, :japanSentence, :proficiency, :priorityNumber, :number, :imageURL)
+        :englishWordName, :japanWordName, :englishSentence, :japanSentence, :proficiency, :priorityNumber, :number, :deleteFlg, :imageURL)
         """
         let param = ["englishWordName": wordData.englishWordName,
                      "japanWordName": wordData.japanWordName,
@@ -92,6 +95,7 @@ final class DataBaseService {
                      "proficiency": wordData.proficiency,
                      "priorityNumber": wordData.priorityNumber,
                      "number": wordData.number,
+                     "deleteFlg": wordData.deleteFlg,
                      "imageURL": wordData.imageURL,] as [String : Any]
         if database.executeUpdate(insertSQL, withParameterDictionary: param as [AnyHashable : Any]) {
             print("データ挿入成功")
@@ -117,6 +121,7 @@ final class DataBaseService {
                       let japanSentence = resultSet.string(forColumn: "japanSentence"),
                       let proficiency = resultSet.string(forColumn: "proficiency"),
                       let priorityNumber = resultSet.string(forColumn: "priorityNumber"),
+                      let deleteFlg = resultSet.string(forColumn: "deleteFlg"),
                       let imageURL = resultSet.string(forColumn: "imageURL") else {
                     throw myError.case1
                 }
@@ -128,6 +133,7 @@ final class DataBaseService {
                                     proficiency: proficiency,
                                     priorityNumber: priorityNumber,
                                     number: number,
+                                    deleteFlg: deleteFlg,
                                     imageURL: imageURL)
                 
             }
@@ -155,6 +161,7 @@ final class DataBaseService {
                       let japanSentence = resultSet.string(forColumn: "japanSentence"),
                       let proficiency = resultSet.string(forColumn: "proficiency"),
                       let priorityNumber = resultSet.string(forColumn: "priorityNumber"),
+                      let deleteFlg = resultSet.string(forColumn: "deleteFlg"),
                       let imageURL = resultSet.string(forColumn: "imageURL") else {
                     throw myError.case1
                 }
@@ -166,6 +173,7 @@ final class DataBaseService {
                                     proficiency: proficiency,
                                     priorityNumber: priorityNumber,
                                     number: number,
+                                    deleteFlg: deleteFlg,
                                     imageURL: imageURL)
                 wordDataArray.append(wordData)
                 
