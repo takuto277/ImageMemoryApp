@@ -42,6 +42,7 @@
 		99BA75892AAC886B000AB1A7 /* DetailWordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BA75882AAC886B000AB1A7 /* DetailWordPresenter.swift */; };
 		99BA758B2AAC887A000AB1A7 /* DetailWordProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BA758A2AAC887A000AB1A7 /* DetailWordProtocol.swift */; };
 		99BA758E2AAE06FB000AB1A7 /* SelectImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BA758D2AAE06FB000AB1A7 /* SelectImage.swift */; };
+		99BA75902AAE08D0000AB1A7 /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BA758F2AAE08D0000AB1A7 /* SampleView.swift */; };
 		99D7271B2A51731700AAB311 /* AccessTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D7271A2A51731700AAB311 /* AccessTokens.swift */; };
 		99D7271E2A5334A400AAB311 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 99D7271D2A5334A400AAB311 /* SDWebImage */; };
 		99D727202A5334A400AAB311 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 99D7271F2A5334A400AAB311 /* SDWebImageMapKit */; };
@@ -113,6 +114,7 @@
 		99BA75882AAC886B000AB1A7 /* DetailWordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWordPresenter.swift; sourceTree = "<group>"; };
 		99BA758A2AAC887A000AB1A7 /* DetailWordProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWordProtocol.swift; sourceTree = "<group>"; };
 		99BA758D2AAE06FB000AB1A7 /* SelectImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImage.swift; sourceTree = "<group>"; };
+		99BA758F2AAE08D0000AB1A7 /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
 		99D7271A2A51731700AAB311 /* AccessTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokens.swift; sourceTree = "<group>"; };
 		99D727232A55B3B100AAB311 /* DataBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseService.swift; sourceTree = "<group>"; };
 		99D727272A72DDB400AAB311 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				993F7CBF2A28EBD900FE8045 /* DI */,
+				99BA758F2AAE08D0000AB1A7 /* SampleView.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				99D727362A7968A800AAB311 /* DetailWordViewController.swift in Sources */,
 				993F7C5D2A2208A500FE8045 /* ViewController.swift in Sources */,
 				993F7CA72A223C3100FE8045 /* TrimmingImageViewController.swift in Sources */,
+				99BA75902AAE08D0000AB1A7 /* SampleView.swift in Sources */,
 				99BA758B2AAC887A000AB1A7 /* DetailWordProtocol.swift in Sources */,
 				9910447B2AA450B900C94636 /* DataBaseRepository.swift in Sources */,
 				99BA758E2AAE06FB000AB1A7 /* SelectImage.swift in Sources */,
