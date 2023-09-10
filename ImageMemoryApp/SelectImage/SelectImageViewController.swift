@@ -11,16 +11,8 @@ import SDWebImage
 final class SelectImageViewController: UIViewController {
     private let presenter: SelectImageProtocol
     
-    
-    // -----修正予定
-    var searchImageManager = SearchImageManager()
-
-    var hits: [Hits] = []
+    private var hits: [Hits] = []
     private var imageArray: [String] = []
-
-    private var count = 0
-    
-    // ------
     
     init(presenter: SelectImageProtocol) {
         self.presenter = presenter
@@ -31,15 +23,17 @@ final class SelectImageViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+// MARK: - IBOutlet
+    
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    
+// MARK: - IBAction
     
     @IBAction func pushSearchButton(_ sender: Any) {
         self.imageArray.removeAll()
         if let text = searchTextField.text {
-            searchImageManager.getImages(with: text) { (hits) in
+            self.presenter.getImages(with: text) { (hits) in
                 guard let data = hits,
                       data.count != 0 else{
                     DispatchQueue.main.async {
@@ -62,14 +56,20 @@ final class SelectImageViewController: UIViewController {
         }
     }
     
+// MARK: - Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.collectionView.register(UINib(nibName: String(describing: SelectImageCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: "SelectImageCollectionViewCell")
+        
+        self.presenter.attachView(self)
     }
     
-    func displayPopupView() {
+// MARK: - Private method
+    
+    private func displayPopupView() {
         if (view.subviews.first(where: { $0.tag == 999 }) == nil) {
             let popupView = UIView()
             popupView.layer.cornerRadius = 10
@@ -89,7 +89,7 @@ final class SelectImageViewController: UIViewController {
         }
     }
     
-    func removePopupView() {
+    private func removePopupView() {
         // 画面内に配置されたUIViewを取得
         if let popupView = view.subviews.first(where: { $0.tag == 999 }) {
             // UIViewを親ビューから取り除く
@@ -97,6 +97,8 @@ final class SelectImageViewController: UIViewController {
         }
     }
 }
+
+// MARK: - CollectionView
 
 extension SelectImageViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -124,11 +126,8 @@ extension SelectImageViewController: UICollectionViewDataSource, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectImageCollectionViewCell", for: indexPath) as! SelectImageCollectionViewCell
-       // cell.imageView.image = UIImage(named: "sampleImage")
-        
         cell.imageView.sd_setImage(with: URL(string:self.imageArray[indexPath.row]),
                        completed: { (image, error,cacheType, url) in
-                // here image is the UIImage
             guard let image = image else { return }
             TrimmingImageViewController(owner: self).open(image: image)
         })
@@ -147,50 +146,8 @@ extension SelectImageViewController: UICollectionViewDataSource, UICollectionVie
     }
 }
 
-struct SearchImageModel:Codable{
-    let hits:[Hits]
-}
+ // MARK: - Protocol
 
-struct Hits:Codable {
-    let webformatURL:String
-}
-
-
-struct SearchImageManager {
-    func getImages(with keyword:String,completion:@escaping ([Hits]?) -> ()){
-        
-        let urlString = "https://pixabay.com/api/?key=\(AccessTokens.share.pixabayAPIKey)&q=\(keyword)"
-
-        //①URL型に変換
-        if let url = URL(string: urlString) {
-
-            //②URLSessionを作る
-            let session = URLSession(configuration: .default)
-            //③SessionTaskを与える
-            let task = session.dataTask(with: url) { data, response, error in
-                if error != nil {
-                    print(error!)
-
-                    completion(nil)
-                }
-
-                if let safeData = data {
-                    // print(response)
-                    let decoder = JSONDecoder()
-                    do {
-                        let decodedData = try decoder.decode(SearchImageModel.self, from: safeData)
-
-                        completion(decodedData.hits)
-
-                        //print(decodedData.hits[0].webformaturl)
-
-                    } catch  {
-                        print(String(describing: error))
-                    }
-                }
-            }
-            //④Taskを始める
-            task.resume()
-        }
-    }
+extension SelectImageViewController: SelectImageViewControllerProtocol {
+    
 }

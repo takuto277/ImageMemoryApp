@@ -14,9 +14,6 @@ protocol DetailWordViewControllerDelegate: AnyObject {
 class CreateImageViewController: UIViewController {
     private let presenter: CreateImageProtocol
     
-    @IBOutlet weak var wordTextField: UITextField!
-    @IBOutlet weak var editScreenFrame: UIImageView!
-    
     init(presenter: CreateImageProtocol) {
         self.presenter = presenter
         super.init(nibName: String(describing: CreateImageViewController.self), bundle: nil)
@@ -26,21 +23,23 @@ class CreateImageViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+// MARK: - IBOutlet
+    
+    @IBOutlet weak var wordTextField: UITextField!
+    @IBOutlet weak var editScreenFrame: UIImageView!
     @IBOutlet weak var editScreenView: UIView! {
         didSet {
             ImageEditScreen.editScreenWidth = editScreenView.frame.width
             ImageEditScreen.editScreenheight = editScreenView.frame.height
         }
     }
-    let sampleView = SampleView(frame: CGRect(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2, width: 100, height: 100))
     
+ // MARK: - IBAction
     
     @IBAction func pushAddImageButton(_ sender: Any) {
         let selectImageViewController = ViewControllerFactory.selectImageViewController()
         navigationController?.pushViewController(selectImageViewController, animated: true)
-        
     }
-    
     
     @IBAction func createdButton(_ sender: Any) {
         // 英単語のバリデーションチェック
@@ -70,6 +69,8 @@ class CreateImageViewController: UIViewController {
         navigationController?.pushViewController(detailWordViewController, animated: true)
     }
     
+// MARK: - Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.attachView(self)
@@ -81,6 +82,8 @@ class CreateImageViewController: UIViewController {
         presenter.viewWillAppear()
     }
 }
+
+ // MARK: - Protocol
 
 extension CreateImageViewController: CreateImageViewProtocol {
     func setImageOnEditScreenView(images: [SampleView]) {
@@ -164,72 +167,3 @@ class SampleView: UIImageView{
         })
     }
 }
-
-///------- 使用しなくなった選択型tableView-------------
-
-//class OperationSelectView: UIView,UITableViewDelegate,UITableViewDataSource {
-//    private var operateView: SampleView!
-//    //スクリーンの横幅、縦幅を定義
-//    let screenWidth = Int(UIScreen.main.bounds.size.width)
-//    let screenHeight = Int(UIScreen.main.bounds.size.height)
-//    //テーブルビューインスタンス作成
-//    var tableView: UITableView  =   UITableView()
-//
-//    init(opetateView: SampleView) {
-//        self.operateView = opetateView
-//
-//        super.init(frame: CGRect(x: ImageEditScreen.editScreenWidth - 100, y: ImageEditScreen.editScreenheight - 300, width: 100, height: 200))
-//    }
-//
-//
-//    func create() -> UIView {
-//        self.backgroundColor = .blue
-//        //cellに名前を付ける
-//        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-//        //セパレーターの色を指定
-//        self.tableView.separatorColor = UIColor.blue
-//        //テーブルビューの設置場所を指定
-//        tableView.frame = self.bounds
-//        self.tableView.delegate = self
-//        self.tableView.dataSource = self
-//        self.addSubview(tableView)
-//        return self
-//    }
-//
-//    //テーブルに表示するセル配列
-//    var operationArray = ["拡大", "縮小", "右回転", "左回転", "削除", "閉じる"]
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return self.operationArray.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
-//        cell.textLabel?.text = operationArray[indexPath.row]
-//        return cell
-//    }
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        switch indexPath.row {
-//        case 0:
-//            operateView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-//        case 1:
-//            operateView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-//        case 2:
-//            print("左回転")
-//        case 3:
-//            print("右回転")
-//        case 4:
-//            print("削除")
-//
-//        case 6:
-//            print("閉じる")
-//        default:
-//            print("")
-//        }
-//    }
-//}
