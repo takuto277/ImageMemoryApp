@@ -1,5 +1,5 @@
 //
-//  DetailWordViewController.swift
+//  EditDetailWordViewController.swift
 //  ImageMemoryApp
 //
 //  Created by 小野拓人 on 2023/08/02.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class DetailWordViewController: UIViewController {
-    var presenter: DetailWordProtocol?
-    weak var delegate: DetailWordViewControllerDelegate?
+class EditDetailWordViewController: UIViewController {
+    var presenter: EditDetailWordProtocol?
+    weak var delegate: EditDetailWordViewControllerDelegate?
     
     // private
     private let wordText: String
@@ -149,16 +149,16 @@ class DetailWordViewController: UIViewController {
 
 // MARK: - TextView
 
-extension DetailWordViewController: UITextViewDelegate {
+extension EditDetailWordViewController: UITextViewDelegate {
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         // プレースホルダーが表示されている場合は消去する
-        if textView.tag == DetailWordTextViewTag.japanWord.rawValue && textView.text == "英単語の日本語訳を入力" && textView.textColor == UIColor.gray {
+        if textView.tag == EditDetailWordTextViewTag.japanWord.rawValue && textView.text == "英単語の日本語訳を入力" && textView.textColor == UIColor.gray {
             textView.text = ""
             textView.textColor = UIColor.white
-    } else if textView.tag == DetailWordTextViewTag.englishSentence.rawValue && textView.text == "英文を入力してください。" && textView.textColor == UIColor.gray {
+    } else if textView.tag == EditDetailWordTextViewTag.englishSentence.rawValue && textView.text == "英文を入力してください。" && textView.textColor == UIColor.gray {
             textView.text = ""
             textView.textColor = UIColor.white
-    } else if textView.tag == DetailWordTextViewTag.japanSentence.rawValue && textView.text == "英文の日本語訳を入力してください。" && textView.textColor == UIColor.gray {
+    } else if textView.tag == EditDetailWordTextViewTag.japanSentence.rawValue && textView.text == "英文の日本語訳を入力してください。" && textView.textColor == UIColor.gray {
             textView.text = ""
             textView.textColor = UIColor.white
         }
@@ -168,15 +168,15 @@ extension DetailWordViewController: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         // テキストが空の場合にプレースホルダーを再表示する
-        if textView.tag == DetailWordTextViewTag.japanWord.rawValue && textView.text.isEmpty {
+        if textView.tag == EditDetailWordTextViewTag.japanWord.rawValue && textView.text.isEmpty {
             let placeholderText = "英単語の日本語訳を入力"
             textView.text = placeholderText
             textView.textColor = UIColor.gray
-        } else if textView.tag == DetailWordTextViewTag.englishSentence.rawValue && textView.text.isEmpty {
+        } else if textView.tag == EditDetailWordTextViewTag.englishSentence.rawValue && textView.text.isEmpty {
             let placeholderText = "英文を入力してください。"
             textView.text = placeholderText
             textView.textColor = UIColor.gray
-        } else if textView.tag == DetailWordTextViewTag.japanSentence.rawValue && textView.text.isEmpty {
+        } else if textView.tag == EditDetailWordTextViewTag.japanSentence.rawValue && textView.text.isEmpty {
             let placeholderText = "英文の日本語訳を入力してください。"
             textView.text = placeholderText
             textView.textColor = UIColor.gray
@@ -186,7 +186,7 @@ extension DetailWordViewController: UITextViewDelegate {
 
 // MARK: - Protocol
 
-extension DetailWordViewController: DetailWordViewControllerProtocol {
+extension EditDetailWordViewController: EditDetailWordViewControllerProtocol {
     func dismissScreen() {
         if let navigationController = self.navigationController {
             navigationController.popToRootViewController(animated: true)

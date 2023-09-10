@@ -32,7 +32,6 @@ class TabBarController: UITabBarController {
         }
         
         let firstViewController = ViewControllerFactory.homeViewController()
-      //  let firstViewController = DetailWordViewController()
         let firstTabBerItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
         firstTabBerItem.title = "learn"
         firstViewController.tabBarItem = firstTabBerItem

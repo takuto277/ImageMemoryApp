@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailWordViewController" customModule="ImageMemoryApp" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditDetailWordViewController" customModule="ImageMemoryApp" customModuleProvider="target">
             <connections>
                 <outlet property="englishSentenceTextView" destination="hyx-3T-J7Y" id="hDx-Nf-cCv"/>
                 <outlet property="englishWordTextView" destination="AkF-Tq-urd" id="gB0-Vu-fZJ"/>

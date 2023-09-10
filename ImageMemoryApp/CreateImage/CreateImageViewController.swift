@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol DetailWordViewControllerDelegate: AnyObject {
+protocol EditDetailWordViewControllerDelegate: AnyObject {
     func didDismissViewController(_ viewController: UIViewController)
 }
 
@@ -65,8 +65,8 @@ class CreateImageViewController: UIViewController {
         UIGraphicsEndImageContext()
         
         // 詳細画面に遷移
-        let detailWordViewController = ViewControllerFactory.detailWordViewController(wordName, screenShotImage, "", self)
-        navigationController?.pushViewController(detailWordViewController, animated: true)
+        let editDetailWordViewController = ViewControllerFactory.editdetailWordViewController(wordName, screenShotImage, "", self)
+        navigationController?.pushViewController(editDetailWordViewController, animated: true)
     }
     
 // MARK: - Life cycle
@@ -95,9 +95,9 @@ extension CreateImageViewController: CreateImageViewProtocol {
     }
 }
 
-extension CreateImageViewController: DetailWordViewControllerDelegate {
+extension CreateImageViewController: EditDetailWordViewControllerDelegate {
     func didDismissViewController(_ viewController: UIViewController) {
-        if viewController is DetailWordViewController {
+        if viewController is EditDetailWordViewController {
             self.wordTextField.text = ""
             ImageEditScreen.shared.deleteImageAll()
             self.editScreenView.subviews.forEach { subView in

@@ -8,7 +8,7 @@
 import Foundation
 
 /// 単語詳細画面にあるTextViewのタグ番号
-enum DetailWordTextViewTag: Int {
+enum EditDetailWordTextViewTag: Int {
     case englishWord = 1
     case japanWord = 2
     case englishSentence = 3

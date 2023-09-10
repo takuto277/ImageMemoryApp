@@ -1,5 +1,5 @@
 //
-//  DetailWordPresenter.swift
+//  EditDetailWordPresenter.swift
 //  ImageMemoryApp
 //
 //  Created by 小野拓人 on 2023/09/09.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-class DetailWordPresenter {
-    var view: DetailWordViewControllerProtocol?
+class EditDetailWordPresenter {
+    var view: EditDetailWordViewControllerProtocol?
     let dataBaseRepository: DataBaseRepositoryProtocol
     
     init(dataBaseRepository: DataBaseRepositoryProtocol) {
@@ -16,8 +16,8 @@ class DetailWordPresenter {
     }
 }
 
-extension DetailWordPresenter: DetailWordProtocol {
-    func attachView(_ view: DetailWordViewControllerProtocol) {
+extension EditDetailWordPresenter: EditDetailWordProtocol {
+    func attachView(_ view: EditDetailWordViewControllerProtocol) {
         self.view = view
     }
     
