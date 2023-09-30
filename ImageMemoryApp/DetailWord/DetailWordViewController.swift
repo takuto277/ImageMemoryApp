@@ -35,9 +35,11 @@ class DetailWordViewController: UIViewController {
     // MARK: - IBAction
     
     @IBAction func decideButtonPushed(_ sender: Any) {
+        self.dismiss(animated: true)
     }
     
     @IBAction func editButtonPushed(_ sender: Any) {
+        let editDetailWordViewController = ViewControllerFactory.editdetailWordViewController(wordData, nil, nil)
     }
     
     //MARK: - Life cycle

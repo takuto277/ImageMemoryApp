@@ -43,8 +43,8 @@ class CreateImageViewController: UIViewController {
     
     @IBAction func createdButton(_ sender: Any) {
         // 英単語のバリデーションチェック
-        guard let wordName = wordTextField.text,
-              !wordName.isEmpty else {
+        guard let englishWordName = wordTextField.text,
+              !englishWordName.isEmpty else {
             DispatchQueue.main.async {
                 let alert = UIAlertController(title: "英単語を入力してください", message: nil, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
@@ -64,8 +64,17 @@ class CreateImageViewController: UIViewController {
         let screenShotImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
+        let wordData = WordData(englishWordName: englishWordName,
+                                japanWordName: "",
+                                englishSentence: "",
+                                japanSentence: "",
+                                proficiency: "",
+                                priorityNumber: "",
+                                deleteFlg: "",
+                                imageURL: "")
+        
         // 詳細画面に遷移
-        let editDetailWordViewController = ViewControllerFactory.editdetailWordViewController(wordName, screenShotImage, "", self)
+        let editDetailWordViewController = ViewControllerFactory.editdetailWordViewController(wordData, screenShotImage, self)
         navigationController?.pushViewController(editDetailWordViewController, animated: true)
     }
     

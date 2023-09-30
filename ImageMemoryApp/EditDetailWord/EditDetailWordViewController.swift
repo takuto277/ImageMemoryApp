@@ -12,14 +12,12 @@ class EditDetailWordViewController: UIViewController {
     weak var delegate: EditDetailWordViewControllerDelegate?
     
     // private
-    private let wordText: String
-    private let image: UIImage
-    private var sentence: String
+    private let wordData: WordData
+    private var image: UIImage?
     
-    init(_ wordText: String, _ image: UIImage, _ sentence: String = "") {
-        self.wordText = wordText
+    init(_ wordData: WordData, _ image: UIImage?) {
+        self.wordData = wordData
         self.image = image
-        self.sentence = sentence
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -97,7 +95,7 @@ class EditDetailWordViewController: UIViewController {
         guard let japanWordName = self.japanWordTextView?.text else { return }
         
         if englishSentenceTextView?.text == "英文を入力してください。" && englishSentenceTextView?.textColor == UIColor.gray {
-            self.sentence = ""
+            self.englishWordTextView?.text = ""
         }
         
         if japanSentenceTextView?.text == "英文の日本語訳を入力してください。" && japanSentenceTextView?.textColor == UIColor.gray {
@@ -106,7 +104,7 @@ class EditDetailWordViewController: UIViewController {
         
         self.presenter?.saveWordData(WordData(englishWordName: englishWordName,
                                               japanWordName: japanWordName,
-                                              englishSentence: self.sentence,
+                                              englishSentence: self.englishWordTextView?.text ?? "",
                                               japanSentence: self.japanSentenceTextView?.text ?? "",
                                               proficiency: "0",
                                               priorityNumber: "0",
@@ -118,6 +116,7 @@ class EditDetailWordViewController: UIViewController {
 // MARK: - Private method
     private func setImageSetting() {
         // 画像のアスペクト比を計算します
+        guard let image = image else { return }
         let imageAspectRatio = image.size.width / image.size.height
         // imageViewの幅と高さの制約を設定します
         imageView?.translatesAutoresizingMaskIntoConstraints = false
@@ -125,9 +124,9 @@ class EditDetailWordViewController: UIViewController {
     }
     
     private func setInitalWordData() {
-        self.englishWordTextView?.text = self.wordText
+        self.englishWordTextView?.text = self.wordData.englishWordName
         self.imageView?.image = self.image
-        self.englishSentenceTextView?.text = sentence
+        self.englishSentenceTextView?.text = self.wordData.englishSentence
         // プレースホルダーのテキストを設定
         if self.japanWordTextView?.text == "" {
             let placeholderText = "英単語の日本語訳を入力"
