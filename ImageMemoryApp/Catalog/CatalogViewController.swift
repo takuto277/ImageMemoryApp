@@ -48,6 +48,12 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
         cell.heartImageView.image = UIImage(named: "heart_gold")
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let wordsData = wordsData?[indexPath.row] else { return }
+        let detailWordViewController = ViewControllerFactory.detailWordViewController(wordsData, .Catalog)
+        navigationController?.pushViewController(detailWordViewController, animated: true)
+    }
 }
 
 extension CatalogViewController: CatalogViewControllerProtocol {

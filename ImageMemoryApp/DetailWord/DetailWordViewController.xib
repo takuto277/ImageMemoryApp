@@ -11,8 +11,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailWordViewController" customModule="ImageMemoryApp" customModuleProvider="target">
             <connections>
                 <outlet property="decideButton" destination="hJq-gM-4gt" id="KkX-HB-qJw"/>
+                <outlet property="editButton" destination="UrF-zb-rr4" id="1PJ-Bd-cas"/>
+                <outlet property="englishSentence" destination="pF6-rv-m4g" id="pwq-52-PdT"/>
                 <outlet property="englishWord" destination="LLN-Bg-hHo" id="i1d-wI-8Cw"/>
-                <outlet property="enjlishSentence" destination="pF6-rv-m4g" id="pwq-52-PdT"/>
                 <outlet property="japaneseSentence" destination="oIZ-vE-mWq" id="IZ3-64-Bhh"/>
                 <outlet property="japaneseWord" destination="Ld6-mm-lfa" id="wr0-Pl-TDE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -56,6 +57,9 @@
                                                     <rect key="frame" x="0.0" y="22.666666666666671" width="75" height="35"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                    <connections>
+                                                        <action selector="EditButtonPushed:" destination="-1" eventType="touchUpInside" id="UtS-i8-O5R"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>

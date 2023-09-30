@@ -34,6 +34,12 @@ struct ViewControllerFactory {
         return vc
     }
     
+    static func detailWordViewController(_ wordData: WordData, _ calledFlg: DetailWordCalledFlg) -> UIViewController {
+        let presenter = DetailWordPresenter()
+        let vc = DetailWordViewController(presenter: presenter, wordData: wordData, calledFlg: calledFlg)
+        return vc
+    }
+    
     static func editdetailWordViewController(_ wordText: String, _ image: UIImage, _ sentence: String, _ viewController: UIViewController?) -> UIViewController {
         let vc = EditDetailWordViewController(wordText, image, sentence)
         vc.presenter = EditDetailWordPresenter(dataBaseRepository: DataBaseRepository())
