@@ -19,7 +19,8 @@ class HomeViewController: UIViewController {
     // MARK: - IBAction
     
     @IBAction func startButtonPushed(_ sender: Any) {
-        
+        // 10個の学習データ取得
+        // 20個のフェイク画像を取得
     }
     
     //MARK: - Life cycle
@@ -36,6 +37,4 @@ extension HomeViewController: HomeViewControllerProtocol {
     func fetchLearnWordData(_ wordsData: [WordData], _ faceImageArray: [String]) {
         <#code#>
     }
-    
-    
 }
