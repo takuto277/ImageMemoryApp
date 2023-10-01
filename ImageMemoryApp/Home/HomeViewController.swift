@@ -19,8 +19,8 @@ class HomeViewController: UIViewController {
     // MARK: - IBAction
     
     @IBAction func startButtonPushed(_ sender: Any) {
-        // 10個の学習データ取得
-        // 20個のフェイク画像を取得
+        //  TODO: 10個の学習データ取得
+        // TODO: 20個のフェイク画像を取得
     }
     
     //MARK: - Life cycle
