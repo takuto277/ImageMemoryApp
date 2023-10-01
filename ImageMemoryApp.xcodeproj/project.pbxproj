@@ -14,8 +14,12 @@
 		991044842AA4E28800C94636 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991044832AA4E28800C94636 /* Enum.swift */; };
 		992598262AC869E30074FCE0 /* DetailWordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992598252AC869E20074FCE0 /* DetailWordPresenter.swift */; };
 		992598282AC869F30074FCE0 /* DetailWordProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992598272AC869F30074FCE0 /* DetailWordProtocol.swift */; };
-		9925982C2AC927780074FCE0 /* LearningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9925982A2AC927780074FCE0 /* LearningViewController.swift */; };
-		9925982D2AC927780074FCE0 /* LearningViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9925982B2AC927780074FCE0 /* LearningViewController.xib */; };
+		9925982C2AC927780074FCE0 /* LearningEnglishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9925982A2AC927780074FCE0 /* LearningEnglishViewController.swift */; };
+		9925982D2AC927780074FCE0 /* LearningEnglishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9925982B2AC927780074FCE0 /* LearningEnglishViewController.xib */; };
+		9925982F2AC9B74C0074FCE0 /* LearningEnglishPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9925982E2AC9B74C0074FCE0 /* LearningEnglishPresenter.swift */; };
+		992598312AC9B75C0074FCE0 /* LearningEnglishProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992598302AC9B75C0074FCE0 /* LearningEnglishProtocol.swift */; };
+		992598332AC9DA250074FCE0 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992598322AC9DA250074FCE0 /* HomePresenter.swift */; };
+		992598352AC9DA320074FCE0 /* HomeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992598342AC9DA320074FCE0 /* HomeProtocol.swift */; };
 		993F7C592A2208A500FE8045 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7C582A2208A500FE8045 /* AppDelegate.swift */; };
 		993F7C5B2A2208A500FE8045 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7C5A2A2208A500FE8045 /* SceneDelegate.swift */; };
 		993F7C5D2A2208A500FE8045 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7C5C2A2208A500FE8045 /* ViewController.swift */; };
@@ -90,8 +94,12 @@
 		991044832AA4E28800C94636 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		992598252AC869E20074FCE0 /* DetailWordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWordPresenter.swift; sourceTree = "<group>"; };
 		992598272AC869F30074FCE0 /* DetailWordProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWordProtocol.swift; sourceTree = "<group>"; };
-		9925982A2AC927780074FCE0 /* LearningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningViewController.swift; sourceTree = "<group>"; };
-		9925982B2AC927780074FCE0 /* LearningViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LearningViewController.xib; sourceTree = "<group>"; };
+		9925982A2AC927780074FCE0 /* LearningEnglishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningEnglishViewController.swift; sourceTree = "<group>"; };
+		9925982B2AC927780074FCE0 /* LearningEnglishViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LearningEnglishViewController.xib; sourceTree = "<group>"; };
+		9925982E2AC9B74C0074FCE0 /* LearningEnglishPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningEnglishPresenter.swift; sourceTree = "<group>"; };
+		992598302AC9B75C0074FCE0 /* LearningEnglishProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningEnglishProtocol.swift; sourceTree = "<group>"; };
+		992598322AC9DA250074FCE0 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		992598342AC9DA320074FCE0 /* HomeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocol.swift; sourceTree = "<group>"; };
 		993F7C552A2208A500FE8045 /* ImageMemoryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageMemoryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		993F7C582A2208A500FE8045 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		993F7C5A2A2208A500FE8045 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -190,8 +198,10 @@
 		992598292AC927040074FCE0 /* Learning */ = {
 			isa = PBXGroup;
 			children = (
-				9925982B2AC927780074FCE0 /* LearningViewController.xib */,
-				9925982A2AC927780074FCE0 /* LearningViewController.swift */,
+				9925982B2AC927780074FCE0 /* LearningEnglishViewController.xib */,
+				9925982A2AC927780074FCE0 /* LearningEnglishViewController.swift */,
+				9925982E2AC9B74C0074FCE0 /* LearningEnglishPresenter.swift */,
+				992598302AC9B75C0074FCE0 /* LearningEnglishProtocol.swift */,
 			);
 			path = Learning;
 			sourceTree = "<group>";
@@ -373,6 +383,8 @@
 			children = (
 				99D727282A72DDB400AAB311 /* HomeViewController.xib */,
 				99D727272A72DDB400AAB311 /* HomeViewController.swift */,
+				992598322AC9DA250074FCE0 /* HomePresenter.swift */,
+				992598342AC9DA320074FCE0 /* HomeProtocol.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -517,7 +529,7 @@
 			files = (
 				993F7CAB2A224DED00FE8045 /* CreateImageViewController.xib in Resources */,
 				99D727372A7968A800AAB311 /* EditDetailWordViewController.xib in Resources */,
-				9925982D2AC927780074FCE0 /* LearningViewController.xib in Resources */,
+				9925982D2AC927780074FCE0 /* LearningEnglishViewController.xib in Resources */,
 				993F7C972A22121500FE8045 /* SelectImageViewController.xib in Resources */,
 				993F7C652A2208AF00FE8045 /* LaunchScreen.storyboard in Resources */,
 				993F7C622A2208AF00FE8045 /* Assets.xcassets in Resources */,
@@ -554,11 +566,13 @@
 				99D7272D2A72DDD400AAB311 /* CatalogViewController.swift in Sources */,
 				993F7C962A22121500FE8045 /* SelectImageViewController.swift in Sources */,
 				993F7CC12A28EBF900FE8045 /* ViewControllerFactory.swift in Sources */,
+				992598312AC9B75C0074FCE0 /* LearningEnglishProtocol.swift in Sources */,
 				992598282AC869F30074FCE0 /* DetailWordProtocol.swift in Sources */,
 				99D727292A72DDB400AAB311 /* HomeViewController.swift in Sources */,
 				99D727242A55B3B100AAB311 /* DataBaseService.swift in Sources */,
 				99D727362A7968A800AAB311 /* EditDetailWordViewController.swift in Sources */,
 				993F7C5D2A2208A500FE8045 /* ViewController.swift in Sources */,
+				992598332AC9DA250074FCE0 /* HomePresenter.swift in Sources */,
 				993F7CA72A223C3100FE8045 /* TrimmingImageViewController.swift in Sources */,
 				99BA75902AAE08D0000AB1A7 /* SampleView.swift in Sources */,
 				99BA758B2AAC887A000AB1A7 /* EditDetailWordProtocol.swift in Sources */,
@@ -568,10 +582,12 @@
 				993F7CB72A28E7C800FE8045 /* SelectImageProtocol.swift in Sources */,
 				99D727312A76AE8A00AAB311 /* CatalogTableViewCell.swift in Sources */,
 				993F7CBD2A28E85D00FE8045 /* TrimmingImageProtocol.swift in Sources */,
+				9925982F2AC9B74C0074FCE0 /* LearningEnglishPresenter.swift in Sources */,
 				99BA75942AAE0C60000AB1A7 /* DetailWordViewController.swift in Sources */,
 				993F7CB02A28E69800FE8045 /* CreateImagePresenter.swift in Sources */,
 				993F7C592A2208A500FE8045 /* AppDelegate.swift in Sources */,
 				99D727392A7F91A200AAB311 /* Converter.swift in Sources */,
+				992598352AC9DA320074FCE0 /* HomeProtocol.swift in Sources */,
 				99BA75892AAC886B000AB1A7 /* EditDetailWordPresenter.swift in Sources */,
 				994BB85E2A4C86F800715CF4 /* ImageEditScreen.swift in Sources */,
 				991044812AA4555D00C94636 /* CatalogProtocol.swift in Sources */,
@@ -581,7 +597,7 @@
 				9910447F2AA454FC00C94636 /* CatalogPresenter.swift in Sources */,
 				993F7CBB2A28E84700FE8045 /* TrimmingImagePresenter.swift in Sources */,
 				993F7C5B2A2208A500FE8045 /* SceneDelegate.swift in Sources */,
-				9925982C2AC927780074FCE0 /* LearningViewController.swift in Sources */,
+				9925982C2AC927780074FCE0 /* LearningEnglishViewController.swift in Sources */,
 				992598262AC869E30074FCE0 /* DetailWordPresenter.swift in Sources */,
 				991044842AA4E28800C94636 /* Enum.swift in Sources */,
 				993F7CC32A28EECC00FE8045 /* TabBarViewController.swift in Sources */,
