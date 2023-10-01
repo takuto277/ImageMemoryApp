@@ -15,6 +15,14 @@ struct ViewControllerFactory {
         return vc
     }
     
+    static func LearningViewController(_ wordDataArray: [WordData], _ fakeImageArray: [String]) -> UIViewController {
+        let presenter = LearningEnglishPresenter()
+        let vc = LearningEnglishViewController(presenter,
+                                               wordDataArray,
+                                               fakeImageArray)
+        return vc
+    }
+    
     static func catalogViewController() -> UIViewController {
         let vc = CatalogViewController()
         vc.presenter = CatalogPresenter(dataBaseRepository: DataBaseRepository())
