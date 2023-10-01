@@ -14,6 +14,8 @@
 		991044842AA4E28800C94636 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991044832AA4E28800C94636 /* Enum.swift */; };
 		992598262AC869E30074FCE0 /* DetailWordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992598252AC869E20074FCE0 /* DetailWordPresenter.swift */; };
 		992598282AC869F30074FCE0 /* DetailWordProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992598272AC869F30074FCE0 /* DetailWordProtocol.swift */; };
+		9925982C2AC927780074FCE0 /* LearningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9925982A2AC927780074FCE0 /* LearningViewController.swift */; };
+		9925982D2AC927780074FCE0 /* LearningViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9925982B2AC927780074FCE0 /* LearningViewController.xib */; };
 		993F7C592A2208A500FE8045 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7C582A2208A500FE8045 /* AppDelegate.swift */; };
 		993F7C5B2A2208A500FE8045 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7C5A2A2208A500FE8045 /* SceneDelegate.swift */; };
 		993F7C5D2A2208A500FE8045 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7C5C2A2208A500FE8045 /* ViewController.swift */; };
@@ -88,6 +90,8 @@
 		991044832AA4E28800C94636 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		992598252AC869E20074FCE0 /* DetailWordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWordPresenter.swift; sourceTree = "<group>"; };
 		992598272AC869F30074FCE0 /* DetailWordProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWordProtocol.swift; sourceTree = "<group>"; };
+		9925982A2AC927780074FCE0 /* LearningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningViewController.swift; sourceTree = "<group>"; };
+		9925982B2AC927780074FCE0 /* LearningViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LearningViewController.xib; sourceTree = "<group>"; };
 		993F7C552A2208A500FE8045 /* ImageMemoryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageMemoryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		993F7C582A2208A500FE8045 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		993F7C5A2A2208A500FE8045 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -183,6 +187,15 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		992598292AC927040074FCE0 /* Learning */ = {
+			isa = PBXGroup;
+			children = (
+				9925982B2AC927780074FCE0 /* LearningViewController.xib */,
+				9925982A2AC927780074FCE0 /* LearningViewController.swift */,
+			);
+			path = Learning;
+			sourceTree = "<group>";
+		};
 		993F7C4C2A2208A500FE8045 = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +219,7 @@
 		993F7C572A2208A500FE8045 /* ImageMemoryApp */ = {
 			isa = PBXGroup;
 			children = (
+				992598292AC927040074FCE0 /* Learning */,
 				99BA75912AAE0C3B000AB1A7 /* DetailWord */,
 				99BA758C2AAE06D0000AB1A7 /* Struct */,
 				991044822AA4E25D00C94636 /* Enum */,
@@ -503,6 +517,7 @@
 			files = (
 				993F7CAB2A224DED00FE8045 /* CreateImageViewController.xib in Resources */,
 				99D727372A7968A800AAB311 /* EditDetailWordViewController.xib in Resources */,
+				9925982D2AC927780074FCE0 /* LearningViewController.xib in Resources */,
 				993F7C972A22121500FE8045 /* SelectImageViewController.xib in Resources */,
 				993F7C652A2208AF00FE8045 /* LaunchScreen.storyboard in Resources */,
 				993F7C622A2208AF00FE8045 /* Assets.xcassets in Resources */,
@@ -566,6 +581,7 @@
 				9910447F2AA454FC00C94636 /* CatalogPresenter.swift in Sources */,
 				993F7CBB2A28E84700FE8045 /* TrimmingImagePresenter.swift in Sources */,
 				993F7C5B2A2208A500FE8045 /* SceneDelegate.swift in Sources */,
+				9925982C2AC927780074FCE0 /* LearningViewController.swift in Sources */,
 				992598262AC869E30074FCE0 /* DetailWordPresenter.swift in Sources */,
 				991044842AA4E28800C94636 /* Enum.swift in Sources */,
 				993F7CC32A28EECC00FE8045 /* TabBarViewController.swift in Sources */,
