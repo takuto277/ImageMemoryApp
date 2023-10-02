@@ -64,8 +64,8 @@ final class DataBaseService {
              japanWordName: 日本での名前
              englishSentence: 英文
              japanSentence: 日本文
-             proficiency: 習熟度フラグ
-             priorityNumber: 学習する優先度
+             proficiency: 習熟度フラグ(新単語:0, 学習中単語:1, 完了単語:2)
+             priorityNumber: 学習する優先度(0~10)
              number: pk
              deleteFlg: 削除フラグ
              imageURL: 画像URLの文字列
@@ -180,7 +180,45 @@ final class DataBaseService {
             }
         }
         return wordDataArray
-        
+    }
+    
+    func getNewWordData() throws -> [WordData] {
+        guard let database = self.database else {
+            throw myError.case1
+        }
+        var wordDataArray = [WordData]()
+        // クエリの実行
+        let querySQL = """
+                        SELECT * FROM wordData
+                        習熟度が0かつ優先度が0のもの
+                        """
+        if let resultSet = database.executeQuery(querySQL, withArgumentsIn: []) {
+            while resultSet.next() {
+                guard let englishWordName = resultSet.string(forColumn: "englishWordName"),
+                      let japanWordName = resultSet.string(forColumn: "japanWordName"),
+                      let englishSentence = resultSet.string(forColumn: "englishSentence"),
+                      let japanSentence = resultSet.string(forColumn: "japanSentence"),
+                      let proficiency = resultSet.string(forColumn: "proficiency"),
+                      let priorityNumber = resultSet.string(forColumn: "priorityNumber"),
+                      let deleteFlg = resultSet.string(forColumn: "deleteFlg"),
+                      let imageURL = resultSet.string(forColumn: "imageURL") else {
+                    throw myError.case1
+                }
+                let number = Int(resultSet.int(forColumn: "number"))
+                let wordData = WordData(englishWordName: englishWordName,
+                                    japanWordName: japanWordName,
+                                    englishSentence: englishSentence,
+                                    japanSentence: japanSentence,
+                                    proficiency: proficiency,
+                                    priorityNumber: priorityNumber,
+                                    number: number,
+                                    deleteFlg: deleteFlg,
+                                    imageURL: imageURL)
+                wordDataArray.append(wordData)
+                
+            }
+        }
+        return wordDataArray
     }
     
     func getWordDataCount() -> Int {

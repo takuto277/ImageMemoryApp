@@ -34,6 +34,7 @@ class LearningEnglishViewController: UIViewController {
     
     
     @IBAction func wordImageLeftPushed(_ sender: Any) {
+        // TODO: 正解したものかの確認メソッド追加
         self.presenter.changeInfo()
     }
     
@@ -50,7 +51,7 @@ class LearningEnglishViewController: UIViewController {
     }
     
     @IBAction func repeatButtonPushed(_ sender: Any) {
-        // 音声流す処理
+        // TODO: 音声流す処理
     }
     
     //MARK: - Life cycle
@@ -64,7 +65,7 @@ class LearningEnglishViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // 音声流す処理
+        // TODO: 音声流す処理
     }
 }
 
