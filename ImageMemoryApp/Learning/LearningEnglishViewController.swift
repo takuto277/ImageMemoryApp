@@ -15,9 +15,10 @@ class LearningEnglishViewController: UIViewController {
     private var currentNumber: Int = 0
     
     init(_ presenter: LearningEnglishProtocol, _ wordDataArray: [WordData], _ fakeImageArray: [String]) {
+        self.presenter = presenter
         self.wordDataArray = wordDataArray
         self.fakeImageArray = fakeImageArray
-        super.init(nibName: nil, bundle: nil)
+        super.init(nibName: String(describing: LearningEnglishViewController.self), bundle: nil)
     }
     
     required init?(coder: NSCoder) {
