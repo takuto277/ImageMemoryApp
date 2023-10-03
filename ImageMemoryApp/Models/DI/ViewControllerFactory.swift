@@ -10,12 +10,13 @@ import UIKit
 struct ViewControllerFactory {
     static func homeViewController() -> UIViewController {
       //  let presenter = SelectImagePresenter()
-        let vc = HomeViewController()
+        let presenter = HomePresenter(dataBaseRepository: DataBaseRepository())
+        let vc = HomeViewController(presenter: presenter)
   //      vc.modalPresentationStyle = .fullScreen
         return vc
     }
     
-    static func LearningViewController(_ wordDataArray: [WordData], _ fakeImageArray: [String]) -> UIViewController {
+    static func learningEnglishViewController(_ wordDataArray: [WordData], _ fakeImageArray: [String]) -> UIViewController {
         let presenter = LearningEnglishPresenter()
         let vc = LearningEnglishViewController(presenter,
                                                wordDataArray,

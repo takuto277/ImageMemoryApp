@@ -8,8 +8,10 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    let presenter: HomeProtocol
     
-    init() {
+    init(presenter: HomeProtocol) {
+        self.presenter = presenter
         super.init(nibName: String(describing: HomeViewController.self), bundle: nil)
     }
     
@@ -19,8 +21,7 @@ class HomeViewController: UIViewController {
     // MARK: - IBAction
     
     @IBAction func startButtonPushed(_ sender: Any) {
-        //  TODO: 10個の学習データ取得
-        // TODO: 20個のフェイク画像を取得
+        self.presenter.getLearnWordData()
     }
     
     //MARK: - Life cycle
@@ -34,7 +35,9 @@ class HomeViewController: UIViewController {
     //MARK: - Protocol
 
 extension HomeViewController: HomeViewControllerProtocol {
-    func fetchLearnWordData(_ wordsData: [WordData], _ faceImageArray: [String]) {
-        <#code#>
+    func navigationToLearningScreen(_ wordsData: [WordData], _ fakeImageArray: [String]) {
+        let learningEnglishViewController = ViewControllerFactory.learningEnglishViewController(wordsData, fakeImageArray)
+        navigationController?.pushViewController(learningEnglishViewController, animated: true)
+
     }
 }

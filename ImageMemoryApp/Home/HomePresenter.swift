@@ -66,7 +66,7 @@ extension HomePresenter: HomeProtocol {
             }
         }
         
-        self.view?.fetchLearnWordData(resultWordDatas, fakeImageArray)
+        self.view?.navigationToLearningScreen(resultWordDatas, fakeImageArray)
     }
     
     private func filterStructArray(wordData: [WordData], targetNumbers: [String]) -> [WordData] {

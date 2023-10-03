@@ -13,5 +13,5 @@ protocol HomeProtocol: AnyObject {
 }
 
 protocol HomeViewControllerProtocol: AnyObject {
-    func fetchLearnWordData(_ wordsData: [WordData], _ fakeImageArray: [String])
+    func navigationToLearningScreen(_ wordsData: [WordData], _ fakeImageArray: [String])
 }
