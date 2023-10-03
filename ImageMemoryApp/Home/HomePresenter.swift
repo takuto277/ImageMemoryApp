@@ -9,6 +9,11 @@ import Foundation
 
 class HomePresenter {
     var view: HomeViewControllerProtocol?
+    let dataBaseRepository: DataBaseRepositoryProtocol
+    
+    init(dataBaseRepository: DataBaseRepositoryProtocol) {
+        self.dataBaseRepository = dataBaseRepository
+    }
 }
 
 extension HomePresenter: HomeProtocol {
@@ -17,7 +22,23 @@ extension HomePresenter: HomeProtocol {
     }
     
     func getLearnWordData() {
-        <#code#>
+        var wordData = [WordData]()
+        var fakeImageArray: [String] = []
+        do {
+            wordData = try self.dataBaseRepository.getLearningWordData()
+        } catch {
+            print("英単語の取得に失敗しました。")
+        }
+        
+        for wordData in wordData {
+            fakeImageArray.append(wordData.imageURL)
+            
+            if fakeImageArray.count > 100 {
+                break
+            }
+        }
+        
+        self.view?.fetchLearnWordData(<#T##wordsData: [WordData]##[WordData]#>, fakeImageArray)
     }
     
     

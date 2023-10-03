@@ -10,5 +10,6 @@ import Foundation
 protocol DataBaseRepositoryProtocol: AnyObject {
     func getAllWordData() throws -> [WordData]
     func getWordDataCount() throws -> Int
+    func getLearningWordData() throws -> [WordData]
     func insertWordData(wordData: WordData) -> Bool
 }

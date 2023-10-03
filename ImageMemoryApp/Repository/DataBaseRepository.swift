@@ -24,6 +24,14 @@ extension DataBaseRepository: DataBaseRepositoryProtocol {
         return dataBaseService.getWordDataCount()
     }
     
+    func getLearningWordData() throws -> [WordData] {
+        do {
+            return try dataBaseService.getLearningWordData()
+        } catch {
+            throw myError.case1
+        }
+    }
+    
     func insertWordData(wordData: WordData) -> Bool {
         return dataBaseService.insertWordData(wordData: wordData)
     }
