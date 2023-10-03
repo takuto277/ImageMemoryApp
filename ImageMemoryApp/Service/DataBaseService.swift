@@ -182,7 +182,7 @@ final class DataBaseService {
         return wordDataArray
     }
     
-    func getNewWordData() throws -> [WordData] {
+    func getLearningWordData() throws -> [WordData] {
         guard let database = self.database else {
             throw myError.case1
         }
@@ -190,7 +190,7 @@ final class DataBaseService {
         // クエリの実行
         let querySQL = """
                         SELECT * FROM wordData
-                        習熟度が0かつ優先度が0のもの
+                        WHERE proficiency <> '2'
                         """
         if let resultSet = database.executeQuery(querySQL, withArgumentsIn: []) {
             while resultSet.next() {
