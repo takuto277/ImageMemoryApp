@@ -39,21 +39,18 @@ class LearningEnglishViewController: UIViewController {
     
     @IBAction func wordImageLeftPushed(_ sender: Any) {
         self.presenter.confirmCorrection(self.correctImageLocation == true)
-        // TODO: 正解したものかの確認メソッド追加
-        self.presenter.changeInfo()
     }
     
     @IBAction func wordImageRightPushed(_ sender: Any) {
         self.presenter.confirmCorrection(self.correctImageLocation == false)
-        self.presenter.changeInfo()
     }
     
     @IBAction func knowButtonPushed(_ sender: Any) {
-        self.presenter.changeInfo()
+        // TODO: 更新処理する
     }
     
     @IBAction func unknownButtonPushed(_ sender: Any) {
-        self.presenter.changeInfo()
+        // TODO: navigationに遷移させる
     }
     
     @IBAction func repeatButtonPushed(_ sender: Any) {
@@ -72,13 +69,15 @@ class LearningEnglishViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // TODO: 音声流す処理
-        self.presenter.changeInfo()
+        self.presenter.checkNextNumber(self.wordDataArray.count, self.currentNumber)
     }
 }
 
     //MARK: - Protocol
 
 extension LearningEnglishViewController: LearningEnglishViewControllerProtocol {
+    
+    /// 現在の英単語日表示/更新
     func fadeOutAndChangeInfo() {
         self.currentNumber += 1
         
@@ -106,6 +105,8 @@ extension LearningEnglishViewController: LearningEnglishViewControllerProtocol {
         }
     }
     
+    
+    /// 次の英単語表示
     func fadeInInfo() {
         // ラベルを元に戻すアニメーションを追加
         UIView.animate(withDuration: 0.5, animations: {
@@ -116,11 +117,25 @@ extension LearningEnglishViewController: LearningEnglishViewControllerProtocol {
         self.presenter.textReading(self.englishSentence.text ?? "")
     }
     
+    /// 読み上げ機能
+    /// - Parameter text: 読み上げたい英文
     func textReading(_ text: String) {
         let synthesizer = AVSpeechSynthesizer()
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         synthesizer.speak(utterance)
+    }
+    
+    /// 現在の英単語データを取得する
+    /// - Parameter correction: 問題の正誤(true: 正解, false: 不正解)
+    func getCurrentWordData(_ correction: Bool) {
+        self.presenter.updateCurrentWordData(self.wordDataArray[self.currentNumber], correction)
+    }
+    
+    
+    /// 現在の英単語処理が完了
+    func finishedCurrentWordDataProcess() {
+        self.presenter.checkNextNumber(self.wordDataArray.count, self.currentNumber)
     }
     
     func navigationToScreen() {
