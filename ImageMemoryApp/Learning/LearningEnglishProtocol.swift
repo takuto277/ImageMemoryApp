@@ -10,9 +10,11 @@ import Foundation
 protocol LearningEnglishProtocol: AnyObject {
     func attachView(_ view: LearningEnglishViewControllerProtocol)
     func changeInfo()
+    func textReading(_ text: String)
 }
 
 protocol LearningEnglishViewControllerProtocol: AnyObject {
     func fadeOutAndChangeInfo()
     func fadeInInfo()
+    func textReading(_ text: String)
 }

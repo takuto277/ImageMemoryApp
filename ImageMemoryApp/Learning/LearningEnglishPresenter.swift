@@ -20,4 +20,8 @@ extension LearningEnglishPresenter: LearningEnglishProtocol {
         self.view?.fadeOutAndChangeInfo()
         self.view?.fadeInInfo()
     }
+    
+    func textReading(_ text: String) {
+        self.view?.textReading(text)
+    }
 }

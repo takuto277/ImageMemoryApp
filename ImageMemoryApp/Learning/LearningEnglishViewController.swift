@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class LearningEnglishViewController: UIViewController {
     private let presenter: LearningEnglishProtocol
@@ -52,6 +53,7 @@ class LearningEnglishViewController: UIViewController {
     }
     
     @IBAction func repeatButtonPushed(_ sender: Any) {
+        self.presenter.textReading(self.englishSentence.text ?? "")
         // TODO: 音声流す処理
     }
     
@@ -61,12 +63,12 @@ class LearningEnglishViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
         self.presenter.attachView(self)
-        self.presenter.changeInfo()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // TODO: 音声流す処理
+        self.presenter.changeInfo()
     }
 }
 
@@ -74,6 +76,8 @@ class LearningEnglishViewController: UIViewController {
 
 extension LearningEnglishViewController: LearningEnglishViewControllerProtocol {
     func fadeOutAndChangeInfo() {
+        self.currentNumber += 1
+        
         UIView.animate(withDuration: 0.5, animations: {
             self.englishSentence.alpha = 0.0
             self.wordImageLeft.alpha = 0.0
@@ -104,6 +108,13 @@ extension LearningEnglishViewController: LearningEnglishViewControllerProtocol {
             self.wordImageLeft.alpha = 1.0
             self.wordImageRight.alpha = 1.0
         })
-        self.currentNumber += 1
+        self.presenter.textReading(self.englishSentence.text ?? "")
+    }
+    
+    func textReading(_ text: String) {
+        let synthesizer = AVSpeechSynthesizer()
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        synthesizer.speak(utterance)
     }
 }
