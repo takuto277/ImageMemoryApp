@@ -9,10 +9,10 @@ import Foundation
 
 protocol LearningEnglishProtocol: AnyObject {
     func attachView(_ view: LearningEnglishViewControllerProtocol)
-    func changeInfo()
     func textReading(_ text: String)
     func confirmCorrection(_ correction: Bool)
-    func checkNextNumber()
+    func updateCurrentWordData(_ wordData: WordData, _ correction: Bool)
+    func checkNextNumber(_ wordDataCount: Int, _ currentCount: Int)
 }
 
 protocol LearningEnglishViewControllerProtocol: AnyObject {
@@ -20,4 +20,6 @@ protocol LearningEnglishViewControllerProtocol: AnyObject {
     func fadeInInfo()
     func textReading(_ text: String)
     func navigationToScreen()
+    func getCurrentWordData(_ correction: Bool)
+    func finishedCurrentWordDataProcess()
 }
