@@ -11,7 +11,7 @@ protocol LearningEnglishProtocol: AnyObject {
     func attachView(_ view: LearningEnglishViewControllerProtocol)
     func changeInfo()
     func textReading(_ text: String)
-    func confirmCorrection()
+    func confirmCorrection(_ correction: Bool)
     func checkNextNumber()
 }
 

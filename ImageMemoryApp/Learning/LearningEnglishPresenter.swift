@@ -24,4 +24,19 @@ extension LearningEnglishPresenter: LearningEnglishProtocol {
     func textReading(_ text: String) {
         self.view?.textReading(text)
     }
+    
+    func confirmCorrection(_ correction: Bool) {
+        if correction {
+            // 次の問題へ
+            self.view?.fadeOutAndChangeInfo()
+            self.view?.fadeInInfo()
+        } else {
+            // 解説表示
+            self.view?.navigationToScreen()
+        }
+    }
+    
+    func checkNextNumber() {
+        <#code#>
+    }
 }

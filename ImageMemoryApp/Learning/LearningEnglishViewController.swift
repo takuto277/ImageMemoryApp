@@ -14,6 +14,8 @@ class LearningEnglishViewController: UIViewController {
     private let fakeImageArray: [String]
     
     private var currentNumber: Int = 0
+    // 正解画像位置を格納(randoValueがtrueならLeftが正解, falseならRightが正解)
+    private var correctImageLocation: Bool = true
     
     init(_ presenter: LearningEnglishProtocol, _ wordDataArray: [WordData], _ fakeImageArray: [String]) {
         self.presenter = presenter
@@ -36,11 +38,13 @@ class LearningEnglishViewController: UIViewController {
     
     
     @IBAction func wordImageLeftPushed(_ sender: Any) {
+        self.presenter.confirmCorrection(self.correctImageLocation == true)
         // TODO: 正解したものかの確認メソッド追加
         self.presenter.changeInfo()
     }
     
     @IBAction func wordImageRightPushed(_ sender: Any) {
+        self.presenter.confirmCorrection(self.correctImageLocation == false)
         self.presenter.changeInfo()
     }
     
@@ -86,6 +90,7 @@ extension LearningEnglishViewController: LearningEnglishViewControllerProtocol {
             if finished {
                 let wordData = self.wordDataArray[self.currentNumber]
                 let randomValue = arc4random_uniform(2) == 0
+                self.correctImageLocation = randomValue
                 // ランダムな画像を生成
                 let imageLeft = Converter().decodeBase64ToImage(randomValue
                                                                 ? wordData.imageURL
@@ -116,5 +121,9 @@ extension LearningEnglishViewController: LearningEnglishViewControllerProtocol {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         synthesizer.speak(utterance)
+    }
+    
+    func navigationToScreen() {
+        <#code#>
     }
 }
