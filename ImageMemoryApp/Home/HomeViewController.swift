@@ -37,6 +37,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: HomeViewControllerProtocol {
     func navigationToLearningScreen(_ wordsData: [WordData], _ fakeImageArray: [String]) {
         let learningEnglishViewController = ViewControllerFactory.learningEnglishViewController(wordsData, fakeImageArray)
+        learningEnglishViewController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(learningEnglishViewController, animated: true)
 
     }
