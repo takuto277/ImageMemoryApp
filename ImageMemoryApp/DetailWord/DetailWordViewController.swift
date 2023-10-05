@@ -35,7 +35,11 @@ class DetailWordViewController: UIViewController {
     // MARK: - IBAction
     
     @IBAction func decideButtonPushed(_ sender: Any) {
-        self.dismiss(animated: true)
+        if self.calledFlg == .LearningEnglish {
+            self.dismiss(animated: true)
+        } else {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     @IBAction func editButtonPushed(_ sender: Any) {
