@@ -153,4 +153,8 @@ extension LearningEnglishViewController: LearningEnglishViewControllerProtocol {
     func navigationToScreen() {
         
     }
+    
+    func navigationToResultScreen() {
+
+    }
 }

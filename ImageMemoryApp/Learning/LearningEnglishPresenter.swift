@@ -67,8 +67,8 @@ extension LearningEnglishPresenter: LearningEnglishProtocol {
                 self?.view?.fadeInInfo()
             })
         } else {
-            // TODO: 終わり画面へ遷移
-            // wordDataも持って行った方がいいかも
+            // 結果画面へ遷移
+            self.view?.navigationToResultScreen()
         }
     }
 }
