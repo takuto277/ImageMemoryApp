@@ -65,6 +65,7 @@ class LearningEnglishViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
         self.presenter.attachView(self)
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,9 +102,9 @@ extension LearningEnglishViewController: LearningEnglishViewControllerProtocol {
                 // ランダムな画像を生成
                 let imageLeft = Converter().decodeBase64ToImage(randomValue
                                                                 ? wordData.imageURL
-                                                                : self.fakeImageArray[Int(arc4random_uniform(20))])
+                                                                : self.fakeImageArray[Int(arc4random_uniform(UInt32(self.fakeImageArray.count)))])
                 let imageRight = Converter().decodeBase64ToImage(randomValue
-                                                                 ? self.fakeImageArray[Int(arc4random_uniform(20))]
+                                                                 ? self.fakeImageArray[Int(arc4random_uniform(UInt32(self.fakeImageArray.count)))]
                                                                  : wordData.imageURL)
                 // アニメーションが完了したら新しいテキストを設定
                 self.englishSentence.text = wordData.englishSentence

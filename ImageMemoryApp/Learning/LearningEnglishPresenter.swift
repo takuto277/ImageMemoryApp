@@ -61,7 +61,7 @@ extension LearningEnglishPresenter: LearningEnglishProtocol {
     ///   - wordDataCount: <#wordDataCount description#>
     ///   - currentCount: <#currentCount description#>
     func checkNextNumber(_ wordDataCount: Int, _ currentCount: Int) {
-        if wordDataCount >= currentCount + 1 {
+        if wordDataCount - 1 >= currentCount + 1 {
             self.view?.increaceCurrentNumber()
             self.view?.fadeOutAndChangeInfo(completion: { [weak self] in
                 self?.view?.fadeInInfo()
