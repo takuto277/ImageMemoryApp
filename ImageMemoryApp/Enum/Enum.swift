@@ -18,4 +18,5 @@ enum EditDetailWordTextViewTag: Int {
 enum DetailWordCalledFlg: Int {
     case Catalog
     case EditDetailWord
+    case LearningEnglish
 }
