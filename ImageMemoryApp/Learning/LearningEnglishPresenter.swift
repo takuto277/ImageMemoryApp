@@ -16,6 +16,12 @@ extension LearningEnglishPresenter: LearningEnglishProtocol {
         self.view = view
     }
     
+    func firstLoaded() {
+        self.view?.fadeOutAndChangeInfo(completion: { [weak self] in
+            self?.view?.fadeInInfo()
+        })
+    }
+    
     /// 読み上げ機能呼び出し
     /// - Parameter text: 読み上げたい文章
     func textReading(_ text: String) {
@@ -56,8 +62,10 @@ extension LearningEnglishPresenter: LearningEnglishProtocol {
     ///   - currentCount: <#currentCount description#>
     func checkNextNumber(_ wordDataCount: Int, _ currentCount: Int) {
         if wordDataCount >= currentCount + 1 {
-            self.view?.fadeOutAndChangeInfo()
-            self.view?.fadeInInfo()
+            self.view?.increaceCurrentNumber()
+            self.view?.fadeOutAndChangeInfo(completion: { [weak self] in
+                self?.view?.fadeInInfo()
+            })
         } else {
             // TODO: 終わり画面へ遷移
             // wordDataも持って行った方がいいかも

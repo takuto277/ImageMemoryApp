@@ -9,6 +9,7 @@ import Foundation
 
 protocol LearningEnglishProtocol: AnyObject {
     func attachView(_ view: LearningEnglishViewControllerProtocol)
+    func firstLoaded()
     func textReading(_ text: String)
     func confirmCorrection(_ correction: Bool)
     func updateCurrentWordData(_ wordData: WordData, _ correction: Bool)
@@ -16,7 +17,8 @@ protocol LearningEnglishProtocol: AnyObject {
 }
 
 protocol LearningEnglishViewControllerProtocol: AnyObject {
-    func fadeOutAndChangeInfo()
+    func increaceCurrentNumber()
+    func fadeOutAndChangeInfo(completion: (() -> Void)?)
     func fadeInInfo()
     func textReading(_ text: String)
     func navigationToScreen()

@@ -13,6 +13,7 @@ class LearningEnglishViewController: UIViewController {
     private let wordDataArray: [WordData]
     private let fakeImageArray: [String]
     
+    private var isviewFirstLoaded = true
     private var currentNumber: Int = 0
     // 正解画像位置を格納(randoValueがtrueならLeftが正解, falseならRightが正解)
     private var correctImageLocation: Bool = true
@@ -68,19 +69,26 @@ class LearningEnglishViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // TODO: 音声流す処理
-        self.presenter.checkNextNumber(self.wordDataArray.count, self.currentNumber)
+        if !self.isviewFirstLoaded {
+            self.presenter.checkNextNumber(self.wordDataArray.count, self.currentNumber)
+        } else {
+            // 初回だけこっち
+            self.presenter.firstLoaded()
+            self.isviewFirstLoaded = false
+        }
     }
 }
 
     //MARK: - Protocol
 
 extension LearningEnglishViewController: LearningEnglishViewControllerProtocol {
+
+    func increaceCurrentNumber() {
+        self.currentNumber += 1
+    }
     
     /// 現在の英単語日表示/更新
-    func fadeOutAndChangeInfo() {
-        self.currentNumber += 1
-        
+    func fadeOutAndChangeInfo(completion: (() -> Void)?) {
         UIView.animate(withDuration: 0.5, animations: {
             self.englishSentence.alpha = 0.0
             self.wordImageLeft.alpha = 0.0
@@ -101,6 +109,9 @@ extension LearningEnglishViewController: LearningEnglishViewControllerProtocol {
                 self.englishSentence.text = wordData.englishSentence
                 self.wordImageLeft.image = imageLeft
                 self.wordImageRight.image = imageRight
+                
+                // コールバックを実行して次のアニメーションを開始
+                completion?()
             }
         }
     }
