@@ -155,6 +155,7 @@ extension LearningEnglishViewController: LearningEnglishViewControllerProtocol {
     }
     
     func navigationToResultScreen() {
-
+        let resultViewController = ViewControllerFactory.resultViewController()
+        navigationController?.pushViewController(resultViewController, animated: true)
     }
 }

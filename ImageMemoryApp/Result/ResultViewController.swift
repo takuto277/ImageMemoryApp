@@ -20,7 +20,7 @@ class ResultViewController: UIViewController {
     }
     
     @IBAction func finishButtonPushed(_ sender: Any) {
-        self.dismiss(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     override func viewDidLoad() {
