@@ -34,13 +34,13 @@ extension LearningEnglishPresenter: LearningEnglishProtocol {
         if correction {
             // 正解の英単語データ取得
             self.view?.getCurrentWordData(true)
+            self.view?.finishedCurrentWordDataProcess()
         } else {
             // 不正解の英単語データ取得
             self.view?.getCurrentWordData(false)
             // 解説表示
-            self.view?.navigationToScreen()
+            self.view?.navigationToDetailWordScreen()
         }
-        self.view?.finishedCurrentWordDataProcess()
     }
     
     /// 現在の英単語更新

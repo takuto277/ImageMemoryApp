@@ -65,7 +65,6 @@ class LearningEnglishViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
         self.presenter.attachView(self)
-        self.tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -144,14 +143,15 @@ extension LearningEnglishViewController: LearningEnglishViewControllerProtocol {
         self.presenter.updateCurrentWordData(self.wordDataArray[self.currentNumber], correction)
     }
     
-    
     /// 現在の英単語処理が完了
     func finishedCurrentWordDataProcess() {
         self.presenter.checkNextNumber(self.wordDataArray.count, self.currentNumber)
     }
     
-    func navigationToScreen() {
-        
+    func navigationToDetailWordScreen() {
+        let detailWordViewController = ViewControllerFactory.detailWordViewController(self.wordDataArray[self.currentNumber], .LearningEnglish)
+        detailWordViewController.modalPresentationStyle = .fullScreen
+        self.present(detailWordViewController, animated: true)
     }
     
     func navigationToResultScreen() {
