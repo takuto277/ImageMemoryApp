@@ -47,6 +47,10 @@
 		993F7CC12A28EBF900FE8045 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7CC02A28EBF900FE8045 /* ViewControllerFactory.swift */; };
 		993F7CC32A28EECC00FE8045 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F7CC22A28EECB00FE8045 /* TabBarViewController.swift */; };
 		994BB85E2A4C86F800715CF4 /* ImageEditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994BB85D2A4C86F800715CF4 /* ImageEditScreen.swift */; };
+		99ACF24E2ACF13CB00A87782 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ACF24C2ACF13CB00A87782 /* ResultViewController.swift */; };
+		99ACF24F2ACF13CB00A87782 /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99ACF24D2ACF13CB00A87782 /* ResultViewController.xib */; };
+		99ACF2512ACF146F00A87782 /* ResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ACF2502ACF146F00A87782 /* ResultPresenter.swift */; };
+		99ACF2532ACF148200A87782 /* ResultProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ACF2522ACF148200A87782 /* ResultProtocol.swift */; };
 		99BA75892AAC886B000AB1A7 /* EditDetailWordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BA75882AAC886B000AB1A7 /* EditDetailWordPresenter.swift */; };
 		99BA758B2AAC887A000AB1A7 /* EditDetailWordProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BA758A2AAC887A000AB1A7 /* EditDetailWordProtocol.swift */; };
 		99BA758E2AAE06FB000AB1A7 /* SelectImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BA758D2AAE06FB000AB1A7 /* SelectImage.swift */; };
@@ -129,6 +133,10 @@
 		993F7CC02A28EBF900FE8045 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		993F7CC22A28EECB00FE8045 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		994BB85D2A4C86F800715CF4 /* ImageEditScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditScreen.swift; sourceTree = "<group>"; };
+		99ACF24C2ACF13CB00A87782 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		99ACF24D2ACF13CB00A87782 /* ResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
+		99ACF2502ACF146F00A87782 /* ResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPresenter.swift; sourceTree = "<group>"; };
+		99ACF2522ACF148200A87782 /* ResultProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultProtocol.swift; sourceTree = "<group>"; };
 		99BA75882AAC886B000AB1A7 /* EditDetailWordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDetailWordPresenter.swift; sourceTree = "<group>"; };
 		99BA758A2AAC887A000AB1A7 /* EditDetailWordProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDetailWordProtocol.swift; sourceTree = "<group>"; };
 		99BA758D2AAE06FB000AB1A7 /* SelectImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImage.swift; sourceTree = "<group>"; };
@@ -229,6 +237,7 @@
 		993F7C572A2208A500FE8045 /* ImageMemoryApp */ = {
 			isa = PBXGroup;
 			children = (
+				99ACF24B2ACF139300A87782 /* Result */,
 				992598292AC927040074FCE0 /* Learning */,
 				99BA75912AAE0C3B000AB1A7 /* DetailWord */,
 				99BA758C2AAE06D0000AB1A7 /* Struct */,
@@ -342,6 +351,17 @@
 				994BB85D2A4C86F800715CF4 /* ImageEditScreen.swift */,
 			);
 			path = Singleton;
+			sourceTree = "<group>";
+		};
+		99ACF24B2ACF139300A87782 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				99ACF24D2ACF13CB00A87782 /* ResultViewController.xib */,
+				99ACF24C2ACF13CB00A87782 /* ResultViewController.swift */,
+				99ACF2502ACF146F00A87782 /* ResultPresenter.swift */,
+				99ACF2522ACF148200A87782 /* ResultProtocol.swift */,
+			);
+			path = Result;
 			sourceTree = "<group>";
 		};
 		99BA758C2AAE06D0000AB1A7 /* Struct */ = {
@@ -535,6 +555,7 @@
 				993F7C622A2208AF00FE8045 /* Assets.xcassets in Resources */,
 				99D7272E2A72DDD400AAB311 /* CatalogViewController.xib in Resources */,
 				993F7CA02A22172600FE8045 /* SelectImageCollectionViewCell.xib in Resources */,
+				99ACF24F2ACF13CB00A87782 /* ResultViewController.xib in Resources */,
 				99D7272A2A72DDB400AAB311 /* HomeViewController.xib in Resources */,
 				99BA75952AAE0C60000AB1A7 /* DetailWordViewController.xib in Resources */,
 				993F7C602A2208A500FE8045 /* Main.storyboard in Resources */,
@@ -565,6 +586,7 @@
 			files = (
 				99D7272D2A72DDD400AAB311 /* CatalogViewController.swift in Sources */,
 				993F7C962A22121500FE8045 /* SelectImageViewController.swift in Sources */,
+				99ACF24E2ACF13CB00A87782 /* ResultViewController.swift in Sources */,
 				993F7CC12A28EBF900FE8045 /* ViewControllerFactory.swift in Sources */,
 				992598312AC9B75C0074FCE0 /* LearningEnglishProtocol.swift in Sources */,
 				992598282AC869F30074FCE0 /* DetailWordProtocol.swift in Sources */,
@@ -573,6 +595,7 @@
 				99D727362A7968A800AAB311 /* EditDetailWordViewController.swift in Sources */,
 				993F7C5D2A2208A500FE8045 /* ViewController.swift in Sources */,
 				992598332AC9DA250074FCE0 /* HomePresenter.swift in Sources */,
+				99ACF2512ACF146F00A87782 /* ResultPresenter.swift in Sources */,
 				993F7CA72A223C3100FE8045 /* TrimmingImageViewController.swift in Sources */,
 				99BA75902AAE08D0000AB1A7 /* SampleView.swift in Sources */,
 				99BA758B2AAC887A000AB1A7 /* EditDetailWordProtocol.swift in Sources */,
@@ -598,6 +621,7 @@
 				993F7CBB2A28E84700FE8045 /* TrimmingImagePresenter.swift in Sources */,
 				993F7C5B2A2208A500FE8045 /* SceneDelegate.swift in Sources */,
 				9925982C2AC927780074FCE0 /* LearningEnglishViewController.swift in Sources */,
+				99ACF2532ACF148200A87782 /* ResultProtocol.swift in Sources */,
 				992598262AC869E30074FCE0 /* DetailWordPresenter.swift in Sources */,
 				991044842AA4E28800C94636 /* Enum.swift in Sources */,
 				993F7CC32A28EECC00FE8045 /* TabBarViewController.swift in Sources */,
