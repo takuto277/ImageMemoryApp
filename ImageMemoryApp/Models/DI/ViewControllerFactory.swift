@@ -24,6 +24,12 @@ struct ViewControllerFactory {
         return vc
     }
     
+    static func resultViewController() -> UIViewController {
+        let presenter = ResultPresenter()
+        let vc = ResultViewController(presenter: presenter)
+        return vc
+    }
+    
     static func catalogViewController() -> UIViewController {
         let vc = CatalogViewController()
         vc.presenter = CatalogPresenter(dataBaseRepository: DataBaseRepository())
