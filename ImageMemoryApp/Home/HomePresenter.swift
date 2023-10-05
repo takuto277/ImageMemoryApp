@@ -37,7 +37,7 @@ extension HomePresenter: HomeProtocol {
         targetNumbers.forEach { targetNumber in
             let filterArray = self.filterStructArray(wordData: wordData, targetNumbers: targetNumber).shuffled()
             let numberOfElementToGet = filterArray.count >= 5 ? 5 : filterArray.count
-            Array(filterArray.prefix(5)).forEach { wordData in
+            Array(filterArray.prefix(numberOfElementToGet)).forEach { wordData in
                 resultWordDatas.append(wordData)
             }
         }
