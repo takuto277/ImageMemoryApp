@@ -13,16 +13,54 @@ enum myError: Error {
     case case1
 }
 
+/*
+ englishWordName: 英単語の名前
+ japanWordName: 日本での名前
+ englishSentence: 英文
+ japanSentence: 日本文
+ proficiency: 習熟度フラグ(新単語:0, 学習中単語:1, 完了単語:2)
+ priorityNumber: 学習する優先度(0~10)
+ number: pk
+ deleteFlg: 削除フラグ
+ imageURL: 画像URLの文字列
+ */
 struct WordData {
-    let englishWordName: String
-    let japanWordName: String
-    let englishSentence: String
-    let japanSentence: String
-    let proficiency: String
-    let priorityNumber: String
+    var englishWordName: String
+    var japanWordName: String
+    var englishSentence: String
+    var japanSentence: String
+    var proficiency: String
+    var priorityNumber: String
     var number: Int = 0
-    let deleteFlg: String
-    let imageURL: String
+    var deleteFlg: String
+    var imageURL: String
+    
+    mutating func updateValues(valueName: WordDataEnum, newValue: String){
+        switch valueName {
+        case .englishWordName:
+            self.englishWordName = newValue
+        case .japanWordName:
+            self.japanWordName = newValue
+        case .englishSentence:
+            self.englishSentence = newValue
+        case .japanSentence:
+            self.japanSentence = newValue
+        case .proficiency:
+            self.proficiency = newValue
+        case .priorityNumber:
+            self.priorityNumber = newValue
+        case .number:
+            guard let newValue = Int(newValue) else {
+                break
+            }
+            self.number = newValue
+        case .deleteFlg:
+            self.deleteFlg = newValue
+        case .imageURL:
+            self.imageURL = newValue
+
+        }
+    }
 }
 
 final class DataBaseService {
