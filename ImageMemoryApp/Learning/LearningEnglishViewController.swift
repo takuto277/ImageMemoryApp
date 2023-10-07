@@ -10,18 +10,11 @@ import AVFoundation
 
 class LearningEnglishViewController: UIViewController {
     private let presenter: LearningEnglishProtocol
-    private let wordDataArray: [WordData]
-    private let fakeImageArray: [String]
     
-    private var isviewFirstLoaded = true
-    private var currentNumber: Int = 0
-    // 正解画像位置を格納(randoValueがtrueならLeftが正解, falseならRightが正解)
-    private var correctImageLocation: Bool = true
+
     
-    init(_ presenter: LearningEnglishProtocol, _ wordDataArray: [WordData], _ fakeImageArray: [String]) {
+    init(_ presenter: LearningEnglishProtocol) {
         self.presenter = presenter
-        self.wordDataArray = wordDataArray
-        self.fakeImageArray = fakeImageArray
         super.init(nibName: String(describing: LearningEnglishViewController.self), bundle: nil)
     }
     
@@ -39,11 +32,11 @@ class LearningEnglishViewController: UIViewController {
     
     
     @IBAction func wordImageLeftPushed(_ sender: Any) {
-        self.presenter.confirmCorrection(self.correctImageLocation == true)
+        self.presenter.confirmCorrection(true)
     }
     
     @IBAction func wordImageRightPushed(_ sender: Any) {
-        self.presenter.confirmCorrection(self.correctImageLocation == false)
+        self.presenter.confirmCorrection(false)
     }
     
     @IBAction func knowButtonPushed(_ sender: Any) {
@@ -69,41 +62,27 @@ class LearningEnglishViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if !self.isviewFirstLoaded {
-            self.presenter.checkNextNumber(self.wordDataArray.count, self.currentNumber)
-        } else {
-            // 初回だけこっち
-            self.presenter.firstLoaded()
-            self.isviewFirstLoaded = false
-        }
+        self.presenter.checkNextNumber()
     }
 }
 
     //MARK: - Protocol
 
 extension LearningEnglishViewController: LearningEnglishViewControllerProtocol {
-
-    func increaceCurrentNumber() {
-        self.currentNumber += 1
-    }
-    
     /// 現在の英単語日表示/更新
-    func fadeOutAndChangeInfo(completion: (() -> Void)?) {
+    func fadeOutAndChangeInfo(_ randomValue: Bool, _ wordData: WordData, _ fakeImage: String, _ currentCount: Int, completion: (() -> Void)?) {
         UIView.animate(withDuration: 0.5, animations: {
             self.englishSentence.alpha = 0.0
             self.wordImageLeft.alpha = 0.0
             self.wordImageRight.alpha = 0.0
         }) { (finished) in
             if finished {
-                let wordData = self.wordDataArray[self.currentNumber]
-                let randomValue = arc4random_uniform(2) == 0
-                self.correctImageLocation = randomValue
                 // ランダムな画像を生成
                 let imageLeft = Converter().decodeBase64ToImage(randomValue
                                                                 ? wordData.imageURL
-                                                                : self.fakeImageArray[Int(arc4random_uniform(UInt32(self.fakeImageArray.count)))])
+                                                                : fakeImage)
                 let imageRight = Converter().decodeBase64ToImage(randomValue
-                                                                 ? self.fakeImageArray[Int(arc4random_uniform(UInt32(self.fakeImageArray.count)))]
+                                                                 ? fakeImage
                                                                  : wordData.imageURL)
                 // アニメーションが完了したら新しいテキストを設定
                 self.englishSentence.text = wordData.englishSentence
@@ -137,19 +116,13 @@ extension LearningEnglishViewController: LearningEnglishViewControllerProtocol {
         synthesizer.speak(utterance)
     }
     
-    /// 現在の英単語データを取得する
-    /// - Parameter correction: 問題の正誤(true: 正解, false: 不正解)
-    func getCurrentWordData(_ correction: Bool) {
-        self.presenter.updateCurrentWordData(self.wordDataArray[self.currentNumber], correction)
-    }
-    
     /// 現在の英単語処理が完了
     func finishedCurrentWordDataProcess() {
-        self.presenter.checkNextNumber(self.wordDataArray.count, self.currentNumber)
+        self.presenter.checkNextNumber()
     }
     
-    func navigationToDetailWordScreen() {
-        let detailWordViewController = ViewControllerFactory.detailWordViewController(self.wordDataArray[self.currentNumber], .LearningEnglish)
+    func navigationToDetailWordScreen(_ wordData: WordData) {
+        let detailWordViewController = ViewControllerFactory.detailWordViewController(wordData, .LearningEnglish)
         detailWordViewController.modalPresentationStyle = .fullScreen
         self.present(detailWordViewController, animated: true)
     }
@@ -158,4 +131,6 @@ extension LearningEnglishViewController: LearningEnglishViewControllerProtocol {
         let resultViewController = ViewControllerFactory.resultViewController()
         navigationController?.pushViewController(resultViewController, animated: true)
     }
+    
+
 }

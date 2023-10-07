@@ -17,10 +17,8 @@ struct ViewControllerFactory {
     }
     
     static func learningEnglishViewController(_ wordDataArray: [WordData], _ fakeImageArray: [String]) -> UIViewController {
-        let presenter = LearningEnglishPresenter()
-        let vc = LearningEnglishViewController(presenter,
-                                               wordDataArray,
-                                               fakeImageArray)
+        let presenter = LearningEnglishPresenter(wordDataArray, fakeImageArray)
+        let vc = LearningEnglishViewController(presenter)
         return vc
     }
     

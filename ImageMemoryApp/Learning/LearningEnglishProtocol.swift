@@ -9,20 +9,16 @@ import Foundation
 
 protocol LearningEnglishProtocol: AnyObject {
     func attachView(_ view: LearningEnglishViewControllerProtocol)
-    func firstLoaded()
     func textReading(_ text: String)
-    func confirmCorrection(_ correction: Bool)
-    func updateCurrentWordData(_ wordData: WordData, _ correction: Bool)
-    func checkNextNumber(_ wordDataCount: Int, _ currentCount: Int)
+    func confirmCorrection(_ selectedLeft: Bool)
+    func checkNextNumber()
 }
 
 protocol LearningEnglishViewControllerProtocol: AnyObject {
-    func increaceCurrentNumber()
-    func fadeOutAndChangeInfo(completion: (() -> Void)?)
+    func fadeOutAndChangeInfo(_ randomValue: Bool, _ wordData: WordData, _ fakeImage: String, _ currentNumber: Int, completion: (() -> Void)?)
     func fadeInInfo()
     func textReading(_ text: String)
-    func navigationToDetailWordScreen()
+    func navigationToDetailWordScreen(_ wordData: WordData)
     func navigationToResultScreen()
-    func getCurrentWordData(_ correction: Bool)
     func finishedCurrentWordDataProcess()
 }
