@@ -12,6 +12,7 @@ class LearningEnglishPresenter {
     private let wordDataArray: [WordData]
     private let fakeImageArray: [String]
     private var currentNumber: Int = 0
+    private var newWordDataArray: [WordData] = []
     
     private var isviewFirstLoaded = true
     // 正解画像位置を格納(randoValueがtrueならLeftが正解, falseならRightが正解)
@@ -38,10 +39,10 @@ extension LearningEnglishPresenter: LearningEnglishProtocol {
     /// - Parameter correction: 選んだ画像の位置(true: 左画像, false: 右画像)
     func confirmCorrection(_ selectedLeft: Bool) {
         if self.correctImageLocation == selectedLeft {
-            //TODO: ここで単語を更新
+            _ = self.updateWordData(.correct)
             self.view?.finishedCurrentWordDataProcess()
         } else {
-            // TODO: ここで単語更新
+            _ = self.updateWordData(.incorrect)
             // 解説表示
             self.view?.navigationToDetailWordScreen(self.wordDataArray[self.currentNumber])
         }
@@ -68,6 +69,41 @@ extension LearningEnglishPresenter: LearningEnglishProtocol {
         } else {
             // 次の問題がない場合、結果画面へ遷移
             self.view?.navigationToResultScreen()
+        }
+    }
+    
+    /// 学習単語の更新配列を作成
+    /// - Parameter userSelectionFlg: ユーザー選択の正誤
+    /// - Returns: true: 作成成功, false: 作成失敗
+    private func updateWordData(_ userSelectionFlg: UserSelectionFlg) -> Bool {
+        var newWordData = self.wordDataArray[self.currentNumber]
+        newWordData.updateValues(valueName: .proficiency, newValue: "1")
+        guard let priorityNumber = Int(newWordData.priorityNumber) else {
+            print("予期せぬエラー: 変換に失敗したから、追加しません")
+            return false
+        }
+        switch userSelectionFlg {
+        case .correct:
+            if priorityNumber < 10 {
+                newWordData.updateValues(valueName: .priorityNumber, newValue: String(priorityNumber + 1))
+                newWordData.updateValues(valueName: .proficiency, newValue: "1")
+            } else {
+                newWordData.updateValues(valueName: .proficiency, newValue: "2")
+            }
+            self.newWordDataArray.append(newWordData)
+            return true
+            
+        case .incorrect, .unknown:
+            if priorityNumber > 0 {
+                newWordData.updateValues(valueName: .priorityNumber, newValue: String(priorityNumber - 1))
+            }
+            self.newWordDataArray.append(newWordData)
+            return true
+            
+        case .know:
+            newWordData.updateValues(valueName: .proficiency, newValue: "2")
+            self.newWordDataArray.append(newWordData)
+            return true
         }
     }
 }

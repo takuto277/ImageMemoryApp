@@ -20,3 +20,22 @@ enum DetailWordCalledFlg: Int {
     case EditDetailWord
     case LearningEnglish
 }
+
+enum WordDataEnum {
+    case englishWordName
+    case japanWordName
+    case englishSentence
+    case japanSentence
+    case proficiency
+    case priorityNumber
+    case number
+    case deleteFlg
+    case imageURL
+}
+
+enum UserSelectionFlg {
+    case correct
+    case incorrect
+    case know
+    case unknown
+}
