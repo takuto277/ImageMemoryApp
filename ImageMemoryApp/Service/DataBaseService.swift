@@ -259,6 +259,42 @@ final class DataBaseService {
         return wordDataArray
     }
     
+    func updateLearningWordData(_ wordDataArray: [WordData]) throws -> Bool {
+        guard let database = self.database else {
+            throw myError.case1
+        }
+        var priorityNumberCase = ""
+        var proficiencyCase = ""
+        var numberCase = ""
+        wordDataArray.forEach { wordData in
+            let priorityNumber = "WHEN number = \(wordData.number) THEN '\(wordData.priorityNumber)'"
+            let proficiency = "WHEN number = \(wordData.number) THEN '\(wordData.proficiency)'"
+            
+            priorityNumberCase += " " + priorityNumber
+            proficiencyCase += " " + proficiency
+            numberCase += numberCase == "" ? String(wordData.number) : ", " + String(wordData.number)
+        }
+        
+        let query = """
+            UPDATE wordData
+            SET
+            priorityNumber = CASE
+                : priorityNumberCase
+            END,
+            proficiency = CASE
+                : proficiencyCase
+            END
+            WHERE
+            number IN (: numberCase);
+            """
+        
+        let param = ["priorityNumberCase": priorityNumberCase,
+                     "proficiencyCase": proficiencyCase,
+                     "number": numberCase]
+        
+        return database.executeUpdate(query, withParameterDictionary: param) 
+    }
+    
     func getWordDataCount() -> Int {
         var count = 0
         let querySQL = "SELECT COUNT (*) as count FROM wordData"

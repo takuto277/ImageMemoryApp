@@ -9,6 +9,7 @@ import Foundation
 
 class LearningEnglishPresenter {
     var view: LearningEnglishViewControllerProtocol?
+    private let dataBaseRepository: DataBaseRepositoryProtocol
     private let wordDataArray: [WordData]
     private let fakeImageArray: [String]
     private var currentNumber: Int = 0
@@ -18,7 +19,8 @@ class LearningEnglishPresenter {
     // 正解画像位置を格納(randoValueがtrueならLeftが正解, falseならRightが正解)
     private var correctImageLocation: Bool = true
     
-    init(_ wordDataArray: [WordData], _ fakeImageArray: [String]) {
+    init(_ dataBaseRepository: DataBaseRepositoryProtocol, _ wordDataArray: [WordData], _ fakeImageArray: [String]) {
+        self.dataBaseRepository = dataBaseRepository
         self.wordDataArray = wordDataArray
         self.fakeImageArray = fakeImageArray
     }
@@ -79,6 +81,11 @@ extension LearningEnglishPresenter: LearningEnglishProtocol {
                 self?.view?.fadeInInfo()
             })
         } else {
+            do {
+                _ = try self.dataBaseRepository.updateLearningWordData(self.newWordDataArray)
+            } catch {
+                print("保存で失敗")
+            }
             // 次の問題がない場合、結果画面へ遷移
             self.view?.navigationToResultScreen()
         }

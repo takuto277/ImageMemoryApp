@@ -32,6 +32,14 @@ extension DataBaseRepository: DataBaseRepositoryProtocol {
         }
     }
     
+    func updateLearningWordData(_ wordDataArray: [WordData]) throws -> Bool {
+        do {
+            return try dataBaseService.updateLearningWordData(wordDataArray)
+        } catch {
+            throw myError.case1
+        }
+    }
+    
     func insertWordData(wordData: WordData) -> Bool {
         return dataBaseService.insertWordData(wordData: wordData)
     }
