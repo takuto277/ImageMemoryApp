@@ -11,7 +11,10 @@ protocol LearningEnglishProtocol: AnyObject {
     func attachView(_ view: LearningEnglishViewControllerProtocol)
     func textReading(_ text: String)
     func confirmCorrection(_ selectedLeft: Bool)
+    func selectedKnowButton()
+    func selectedUnknownButton()
     func checkNextNumber()
+    
 }
 
 protocol LearningEnglishViewControllerProtocol: AnyObject {

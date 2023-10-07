@@ -48,6 +48,18 @@ extension LearningEnglishPresenter: LearningEnglishProtocol {
         }
     }
     
+    /// 理解済みボタン押下の処理
+    func selectedKnowButton() {
+        _ = self.updateWordData(.know)
+        self.view?.finishedCurrentWordDataProcess()
+    }
+    
+    /// 理解していないボタン押下の処理
+    func selectedUnknownButton() {
+        _ = self.updateWordData(.unknown)
+        self.view?.navigationToDetailWordScreen(self.wordDataArray[self.currentNumber])
+    }
+    
     /// 次の英単語有無確認
     /// - Parameters:
     ///   - wordDataCount: 英単語

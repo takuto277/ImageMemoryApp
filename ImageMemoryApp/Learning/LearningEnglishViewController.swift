@@ -40,11 +40,11 @@ class LearningEnglishViewController: UIViewController {
     }
     
     @IBAction func knowButtonPushed(_ sender: Any) {
-        // TODO: 更新処理する
+        self.presenter.selectedKnowButton()
     }
     
     @IBAction func unknownButtonPushed(_ sender: Any) {
-        // TODO: navigationに遷移させる
+        self.presenter.selectedUnknownButton()
     }
     
     @IBAction func repeatButtonPushed(_ sender: Any) {
