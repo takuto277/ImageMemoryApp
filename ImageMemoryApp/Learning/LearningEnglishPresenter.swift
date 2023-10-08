@@ -98,7 +98,7 @@ extension LearningEnglishPresenter: LearningEnglishProtocol {
         var newWordData = self.wordDataArray[self.currentNumber]
         newWordData.updateValues(valueName: .proficiency, newValue: "1")
         guard let priorityNumber = Int(newWordData.priorityNumber) else {
-            print("予期せぬエラー: 変換に失敗したから、追加しません")
+            print("🚨予期せぬエラー: 変換に失敗したから、追加しません")
             return false
         }
         switch userSelectionFlg {

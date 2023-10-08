@@ -267,6 +267,7 @@ final class DataBaseService {
         var proficiencyCase = ""
         var numberCase = ""
         wordDataArray.forEach { wordData in
+       //     let priorityNumber = "WHEN number = " + "\(wordData.number)" + "THEN" + "'" + wordData.priorityNumber + "'"
             let priorityNumber = "WHEN number = \(wordData.number) THEN '\(wordData.priorityNumber)'"
             let proficiency = "WHEN number = \(wordData.number) THEN '\(wordData.proficiency)'"
             
@@ -274,25 +275,24 @@ final class DataBaseService {
             proficiencyCase += " " + proficiency
             numberCase += numberCase == "" ? String(wordData.number) : ", " + String(wordData.number)
         }
+        print("🧩\(priorityNumberCase)")
+        print("🧩\(proficiencyCase)")
+        print("🧩\(numberCase)")
         
         let query = """
             UPDATE wordData
             SET
             priorityNumber = CASE
-                : priorityNumberCase
+            \(priorityNumberCase)
             END,
             proficiency = CASE
-                : proficiencyCase
+            \(proficiencyCase)
             END
             WHERE
-            number IN (: numberCase);
+            number IN (\(numberCase));
             """
         
-        let param = ["priorityNumberCase": priorityNumberCase,
-                     "proficiencyCase": proficiencyCase,
-                     "number": numberCase]
-        
-        return database.executeUpdate(query, withParameterDictionary: param) 
+        return database.executeUpdate(query, withArgumentsIn: [])
     }
     
     func getWordDataCount() -> Int {
