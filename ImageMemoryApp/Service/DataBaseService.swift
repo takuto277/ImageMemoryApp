@@ -267,12 +267,8 @@ final class DataBaseService {
         var proficiencyCase = ""
         var numberCase = ""
         wordDataArray.forEach { wordData in
-       //     let priorityNumber = "WHEN number = " + "\(wordData.number)" + "THEN" + "'" + wordData.priorityNumber + "'"
-            let priorityNumber = "WHEN number = \(wordData.number) THEN '\(wordData.priorityNumber)'"
-            let proficiency = "WHEN number = \(wordData.number) THEN '\(wordData.proficiency)'"
-            
-            priorityNumberCase += " " + priorityNumber
-            proficiencyCase += " " + proficiency
+            priorityNumberCase += " WHEN number = \(wordData.number) THEN '\(wordData.priorityNumber)'"
+            proficiencyCase += " WHEN number = \(wordData.number) THEN '\(wordData.proficiency)'"
             numberCase += numberCase == "" ? String(wordData.number) : ", " + String(wordData.number)
         }
         
