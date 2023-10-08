@@ -275,9 +275,6 @@ final class DataBaseService {
             proficiencyCase += " " + proficiency
             numberCase += numberCase == "" ? String(wordData.number) : ", " + String(wordData.number)
         }
-        print("🧩\(priorityNumberCase)")
-        print("🧩\(proficiencyCase)")
-        print("🧩\(numberCase)")
         
         let query = """
             UPDATE wordData
