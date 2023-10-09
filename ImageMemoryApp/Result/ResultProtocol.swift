@@ -9,8 +9,10 @@ import Foundation
 
 protocol ResultProtocol: AnyObject {
     func attach(_ view: ResultViewControllerProtocol)
+    func getScore()
+    func getLearningHistory()
 }
 
 protocol ResultViewControllerProtocol: AnyObject {
-    
+    func setScoreData()
 }

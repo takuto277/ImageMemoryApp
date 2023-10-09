@@ -20,6 +20,11 @@ class ResultViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var totalScore: UILabel!
+    @IBOutlet weak var calendar: FSCalendar!
+    
     @IBAction func finishButtonPushed(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
     }

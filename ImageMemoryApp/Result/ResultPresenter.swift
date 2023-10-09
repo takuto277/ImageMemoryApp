@@ -12,6 +12,14 @@ class ResultPresenter {
 }
 
 extension ResultPresenter: ResultProtocol {
+    func getScore() {
+        
+    }
+    
+    func getLearningHistory() {
+        
+    }
+    
     func attach(_ view: ResultViewControllerProtocol) {
         self.view = view
     }
