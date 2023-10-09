@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FSCalendar
 
 class ResultViewController: UIViewController {
     private let presenter: ResultPresenter
@@ -25,8 +26,32 @@ class ResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        calendar.delegate = self
+        calendar.dataSource = self
         navigationItem.hidesBackButton = true
+    }
+}
+
+extension ResultViewController: ResultViewControllerProtocol {
+    func setScoreData() {
+        
     }
     
     
+}
+
+extension ResultViewController: FSCalendarDelegate, FSCalendarDataSource {
+    
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        let df = DateFormatter()
+        var eventArray = ["2023/10/04","2023/10/12","2023/10/18"]
+        let today = Date()
+        
+        df.dateFormat = "yyyy/MM/dd"
+        eventArray.append(df.string(from: today))
+        if eventArray.first(where: { $0 == df.string(from: date) }) != nil {
+                return 1
+        }
+        return 0
+    }
 }

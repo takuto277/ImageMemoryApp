@@ -51,6 +51,7 @@
 		99ACF24F2ACF13CB00A87782 /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99ACF24D2ACF13CB00A87782 /* ResultViewController.xib */; };
 		99ACF2512ACF146F00A87782 /* ResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ACF2502ACF146F00A87782 /* ResultPresenter.swift */; };
 		99ACF2532ACF148200A87782 /* ResultProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ACF2522ACF148200A87782 /* ResultProtocol.swift */; };
+		99ACF2592AD4418F00A87782 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 99ACF2582AD4418F00A87782 /* FSCalendar */; };
 		99BA75892AAC886B000AB1A7 /* EditDetailWordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BA75882AAC886B000AB1A7 /* EditDetailWordPresenter.swift */; };
 		99BA758B2AAC887A000AB1A7 /* EditDetailWordProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BA758A2AAC887A000AB1A7 /* EditDetailWordProtocol.swift */; };
 		99BA758E2AAE06FB000AB1A7 /* SelectImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BA758D2AAE06FB000AB1A7 /* SelectImage.swift */; };
@@ -162,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99E3CE732A812FDE00F1E2B7 /* FMDB in Frameworks */,
+				99ACF2592AD4418F00A87782 /* FSCalendar in Frameworks */,
 				99D7271E2A5334A400AAB311 /* SDWebImage in Frameworks */,
 				993F7CA52A22356A00FE8045 /* TOCropViewController in Frameworks */,
 				99D727202A5334A400AAB311 /* SDWebImageMapKit in Frameworks */,
@@ -453,6 +455,7 @@
 				99D7271D2A5334A400AAB311 /* SDWebImage */,
 				99D7271F2A5334A400AAB311 /* SDWebImageMapKit */,
 				99E3CE722A812FDE00F1E2B7 /* FMDB */,
+				99ACF2582AD4418F00A87782 /* FSCalendar */,
 			);
 			productName = ImageMemoryApp;
 			productReference = 993F7C552A2208A500FE8045 /* ImageMemoryApp.app */;
@@ -530,6 +533,7 @@
 				993F7CA12A22356A00FE8045 /* XCRemoteSwiftPackageReference "TOCropViewController" */,
 				99D7271C2A5334A400AAB311 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				99E3CE712A812FDE00F1E2B7 /* XCRemoteSwiftPackageReference "fmdb" */,
+				99ACF2572AD4418F00A87782 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 			);
 			productRefGroup = 993F7C562A2208A500FE8045 /* Products */;
 			projectDirPath = "";
@@ -972,6 +976,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		99ACF2572AD4418F00A87782 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		99D7271C2A5334A400AAB311 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
@@ -1000,6 +1012,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 993F7CA12A22356A00FE8045 /* XCRemoteSwiftPackageReference "TOCropViewController" */;
 			productName = TOCropViewController;
+		};
+		99ACF2582AD4418F00A87782 /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99ACF2572AD4418F00A87782 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
 		};
 		99D7271D2A5334A400AAB311 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
