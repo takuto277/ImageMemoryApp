@@ -190,7 +190,6 @@ extension EditDetailWordViewController: EditDetailWordViewControllerProtocol {
         if let navigationController = self.navigationController {
             navigationController.popToRootViewController(animated: true)
             self.delegate?.didDismissViewController(self)
-            self.dismiss(animated: true)
         }
     }
 }
