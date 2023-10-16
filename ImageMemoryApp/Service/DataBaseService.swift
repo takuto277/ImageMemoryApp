@@ -58,7 +58,7 @@ struct WordData {
             self.deleteFlg = newValue
         case .imageURL:
             self.imageURL = newValue
-
+            
         }
     }
 }
@@ -72,7 +72,7 @@ final class DataBaseService {
         // データベースファイルのパスを取得
         let databasePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!.appending("/mydatabase.db")
         print(databasePath)
-
+        
         // FMDatabaseオブジェクトを作成
         database = FMDatabase(path: databasePath)
         
@@ -205,14 +205,14 @@ final class DataBaseService {
                 }
                 let number = Int(resultSet.int(forColumn: "number"))
                 let wordData = WordData(englishWordName: englishWordName,
-                                    japanWordName: japanWordName,
-                                    englishSentence: englishSentence,
-                                    japanSentence: japanSentence,
-                                    proficiency: proficiency,
-                                    priorityNumber: priorityNumber,
-                                    number: number,
-                                    deleteFlg: deleteFlg,
-                                    imageURL: imageURL)
+                                        japanWordName: japanWordName,
+                                        englishSentence: englishSentence,
+                                        japanSentence: japanSentence,
+                                        proficiency: proficiency,
+                                        priorityNumber: priorityNumber,
+                                        number: number,
+                                        deleteFlg: deleteFlg,
+                                        imageURL: imageURL)
                 wordDataArray.append(wordData)
                 
             }
@@ -244,14 +244,14 @@ final class DataBaseService {
                 }
                 let number = Int(resultSet.int(forColumn: "number"))
                 let wordData = WordData(englishWordName: englishWordName,
-                                    japanWordName: japanWordName,
-                                    englishSentence: englishSentence,
-                                    japanSentence: japanSentence,
-                                    proficiency: proficiency,
-                                    priorityNumber: priorityNumber,
-                                    number: number,
-                                    deleteFlg: deleteFlg,
-                                    imageURL: imageURL)
+                                        japanWordName: japanWordName,
+                                        englishSentence: englishSentence,
+                                        japanSentence: japanSentence,
+                                        proficiency: proficiency,
+                                        priorityNumber: priorityNumber,
+                                        number: number,
+                                        deleteFlg: deleteFlg,
+                                        imageURL: imageURL)
                 wordDataArray.append(wordData)
                 
             }
@@ -309,7 +309,7 @@ final class DataBaseService {
         }
     }
 }
-    
+
 //    private let dbFile = "DBVer1.sqlite"
 //    private var db: OpaquePointer?
 //

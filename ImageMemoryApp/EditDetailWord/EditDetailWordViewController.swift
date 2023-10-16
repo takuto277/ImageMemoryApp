@@ -25,7 +25,7 @@ class EditDetailWordViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-// MARK: - IBOutlet
+    // MARK: - IBOutlet
     @IBOutlet weak var englishWordTextView: UITextView?
     @IBOutlet weak var japanWordTextView: UITextView? {
         willSet {
@@ -57,7 +57,7 @@ class EditDetailWordViewController: UIViewController {
         }
     }
     
-//MARK: - Life cycle
+    //MARK: - Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +67,7 @@ class EditDetailWordViewController: UIViewController {
         self.setInitalWordData()
     }
     
-//MARK: - @IBAction
+    //MARK: - @IBAction
     @IBAction func decisionButton(_ sender: Any) {
         guard let image = self.imageView?.image,
               let imageURL = Converter().encodeImageToBase64(image) else {
@@ -113,7 +113,7 @@ class EditDetailWordViewController: UIViewController {
                                               imageURL: imageURL))
     }
     
-// MARK: - Private method
+    // MARK: - Private method
     private func setImageSetting() {
         // 画像のアスペクト比を計算します
         guard let image = image else { return }
@@ -154,10 +154,10 @@ extension EditDetailWordViewController: UITextViewDelegate {
         if textView.tag == EditDetailWordTextViewTag.japanWord.rawValue && textView.text == "英単語の日本語訳を入力" && textView.textColor == UIColor.gray {
             textView.text = ""
             textView.textColor = UIColor.white
-    } else if textView.tag == EditDetailWordTextViewTag.englishSentence.rawValue && textView.text == "英文を入力してください。" && textView.textColor == UIColor.gray {
+        } else if textView.tag == EditDetailWordTextViewTag.englishSentence.rawValue && textView.text == "英文を入力してください。" && textView.textColor == UIColor.gray {
             textView.text = ""
             textView.textColor = UIColor.white
-    } else if textView.tag == EditDetailWordTextViewTag.japanSentence.rawValue && textView.text == "英文の日本語訳を入力してください。" && textView.textColor == UIColor.gray {
+        } else if textView.tag == EditDetailWordTextViewTag.japanSentence.rawValue && textView.text == "英文の日本語訳を入力してください。" && textView.textColor == UIColor.gray {
             textView.text = ""
             textView.textColor = UIColor.white
         }

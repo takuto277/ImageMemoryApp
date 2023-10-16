@@ -14,7 +14,6 @@ protocol LearningEnglishProtocol: AnyObject {
     func selectedKnowButton()
     func selectedUnknownButton()
     func checkNextNumber()
-    
 }
 
 protocol LearningEnglishViewControllerProtocol: AnyObject {

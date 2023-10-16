@@ -74,5 +74,4 @@ class DetailWordViewController: UIViewController {
 }
 
 extension DetailWordViewController: DetailWordViewControllerProtocol {
-    
 }

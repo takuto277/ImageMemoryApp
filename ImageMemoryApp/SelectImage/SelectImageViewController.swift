@@ -23,12 +23,12 @@ final class SelectImageViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-// MARK: - IBOutlet
+    // MARK: - IBOutlet
     
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
     
-// MARK: - IBAction
+    // MARK: - IBAction
     
     @IBAction func pushSearchButton(_ sender: Any) {
         self.imageArray.removeAll()
@@ -47,16 +47,15 @@ final class SelectImageViewController: UIViewController {
                 self.hits.forEach({ hit in
                     self.imageArray.append(hit.webformatURL)
                 })
-
+                
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
-
             }
         }
     }
     
-// MARK: - Life cycle
+    // MARK: - Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +66,7 @@ final class SelectImageViewController: UIViewController {
         self.presenter.attachView(self)
     }
     
-// MARK: - Private method
+    // MARK: - Private method
     
     private func displayPopupView() {
         if (view.subviews.first(where: { $0.tag == 999 }) == nil) {
@@ -127,7 +126,7 @@ extension SelectImageViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectImageCollectionViewCell", for: indexPath) as! SelectImageCollectionViewCell
         cell.imageView.sd_setImage(with: URL(string:self.imageArray[indexPath.row]),
-                       completed: { (image, error,cacheType, url) in
+                                   completed: { (image, error,cacheType, url) in
             guard let image = image else { return }
             TrimmingImageViewController(owner: self).open(image: image)
         })
@@ -146,7 +145,7 @@ extension SelectImageViewController: UICollectionViewDataSource, UICollectionVie
     }
 }
 
- // MARK: - Protocol
+// MARK: - Protocol
 
 extension SelectImageViewController: SelectImageViewControllerProtocol {
     

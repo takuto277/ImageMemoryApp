@@ -41,7 +41,7 @@ extension TrimmingImageViewController: CropViewControllerDelegate {
     }
     
     func cropViewController(_ cropViewController: CropViewController, didFinishCancelled cancelled: Bool) {
-       owner?.dismiss(animated: true)
+        owner?.dismiss(animated: true)
         owner?.navigationController?.popToRootViewController(animated: true)
     }
 }

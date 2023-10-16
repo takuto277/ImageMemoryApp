@@ -10,7 +10,6 @@ import AVFoundation
 
 class LearningEnglishViewController: UIViewController {
     private let presenter: LearningEnglishProtocol
-
     
     init(_ presenter: LearningEnglishProtocol) {
         self.presenter = presenter
@@ -65,7 +64,7 @@ class LearningEnglishViewController: UIViewController {
     }
 }
 
-    //MARK: - Protocol
+//MARK: - Protocol
 
 extension LearningEnglishViewController: LearningEnglishViewControllerProtocol {
     /// 現在の英単語日表示/更新
@@ -93,7 +92,6 @@ extension LearningEnglishViewController: LearningEnglishViewControllerProtocol {
             }
         }
     }
-    
     
     /// 次の英単語表示
     func fadeInInfo() {
@@ -130,6 +128,4 @@ extension LearningEnglishViewController: LearningEnglishViewControllerProtocol {
         let resultViewController = ViewControllerFactory.resultViewController()
         navigationController?.pushViewController(resultViewController, animated: true)
     }
-    
-
 }

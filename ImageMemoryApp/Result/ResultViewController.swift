@@ -55,7 +55,7 @@ extension ResultViewController: FSCalendarDelegate, FSCalendarDataSource {
         df.dateFormat = "yyyy/MM/dd"
         eventArray.append(df.string(from: today))
         if eventArray.first(where: { $0 == df.string(from: date) }) != nil {
-                return 1
+            return 1
         }
         return 0
     }

@@ -8,7 +8,7 @@
 import UIKit
 
 class CatalogViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     var presenter: CatalogProtocol?

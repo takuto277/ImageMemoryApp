@@ -8,7 +8,6 @@
 import UIKit
 
 class SelectImageCollectionViewCell: UICollectionViewCell {
-
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -16,5 +15,4 @@ class SelectImageCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
 }

@@ -9,10 +9,8 @@ import UIKit
 
 struct ViewControllerFactory {
     static func homeViewController() -> UIViewController {
-      //  let presenter = SelectImagePresenter()
         let presenter = HomePresenter(dataBaseRepository: DataBaseRepository())
         let vc = HomeViewController(presenter: presenter)
-  //      vc.modalPresentationStyle = .fullScreen
         return vc
     }
     
@@ -36,14 +34,12 @@ struct ViewControllerFactory {
     static func createImageViewController() -> UIViewController {
         let presenter = CreateImagePresenter()
         let vc = CreateImageViewController(presenter: presenter)
-  //      vc.modalPresentationStyle = .fullScreen
         return vc
     }
     
     static func selectImageViewController() -> UIViewController {
         let presenter = SelectImagePresenter()
         let vc = SelectImageViewController(presenter: presenter)
-  //      vc.modalPresentationStyle = .fullScreen
         return vc
     }
     
