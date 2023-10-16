@@ -52,6 +52,8 @@
 		99ACF2512ACF146F00A87782 /* ResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ACF2502ACF146F00A87782 /* ResultPresenter.swift */; };
 		99ACF2532ACF148200A87782 /* ResultProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ACF2522ACF148200A87782 /* ResultProtocol.swift */; };
 		99ACF2592AD4418F00A87782 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 99ACF2582AD4418F00A87782 /* FSCalendar */; };
+		99ACF25C2ADD7E6A00A87782 /* LoadEnv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ACF25B2ADD7E6A00A87782 /* LoadEnv.swift */; };
+		99ACF25F2ADD7F4F00A87782 /* .env in Resources */ = {isa = PBXBuildFile; fileRef = 99ACF25E2ADD7F4F00A87782 /* .env */; };
 		99BA75892AAC886B000AB1A7 /* EditDetailWordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BA75882AAC886B000AB1A7 /* EditDetailWordPresenter.swift */; };
 		99BA758B2AAC887A000AB1A7 /* EditDetailWordProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BA758A2AAC887A000AB1A7 /* EditDetailWordProtocol.swift */; };
 		99BA758E2AAE06FB000AB1A7 /* SelectImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BA758D2AAE06FB000AB1A7 /* SelectImage.swift */; };
@@ -138,6 +140,8 @@
 		99ACF24D2ACF13CB00A87782 /* ResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
 		99ACF2502ACF146F00A87782 /* ResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPresenter.swift; sourceTree = "<group>"; };
 		99ACF2522ACF148200A87782 /* ResultProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultProtocol.swift; sourceTree = "<group>"; };
+		99ACF25B2ADD7E6A00A87782 /* LoadEnv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadEnv.swift; sourceTree = "<group>"; };
+		99ACF25E2ADD7F4F00A87782 /* .env */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env; sourceTree = "<group>"; };
 		99BA75882AAC886B000AB1A7 /* EditDetailWordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDetailWordPresenter.swift; sourceTree = "<group>"; };
 		99BA758A2AAC887A000AB1A7 /* EditDetailWordProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDetailWordProtocol.swift; sourceTree = "<group>"; };
 		99BA758D2AAE06FB000AB1A7 /* SelectImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImage.swift; sourceTree = "<group>"; };
@@ -239,6 +243,7 @@
 		993F7C572A2208A500FE8045 /* ImageMemoryApp */ = {
 			isa = PBXGroup;
 			children = (
+				99ACF25A2ADD7E4D00A87782 /* Env */,
 				99ACF24B2ACF139300A87782 /* Result */,
 				992598292AC927040074FCE0 /* Learning */,
 				99BA75912AAE0C3B000AB1A7 /* DetailWord */,
@@ -364,6 +369,15 @@
 				99ACF2522ACF148200A87782 /* ResultProtocol.swift */,
 			);
 			path = Result;
+			sourceTree = "<group>";
+		};
+		99ACF25A2ADD7E4D00A87782 /* Env */ = {
+			isa = PBXGroup;
+			children = (
+				99ACF25B2ADD7E6A00A87782 /* LoadEnv.swift */,
+				99ACF25E2ADD7F4F00A87782 /* .env */,
+			);
+			path = Env;
 			sourceTree = "<group>";
 		};
 		99BA758C2AAE06D0000AB1A7 /* Struct */ = {
@@ -560,6 +574,7 @@
 				99D7272E2A72DDD400AAB311 /* CatalogViewController.xib in Resources */,
 				993F7CA02A22172600FE8045 /* SelectImageCollectionViewCell.xib in Resources */,
 				99ACF24F2ACF13CB00A87782 /* ResultViewController.xib in Resources */,
+				99ACF25F2ADD7F4F00A87782 /* .env in Resources */,
 				99D7272A2A72DDB400AAB311 /* HomeViewController.xib in Resources */,
 				99BA75952AAE0C60000AB1A7 /* DetailWordViewController.xib in Resources */,
 				993F7C602A2208A500FE8045 /* Main.storyboard in Resources */,
@@ -613,6 +628,7 @@
 				99BA75942AAE0C60000AB1A7 /* DetailWordViewController.swift in Sources */,
 				993F7CB02A28E69800FE8045 /* CreateImagePresenter.swift in Sources */,
 				993F7C592A2208A500FE8045 /* AppDelegate.swift in Sources */,
+				99ACF25C2ADD7E6A00A87782 /* LoadEnv.swift in Sources */,
 				99D727392A7F91A200AAB311 /* Converter.swift in Sources */,
 				992598352AC9DA320074FCE0 /* HomeProtocol.swift in Sources */,
 				99BA75892AAC886B000AB1A7 /* EditDetailWordPresenter.swift in Sources */,

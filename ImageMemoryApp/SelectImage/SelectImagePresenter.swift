@@ -17,8 +17,10 @@ extension SelectImagePresenter: SelectImageProtocol {
     }
     
     func getImages(with keyword:String,completion:@escaping ([Hits]?) -> ()){
+        let env = try? LoadEnv()
+        guard let apiKey = env?.value("PIXABAY_API_KEY") else { return }
         
-        let urlString = "https://pixabay.com/api/?key=\(AccessTokens.share.pixabayAPIKey)&q=\(keyword)"
+        let urlString = "https://pixabay.com/api/?key=\(apiKey)&q=\(keyword)"
         
         //①URL型に変換
         if let url = URL(string: urlString) {
