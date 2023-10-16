@@ -12,11 +12,11 @@ class DataBaseRepository {
 }
 
 extension DataBaseRepository: DataBaseRepositoryProtocol {
-    func getAllWordData() throws -> [WordData] {
+    func getAllWordData() -> [WordData] {
         do {
             return try dataBaseService.getAllWordData()
         } catch {
-            throw myError.case1
+            return []
         }
     }
     
@@ -24,19 +24,19 @@ extension DataBaseRepository: DataBaseRepositoryProtocol {
         return dataBaseService.getWordDataCount()
     }
     
-    func getLearningWordData() throws -> [WordData] {
+    func getLearningWordData() -> [WordData] {
         do {
             return try dataBaseService.getLearningWordData()
         } catch {
-            throw myError.case1
+            return []
         }
     }
     
-    func updateLearningWordData(_ wordDataArray: [WordData]) throws -> Bool {
+    func updateLearningWordData(_ wordDataArray: [WordData]) -> Bool {
         do {
             return try dataBaseService.updateLearningWordData(wordDataArray)
         } catch {
-            throw myError.case1
+            return false
         }
     }
     
