@@ -23,7 +23,7 @@ class CreateImageViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-// MARK: - IBOutlet
+    // MARK: - IBOutlet
     
     @IBOutlet weak var wordTextField: UITextField!
     @IBOutlet weak var editScreenFrame: UIImageView!
@@ -34,7 +34,7 @@ class CreateImageViewController: UIViewController {
         }
     }
     
- // MARK: - IBAction
+    // MARK: - IBAction
     
     @IBAction func pushAddImageButton(_ sender: Any) {
         let selectImageViewController = ViewControllerFactory.selectImageViewController()
@@ -78,7 +78,7 @@ class CreateImageViewController: UIViewController {
         navigationController?.pushViewController(editDetailWordViewController, animated: true)
     }
     
-// MARK: - Life cycle
+    // MARK: - Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,7 +92,7 @@ class CreateImageViewController: UIViewController {
     }
 }
 
- // MARK: - Protocol
+// MARK: - Protocol
 
 extension CreateImageViewController: CreateImageViewProtocol {
     func setImageOnEditScreenView(images: [SampleView]) {
