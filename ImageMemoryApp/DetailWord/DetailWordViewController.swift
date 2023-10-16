@@ -9,13 +9,9 @@ import UIKit
 
 class DetailWordViewController: UIViewController {
     private let presenter: DetailWordProtocol
-    private let wordData: WordData
-    private let calledFlg: DetailWordCalledFlg
     
-    init(presenter: DetailWordProtocol, wordData: WordData, calledFlg: DetailWordCalledFlg) {
+    init(presenter: DetailWordProtocol) {
         self.presenter = presenter
-        self.wordData = wordData
-        self.calledFlg = calledFlg
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -35,15 +31,11 @@ class DetailWordViewController: UIViewController {
     // MARK: - IBAction
     
     @IBAction func decideButtonPushed(_ sender: Any) {
-        if self.calledFlg == .LearningEnglish {
-            self.dismiss(animated: true)
-        } else {
-            self.navigationController?.popViewController(animated: true)
-        }
+        self.presenter.decideButtonPushed()
     }
     
     @IBAction func editButtonPushed(_ sender: Any) {
-        let editDetailWordViewController = ViewControllerFactory.editdetailWordViewController(wordData, nil, nil)
+        self.presenter.editButtonPushed()
     }
     
     //MARK: - Life cycle
@@ -51,27 +43,34 @@ class DetailWordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter.attachView(self)
-        self.attachData()
+        self.presenter.getWordData()
     }
     
     // MARK: - Private method
     
-    func attachData() {
+    func attachData(_ wordData: WordData, editButtonHidden: Bool) {
         self.englishWord.text = wordData.englishWordName
         self.japaneseWord.text = wordData.japanWordName
         self.englishSentence.text = wordData.englishSentence
         self.japaneseSentence.text = wordData.japanSentence
         self.wordImage.image = Converter().decodeBase64ToImage(wordData.imageURL)
-        
         self.decideButton.setTitle("閉じる", for: .normal)
-        // 呼ばれた画面次第で、表示する情報を変更する
-        if self.calledFlg == .Catalog {
-            self.editButton.setTitle("編集", for: .normal)
-        } else {
-            self.editButton.isHidden = true
-        }
+        self.editButton.setTitle("編集", for: .normal)
+        
+        self.editButton.isHidden = editButtonHidden
     }
 }
 
 extension DetailWordViewController: DetailWordViewControllerProtocol {
+    func navigationWithDismiss() {
+        self.dismiss(animated: true)
+    }
+    
+    func navigationWithPopView() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func navigationForEditDetailWordVC(wordData: WordData) {
+        let editDetailWordViewController = ViewControllerFactory.editdetailWordViewController(wordData, nil, nil)
+    }
 }

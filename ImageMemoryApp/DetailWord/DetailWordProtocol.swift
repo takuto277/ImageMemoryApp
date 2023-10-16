@@ -9,8 +9,14 @@ import Foundation
 
 protocol DetailWordProtocol: AnyObject {
     func attachView(_ view: DetailWordViewControllerProtocol)
+    func getWordData()
+    func decideButtonPushed()
+    func editButtonPushed()
 }
 
 protocol DetailWordViewControllerProtocol: AnyObject {
-
+    func attachData(_ wordData: WordData, editButtonHidden: Bool)
+    func navigationWithDismiss()
+    func navigationWithPopView()
+    func navigationForEditDetailWordVC(wordData: WordData)
 }
