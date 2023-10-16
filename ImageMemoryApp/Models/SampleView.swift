@@ -30,19 +30,19 @@ class SampleView: UIImageView{
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func panObject(_ sender: UIPanGestureRecognizer) {
+    @objc private func panObject(_ sender: UIPanGestureRecognizer) {
         if sender.state == .began {
             ownTransform = self.transform
         }
         self.transform = ownTransform.translatedBy(x: sender.translation(in: self).x, y: sender.translation(in: self).y)
     }
     
-    @objc func tapObject(_ sender: UITapGestureRecognizer) {
+    @objc private func tapObject(_ sender: UITapGestureRecognizer) {
         // 触れたViewを最上面に持ってくる
         sender.view?.superview?.bringSubviewToFront(sender.view!)
     }
     
-    @objc func rotateObject(_ sender: UIRotationGestureRecognizer) {
+    @objc private func rotateObject(_ sender: UIRotationGestureRecognizer) {
         let rotation = sender.rotation
         if sender.state == .began {
             ownTransform = self.transform
@@ -50,14 +50,14 @@ class SampleView: UIImageView{
         self.transform = ownTransform.rotated(by: rotation)
     }
     
-    @objc func pinchObject(_ sender: UIPinchGestureRecognizer) {
+    @objc private func pinchObject(_ sender: UIPinchGestureRecognizer) {
         if sender.state == .began {
             ownTransform = self.transform
         }
         self.transform = ownTransform.scaledBy(x: sender.scale, y: sender.scale)
     }
     
-    @objc func longPressedObject(_ sender: UILongPressGestureRecognizer) {
+    @objc private func longPressedObject(_ sender: UILongPressGestureRecognizer) {
         guard let parentVC = parentVC else { return }
         UIView.animate(withDuration: 0.5, delay: 1.0, animations: {
             
