@@ -20,8 +20,8 @@ struct ViewControllerFactory {
         return vc
     }
     
-    static func resultViewController() -> UIViewController {
-        let presenter = ResultPresenter()
+    static func resultViewController(learnResult: LearnResult) -> UIViewController {
+        let presenter = ResultPresenter(learnResult: learnResult)
         let vc = ResultViewController(presenter: presenter)
         return vc
     }
