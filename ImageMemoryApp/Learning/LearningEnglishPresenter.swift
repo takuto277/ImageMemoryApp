@@ -71,12 +71,16 @@ extension LearningEnglishPresenter: LearningEnglishProtocol {
             if !self.isviewFirstLoaded {
                 self.currentNumber += 1
             } else {
+                // 最初の英単語確認ではインクリメントしない
                 self.isviewFirstLoaded = false
             }
             
+            // 偽の画像配列を重複を取り除いて生成する
+            let fakeImageArray = self.fakeImageArray.filter {$0 != self.wordDataArray[self.currentNumber].imageURL}
+            let fakeImage = fakeImageArray[Int(arc4random_uniform(UInt32(fakeImageArray.count)))]
+            
             let randomValue = arc4random_uniform(2) == 0
             self.correctImageLocation = randomValue
-            let fakeImage = self.fakeImageArray[Int(arc4random_uniform(UInt32(self.fakeImageArray.count)))]
             self.view?.fadeOutAndChangeInfo(randomValue, self.wordDataArray[self.currentNumber],fakeImage, self.currentNumber, completion: { [weak self] in
                 self?.view?.fadeInInfo()
             })
