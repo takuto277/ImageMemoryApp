@@ -14,6 +14,7 @@ class LearningEnglishPresenter {
     private let fakeImageArray: [String]
     private var currentNumber: Int = 0
     private var newWordDataArray: [WordData] = []
+    private var correctCount: Int = 0
     
     private var isviewFirstLoaded = true
     // 正解画像位置を格納(randoValueがtrueならLeftが正解, falseならRightが正解)
@@ -90,8 +91,9 @@ extension LearningEnglishPresenter: LearningEnglishProtocol {
             } catch {
                 print("保存で失敗")
             }
+            let learnResult = LearnResult(totalCount: String(self.newWordDataArray.count), correctCount: String(self.correctCount))
             // 次の問題がない場合、結果画面へ遷移
-            self.view?.navigationToResultScreen()
+            self.view?.navigationToResultScreen(learnResult: learnResult)
         }
     }
     
@@ -114,6 +116,7 @@ extension LearningEnglishPresenter: LearningEnglishProtocol {
                 newWordData.updateValues(valueName: .proficiency, newValue: "2")
             }
             self.newWordDataArray.append(newWordData)
+            self.correctCount += 1
             return true
             
         case .incorrect, .unknown:
@@ -126,6 +129,7 @@ extension LearningEnglishPresenter: LearningEnglishProtocol {
         case .know:
             newWordData.updateValues(valueName: .proficiency, newValue: "2")
             self.newWordDataArray.append(newWordData)
+            self.correctCount += 1
             return true
         }
     }

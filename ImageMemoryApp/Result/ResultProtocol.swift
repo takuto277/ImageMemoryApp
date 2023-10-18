@@ -14,5 +14,5 @@ protocol ResultProtocol: AnyObject {
 }
 
 protocol ResultViewControllerProtocol: AnyObject {
-    func setScoreData()
+    func setScoreData(learnResult: LearnResult)
 }
