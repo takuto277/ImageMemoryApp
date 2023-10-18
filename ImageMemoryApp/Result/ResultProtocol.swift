@@ -10,9 +10,12 @@ import Foundation
 protocol ResultProtocol: AnyObject {
     func attach(_ view: ResultViewControllerProtocol)
     func getScore()
-    func getLearningHistory()
+    func getDate()
+    func getLearningHistoryArray()
+    func saveLearningHistory()
 }
 
 protocol ResultViewControllerProtocol: AnyObject {
     func setScoreData(learnResult: LearnResult)
+    func setHistoryDays(historyDays: [String])
 }
