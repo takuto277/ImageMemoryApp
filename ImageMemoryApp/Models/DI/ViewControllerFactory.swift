@@ -21,7 +21,7 @@ struct ViewControllerFactory {
     }
     
     static func resultViewController(learnResult: LearnResult) -> UIViewController {
-        let presenter = ResultPresenter(learnResult: learnResult)
+        let presenter = ResultPresenter(dataBaseRepository: DataBaseRepository(), learnResult: learnResult)
         let vc = ResultViewController(presenter: presenter)
         return vc
     }
