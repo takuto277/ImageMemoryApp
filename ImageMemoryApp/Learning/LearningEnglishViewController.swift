@@ -124,8 +124,8 @@ extension LearningEnglishViewController: LearningEnglishViewControllerProtocol {
         self.present(detailWordViewController, animated: true)
     }
     
-    func navigationToResultScreen() {
-        let resultViewController = ViewControllerFactory.resultViewController()
+    func navigationToResultScreen(learnResult: LearnResult) {
+        let resultViewController = ViewControllerFactory.resultViewController(learnResult: learnResult)
         navigationController?.pushViewController(resultViewController, animated: true)
     }
 }

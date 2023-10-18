@@ -20,7 +20,6 @@ class ResultViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     @IBOutlet weak var score: UILabel!
     @IBOutlet weak var totalScore: UILabel!
     @IBOutlet weak var calendar: FSCalendar!
@@ -31,18 +30,20 @@ class ResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.presenter.attach(self)
         calendar.delegate = self
         calendar.dataSource = self
+        calendar.backgroundColor = UIColor(named: "gold")
         navigationItem.hidesBackButton = true
+        self.presenter.getScore()
     }
 }
 
 extension ResultViewController: ResultViewControllerProtocol {
-    func setScoreData() {
-        
+    func setScoreData(learnResult: LearnResult) {
+        self.score.text = learnResult.correctCount
+        self.totalScore.text = learnResult.totalCount
     }
-    
-    
 }
 
 extension ResultViewController: FSCalendarDelegate, FSCalendarDataSource {

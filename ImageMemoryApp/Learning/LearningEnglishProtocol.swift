@@ -21,6 +21,6 @@ protocol LearningEnglishViewControllerProtocol: AnyObject {
     func fadeInInfo()
     func textReading(_ text: String)
     func navigationToDetailWordScreen(_ wordData: WordData)
-    func navigationToResultScreen()
+    func navigationToResultScreen(learnResult: LearnResult)
     func finishedCurrentWordDataProcess()
 }
