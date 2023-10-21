@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,7 +26,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="OfR-Pa-lBl" firstAttribute="width" secondItem="dnO-8Z-dHA" secondAttribute="width" id="a2j-FM-s79"/>
                         <constraint firstItem="OfR-Pa-lBl" firstAttribute="height" secondItem="dnO-8Z-dHA" secondAttribute="height" id="fNT-jV-XAF"/>
@@ -34,25 +35,43 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LZV-yE-dH3">
-                    <rect key="frame" x="0.0" y="0.0" width="393" height="170.33333333333334"/>
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="255.66666666666666"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="titleImage" translatesAutoresizingMaskIntoConstraints="NO" id="ZxC-Ak-hOJ">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="170.33333333333334"/>
-                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PBJ-HB-cdR">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="102.33333333333333"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IXX-QZ-aH8">
+                            <rect key="frame" x="0.0" y="102.33333333333333" width="393" height="153.33333333333337"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="titleImage" translatesAutoresizingMaskIntoConstraints="NO" id="ZxC-Ak-hOJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="153.33333333333334"/>
+                                </imageView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="ZxC-Ak-hOJ" firstAttribute="top" secondItem="IXX-QZ-aH8" secondAttribute="top" id="3iM-vD-f80"/>
+                                <constraint firstAttribute="trailing" secondItem="ZxC-Ak-hOJ" secondAttribute="trailing" id="EnD-Zb-AV0"/>
+                                <constraint firstAttribute="bottom" secondItem="ZxC-Ak-hOJ" secondAttribute="bottom" id="vhs-uT-LQQ"/>
+                                <constraint firstItem="ZxC-Ak-hOJ" firstAttribute="leading" secondItem="IXX-QZ-aH8" secondAttribute="leading" id="wcM-ma-tV2"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="ZxC-Ak-hOJ" secondAttribute="bottom" id="G2V-0S-VbE"/>
-                        <constraint firstItem="ZxC-Ak-hOJ" firstAttribute="top" secondItem="LZV-yE-dH3" secondAttribute="top" id="cfP-pr-Bhe"/>
-                        <constraint firstItem="ZxC-Ak-hOJ" firstAttribute="leading" secondItem="LZV-yE-dH3" secondAttribute="leading" id="j3Y-dD-yXk"/>
-                        <constraint firstAttribute="trailing" secondItem="ZxC-Ak-hOJ" secondAttribute="trailing" id="zn6-RQ-X31"/>
+                        <constraint firstItem="PBJ-HB-cdR" firstAttribute="height" secondItem="LZV-yE-dH3" secondAttribute="height" multiplier="0.4" id="BGy-I5-w0g"/>
+                        <constraint firstAttribute="trailing" secondItem="IXX-QZ-aH8" secondAttribute="trailing" id="GLa-Yj-aOk"/>
+                        <constraint firstItem="PBJ-HB-cdR" firstAttribute="leading" secondItem="LZV-yE-dH3" secondAttribute="leading" id="Krk-HE-46d"/>
+                        <constraint firstItem="IXX-QZ-aH8" firstAttribute="leading" secondItem="LZV-yE-dH3" secondAttribute="leading" id="N7O-zN-iid"/>
+                        <constraint firstItem="PBJ-HB-cdR" firstAttribute="top" secondItem="LZV-yE-dH3" secondAttribute="top" id="ceN-eu-0KH"/>
+                        <constraint firstItem="IXX-QZ-aH8" firstAttribute="height" secondItem="LZV-yE-dH3" secondAttribute="height" multiplier="0.6" id="dzq-my-gMa"/>
+                        <constraint firstAttribute="trailing" secondItem="PBJ-HB-cdR" secondAttribute="trailing" id="i9q-Hy-gCV"/>
+                        <constraint firstItem="IXX-QZ-aH8" firstAttribute="top" secondItem="PBJ-HB-cdR" secondAttribute="bottom" id="o5H-jv-8UU"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Sh-Uh-3FU">
-                    <rect key="frame" x="0.0" y="170.33333333333334" width="393" height="511.33333333333326"/>
+                    <rect key="frame" x="0.0" y="255.66666666666663" width="393" height="426"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeImage" translatesAutoresizingMaskIntoConstraints="NO" id="8xi-zU-nUc">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="511.33333333333331"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeImage" translatesAutoresizingMaskIntoConstraints="NO" id="8xi-zU-nUc">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="426"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" systemColor="labelColor"/>
@@ -96,7 +115,7 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="LZV-yE-dH3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="2Tu-vU-j6m"/>
-                <constraint firstItem="7Sh-Uh-3FU" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.6" id="67r-iG-Adm"/>
+                <constraint firstItem="7Sh-Uh-3FU" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.5" id="67r-iG-Adm"/>
                 <constraint firstItem="O43-bK-T2D" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="8KQ-cV-hio"/>
                 <constraint firstItem="dnO-8Z-dHA" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="9eS-iz-BH5"/>
                 <constraint firstItem="7Sh-Uh-3FU" firstAttribute="top" secondItem="LZV-yE-dH3" secondAttribute="bottom" id="HQr-vF-c1Q"/>
@@ -108,7 +127,7 @@
                 <constraint firstItem="7Sh-Uh-3FU" firstAttribute="width" secondItem="LZV-yE-dH3" secondAttribute="width" id="kZu-uv-ynF"/>
                 <constraint firstItem="O43-bK-T2D" firstAttribute="top" secondItem="7Sh-Uh-3FU" secondAttribute="bottom" id="mrH-qM-J4H"/>
                 <constraint firstItem="dnO-8Z-dHA" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="nW3-7d-kCZ"/>
-                <constraint firstItem="LZV-yE-dH3" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.2" id="pdq-5r-KGS"/>
+                <constraint firstItem="LZV-yE-dH3" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.3" id="pdq-5r-KGS"/>
                 <constraint firstItem="LZV-yE-dH3" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="tMq-gk-B3b"/>
                 <constraint firstItem="O43-bK-T2D" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.2" id="zhp-k2-C26"/>
             </constraints>
@@ -121,7 +140,7 @@
         <image name="startButtonImage" width="50" height="10"/>
         <image name="titleImage" width="1666.6666259765625" height="833.33331298828125"/>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
