@@ -103,31 +103,46 @@ class EditDetailWordViewController: UIViewController {
             self.japanSentenceTextView?.text = ""
         }
         
-        self.presenter?.saveWordData(WordData(englishWordName: englishWordName,
-                                              japanWordName: japanWordName,
-                                              englishSentence: self.englishWordTextView?.text ?? "",
-                                              japanSentence: self.japanSentenceTextView?.text ?? "",
-                                              proficiency: "0",
-                                              priorityNumber: "0",
-                                              number: 0,
-                                              deleteFlg: "0",
-                                              imageURL: imageURL))
+        if self.image != nil {
+            self.presenter?.saveWordData(WordData(englishWordName: englishWordName,
+                                                  japanWordName: japanWordName,
+                                                  englishSentence: self.englishWordTextView?.text ?? "",
+                                                  japanSentence: self.japanSentenceTextView?.text ?? "",
+                                                  proficiency: self.wordData.proficiency,
+                                                  priorityNumber: self.wordData.priorityNumber,
+                                                  number: 0,
+                                                  deleteFlg: self.wordData.deleteFlg,
+                                                  imageURL: imageURL))
+        } else {
+            self.presenter?.updateWordData(WordData(englishWordName: englishWordName,
+                                                    japanWordName: japanWordName,
+                                                    englishSentence: self.englishWordTextView?.text ?? "",
+                                                    japanSentence: self.japanSentenceTextView?.text ?? "",
+                                                    proficiency: self.wordData.proficiency,
+                                                    priorityNumber: self.wordData.priorityNumber,
+                                                    number: self.wordData.number,
+                                                    deleteFlg: self.wordData.deleteFlg,
+                                                    imageURL: self.wordData.imageURL))
+        }
     }
     
     // MARK: - Private method
     private func setImageSetting() {
         // 画像のアスペクト比を計算します
+        let image = image != nil ? self.image : Converter().decodeBase64ToImage(self.wordData.imageURL)
         guard let image = image else { return }
         let imageAspectRatio = image.size.width / image.size.height
         // imageViewの幅と高さの制約を設定します
         imageView?.translatesAutoresizingMaskIntoConstraints = false
         imageView?.widthAnchor.constraint(equalTo: imageView!.heightAnchor, multiplier: imageAspectRatio).isActive = true
+        self.imageView?.image = image
     }
     
     private func setInitalWordData() {
         self.englishWordTextView?.text = self.wordData.englishWordName
-        self.imageView?.image = self.image
+        self.japanWordTextView?.text = self.wordData.japanWordName
         self.englishSentenceTextView?.text = self.wordData.englishSentence
+        self.japanSentenceTextView?.text = self.wordData.japanSentence
         // プレースホルダーのテキストを設定
         if self.japanWordTextView?.text == "" {
             let placeholderText = "英単語の日本語訳を入力"
