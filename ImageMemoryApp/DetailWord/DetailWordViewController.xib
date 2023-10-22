@@ -178,7 +178,7 @@
                                     </constraints>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="gb8-Pq-dho" firstAttribute="width" secondItem="2Ed-df-1ab" secondAttribute="width" id="2L8-aU-dcb"/>
                                 <constraint firstItem="vcE-hH-ZIC" firstAttribute="width" secondItem="2Ed-df-1ab" secondAttribute="width" id="30k-Eg-pNf"/>
@@ -213,6 +213,7 @@
                             </constraints>
                         </view>
                     </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="c8s-1a-XOF" firstAttribute="leading" secondItem="WRA-MP-fNm" secondAttribute="leading" id="3qY-Uc-DlM"/>
                         <constraint firstItem="c8s-1a-XOF" firstAttribute="bottom" secondItem="WRA-MP-fNm" secondAttribute="bottom" id="5Wk-CT-GV8"/>

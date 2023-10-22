@@ -65,7 +65,7 @@ class EditDetailWordViewController: UIViewController {
         // 初期設定
         self.setImageSetting()
         self.setInitalWordData()
-        
+        setDismissKeyboard()
     }
     
     //MARK: - @IBAction

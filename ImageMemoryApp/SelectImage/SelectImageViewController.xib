@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,7 +23,7 @@
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="dQd-CI-tCT">
                     <rect key="frame" x="0.0" y="135" width="393" height="683"/>
-                    <color key="backgroundColor" systemColor="labelColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FO5-Bo-Ltk">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -44,7 +44,7 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                             </subviews>
-                            <color key="backgroundColor" systemColor="labelColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="EF8-gO-j3m" firstAttribute="leading" secondItem="AU8-2m-Op0" secondAttribute="leading" id="OTZ-bI-ZsB"/>
                                 <constraint firstAttribute="trailing" secondItem="EF8-gO-j3m" secondAttribute="trailing" id="SBM-fc-lVp"/>
@@ -65,7 +65,7 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" systemColor="labelColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="KLU-hg-gcA" firstAttribute="top" secondItem="fcn-Ih-NPr" secondAttribute="top" id="4EL-P8-Ewj"/>
                                 <constraint firstItem="KLU-hg-gcA" firstAttribute="leading" secondItem="fcn-Ih-NPr" secondAttribute="leading" id="Wrj-ym-U4W"/>
@@ -74,7 +74,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="AU8-2m-Op0" firstAttribute="width" secondItem="nTw-12-i5O" secondAttribute="width" multiplier="0.8" id="04E-Cf-9dy"/>
                         <constraint firstAttribute="trailing" secondItem="fcn-Ih-NPr" secondAttribute="trailing" id="7Ll-0d-RB3"/>
@@ -88,7 +88,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="labelColor"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="dQd-CI-tCT" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="1K6-NG-ifH"/>
                 <constraint firstItem="dQd-CI-tCT" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="1gT-3i-QJg"/>
@@ -105,13 +105,7 @@
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <namedColor name="gold">
-            <color red="0.72156864399999998" green="0.62745100259999997" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.72200000286102295" green="0.62699997425079346" blue="0.3449999988079071" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
