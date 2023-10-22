@@ -43,4 +43,8 @@ extension DataBaseRepository: DataBaseRepositoryProtocol {
     func insertWordData(wordData: WordData) -> Bool {
         return dataBaseService.insertWordData(wordData: wordData)
     }
+    
+    func updateWordData(wordData: WordData) -> Bool {
+        return dataBaseService.updateWordData(wordData: wordData)
+    }
 }

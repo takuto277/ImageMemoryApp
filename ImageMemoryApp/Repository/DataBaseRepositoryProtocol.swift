@@ -13,4 +13,5 @@ protocol DataBaseRepositoryProtocol: AnyObject {
     func getLearningWordData() throws -> [WordData]
     func updateLearningWordData(_ wordDataArray: [WordData]) throws -> Bool
     func insertWordData(wordData: WordData) -> Bool
+    func updateWordData(wordData: WordData) -> Bool
 }
