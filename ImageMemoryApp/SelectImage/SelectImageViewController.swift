@@ -64,6 +64,7 @@ final class SelectImageViewController: UIViewController {
         self.collectionView.register(UINib(nibName: String(describing: SelectImageCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: "SelectImageCollectionViewCell")
         
         self.presenter.attachView(self)
+        setDismissKeyboard()
     }
     
     // MARK: - Private method

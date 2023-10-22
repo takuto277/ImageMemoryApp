@@ -84,6 +84,7 @@ class CreateImageViewController: UIViewController {
         super.viewDidLoad()
         presenter.attachView(self)
         presenter.viewDidLoad()
+        setDismissKeyboard()
     }
     
     override func viewWillAppear(_ animated: Bool) {
