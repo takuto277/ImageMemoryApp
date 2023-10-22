@@ -11,7 +11,7 @@ protocol DetailWordProtocol: AnyObject {
     func attachView(_ view: DetailWordViewControllerProtocol)
     func getWordData()
     func decideButtonPushed()
-    func editButtonPushed()
+    func editButtonPush()
 }
 
 protocol DetailWordViewControllerProtocol: AnyObject {
