@@ -68,9 +68,9 @@ class CreateImageViewController: UIViewController {
                                 japanWordName: "",
                                 englishSentence: "",
                                 japanSentence: "",
-                                proficiency: "",
-                                priorityNumber: "",
-                                deleteFlg: "",
+                                proficiency: "0",
+                                priorityNumber: "0",
+                                deleteFlg: "0",
                                 imageURL: "")
         
         // 詳細画面に遷移
