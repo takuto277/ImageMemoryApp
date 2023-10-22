@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -12,7 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailWordViewController" customModule="ImageMemoryApp" customModuleProvider="target">
             <connections>
                 <outlet property="decideButton" destination="hJq-gM-4gt" id="KkX-HB-qJw"/>
-                <outlet property="editButton" destination="UrF-zb-rr4" id="1PJ-Bd-cas"/>
+                <outlet property="editButton" destination="UrF-zb-rr4" id="e3o-wu-Jdm"/>
                 <outlet property="englishSentence" destination="pF6-rv-m4g" id="pwq-52-PdT"/>
                 <outlet property="englishWord" destination="LLN-Bg-hHo" id="i1d-wI-8Cw"/>
                 <outlet property="japaneseSentence" destination="oIZ-vE-mWq" id="IZ3-64-Bhh"/>
@@ -60,7 +61,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                     <connections>
-                                                        <action selector="EditButtonPushed:" destination="-1" eventType="touchUpInside" id="UtS-i8-O5R"/>
+                                                        <action selector="editButtonPushed:" destination="-1" eventType="touchUpInside" id="Ola-9W-g8v"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -87,7 +88,7 @@
                                     <rect key="frame" x="0.0" y="98" width="393" height="49"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="英単語" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ld6-mm-lfa">
-                                            <rect key="frame" x="131.33333333333334" y="14" width="52" height="21"/>
+                                            <rect key="frame" x="133.33333333333334" y="14" width="48" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -177,7 +178,7 @@
                                     </constraints>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="gb8-Pq-dho" firstAttribute="width" secondItem="2Ed-df-1ab" secondAttribute="width" id="2L8-aU-dcb"/>
                                 <constraint firstItem="vcE-hH-ZIC" firstAttribute="width" secondItem="2Ed-df-1ab" secondAttribute="width" id="30k-Eg-pNf"/>
@@ -212,6 +213,7 @@
                             </constraints>
                         </view>
                     </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="c8s-1a-XOF" firstAttribute="leading" secondItem="WRA-MP-fNm" secondAttribute="leading" id="3qY-Uc-DlM"/>
                         <constraint firstItem="c8s-1a-XOF" firstAttribute="bottom" secondItem="WRA-MP-fNm" secondAttribute="bottom" id="5Wk-CT-GV8"/>

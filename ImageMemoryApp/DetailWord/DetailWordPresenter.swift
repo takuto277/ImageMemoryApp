@@ -37,7 +37,7 @@ extension DetailWordPresenter: DetailWordProtocol {
         }
     }
     
-    func editButtonPushed() {
+    func editButtonPush() {
         self.view?.navigationForEditDetailWordVC(wordData: wordData)
     }
 }

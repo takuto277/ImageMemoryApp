@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -38,7 +38,7 @@
                                     <buttonConfiguration key="configuration" style="plain" title="全削除"/>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" systemColor="labelColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="Bmt-A0-GwM" firstAttribute="centerX" secondItem="7Mv-jM-WVF" secondAttribute="centerX" id="0Ru-8x-ZMQ"/>
                                 <constraint firstItem="pZ1-lI-fzF" firstAttribute="centerY" secondItem="7Mv-jM-WVF" secondAttribute="centerY" id="RKZ-Gm-iUs"/>
@@ -66,7 +66,7 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" systemColor="labelColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="0Nr-YZ-PlG" firstAttribute="width" secondItem="4eS-0B-YKK" secondAttribute="width" id="0gb-20-mYC"/>
                                 <constraint firstItem="4eS-0B-YKK" firstAttribute="centerY" secondItem="Qqx-Nj-u82" secondAttribute="centerY" id="3J6-ll-A1w"/>
@@ -79,7 +79,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" systemColor="labelColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="Qqx-Nj-u82" firstAttribute="leading" secondItem="7Mv-jM-WVF" secondAttribute="trailing" id="2Iv-gV-e6a"/>
                         <constraint firstItem="7Mv-jM-WVF" firstAttribute="centerY" secondItem="tII-kE-bRe" secondAttribute="centerY" id="3mm-NB-kmI"/>
@@ -102,7 +102,7 @@
                             <color key="backgroundColor" name="gold"/>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="GN6-Z1-2IK" firstAttribute="height" secondItem="sdB-0k-T4S" secondAttribute="height" id="9tv-31-SMk"/>
                         <constraint firstItem="GN6-Z1-2IK" firstAttribute="centerX" secondItem="sdB-0k-T4S" secondAttribute="centerX" id="QJz-87-vga"/>
@@ -145,7 +145,7 @@
                                     <rect key="frame" x="35.333333333333343" y="21" width="283" height="34"/>
                                     <color key="backgroundColor" red="0.79489960990909092" green="0.78413850586758438" blue="0.64575191901162743" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="tintColor" name="gold"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
@@ -161,6 +161,7 @@
                             </constraints>
                         </view>
                     </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="7cP-vq-jAZ" firstAttribute="top" secondItem="p9d-05-daD" secondAttribute="top" id="6gw-6o-YPj"/>
                         <constraint firstAttribute="bottom" secondItem="Nja-7M-aLN" secondAttribute="bottom" id="Epg-ME-prZ"/>
@@ -172,7 +173,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="labelColor"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="sdB-0k-T4S" firstAttribute="top" secondItem="p9d-05-daD" secondAttribute="bottom" id="4cb-vO-A4x"/>
                 <constraint firstItem="sdB-0k-T4S" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" multiplier="0.8" id="5sA-Et-T64"/>
@@ -202,11 +203,5 @@
         <namedColor name="gold">
             <color red="0.72200000286102295" green="0.62699997425079346" blue="0.3449999988079071" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

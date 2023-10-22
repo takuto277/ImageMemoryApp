@@ -36,4 +36,11 @@ extension EditDetailWordPresenter: EditDetailWordProtocol {
             self.view?.dismissScreen()
         }
     }
+    
+    func updateWordData(_ wordData: WordData) {
+        if self.dataBaseRepository.updateWordData(wordData: wordData) {
+            print("更新登録成功")
+            self.view?.dismissScreen()
+        }
+    }
 }
