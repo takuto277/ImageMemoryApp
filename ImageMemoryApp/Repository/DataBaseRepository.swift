@@ -44,7 +44,23 @@ extension DataBaseRepository: DataBaseRepositoryProtocol {
         return dataBaseService.insertWordData(wordData: wordData)
     }
     
-    func updateWordData(wordData: WordData) -> Bool {
+    func insertLearningHistory(learningHistoryData: LearningHistoryData) async {
+        do {
+            try await dataBaseService.insertLearningHistory(learningHistoryData: learningHistoryData)
+        } catch {
+            print("学習履歴を登録できませんでした")
+        }
+    }
+    
+    func getLearningHistoryDays(year: String) -> [String] {
+        do {
+            return try dataBaseService.getLearningHistoryDays(year: year)
+        } catch {
+            print("学習履歴の日付を取得できませんでした。")
+            return []
+        }
+      
+          func updateWordData(wordData: WordData) -> Bool {
         return dataBaseService.updateWordData(wordData: wordData)
     }
 }

@@ -84,7 +84,7 @@ final class DataBaseService {
         // データベースを開く
         if database.open() {
             // テーブルの作成
-            let createTableSQL = """
+            let createTableSQLOfWordData = """
         CREATE TABLE IF NOT EXISTS wordData (
                 englishWordName TEXT NOT NULL,
                 japanWordName TEXT NOT NULL,
@@ -108,14 +108,36 @@ final class DataBaseService {
              deleteFlg: 削除フラグ
              imageURL: 画像URLの文字列
              */
-            if database.executeUpdate(createTableSQL, withArgumentsIn: []) {
-                print("テーブル作成成功")
+            if database.executeUpdate(createTableSQLOfWordData, withArgumentsIn: []) {
+                print("wordData_テーブル作成成功")
+            } else {
+                print("テーブル作成失敗")
+            }
+            
+            // テーブルの作成
+            let createTableSQLOfLearningHistory = """
+        CREATE TABLE IF NOT EXISTS LEARNING_HISTORY (
+                learning_day TEXT NOT NULL,
+                year TEXT NOT NULL,
+                correct_count TEXT NOUT NULL,
+                total_count TEXT NOT NULL,
+                correct_rate TEXT NOT NULL
+        )
+        """
+            /*
+             learning_day: 学習日
+             year: 年代
+             correct_count: 正答数
+             total_count: 問題数
+             correct_rate: 正答率
+             */
+            if database.executeUpdate(createTableSQLOfLearningHistory, withArgumentsIn: []) {
+                print("LEARNING_HISTORY_テーブル作成成功")
             } else {
                 print("テーブル作成失敗")
             }
         }
     }
-    
     
     func insertWordData(wordData: WordData) -> Bool {
         guard let database = self.database else { return false}
@@ -336,5 +358,39 @@ final class DataBaseService {
         if !database.close() {
             print("データベースオープン失敗")
         }
+    }
+    
+    func insertLearningHistory(learningHistoryData: LearningHistoryData) async throws{
+        guard let database = self.database else { throw myError.case1}
+        let insertSQL = """
+        INSERT INTO LEARNING_HISTORY (
+        learning_day, year, correct_count, total_count, correct_rate)
+        VALUES (
+        :learningDay, :year, :correctCount, :totalCount, :correctRate)
+        """
+        let param = ["learningDay": learningHistoryData.learningDay,
+                     "year": learningHistoryData.year,
+                     "correctCount": learningHistoryData.correctCount,
+                     "totalCount": learningHistoryData.totalCount,
+                     "correctRate": learningHistoryData.correctRate]
+        if database.executeUpdate(insertSQL, withParameterDictionary: param as [AnyHashable: Any]) {
+            print("LEARNING_HISTORY_データ挿入完了")
+        }
+    }
+    
+    func getLearningHistoryDays(year: String) throws -> [String]{
+        guard let database = self.database else { throw myError.case1}
+        var learningHistoryDays: [String] = []
+        let sql = """
+                SELECT learning_day FROM LEARNING_HISTORY WHERE year = :year
+                """
+        let param = ["year": year]
+        if let resultSet = database.executeQuery(sql, withParameterDictionary: param) {
+            while resultSet.next() {
+                guard let day = resultSet.string(forColumn: "learning_day") else { throw myError.case1}
+                learningHistoryDays.append(day)
+            }
+        }
+        return learningHistoryDays
     }
 }

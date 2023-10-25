@@ -10,6 +10,7 @@ import FSCalendar
 
 class ResultViewController: UIViewController {
     private let presenter: ResultPresenter
+    private var historyDays: [String] = []
     
     init(presenter: ResultPresenter) {
         self.presenter = presenter
@@ -25,17 +26,20 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var calendar: FSCalendar!
     
     @IBAction func finishButtonPushed(_ sender: Any) {
+        self.presenter.saveLearningHistory()
         self.navigationController?.popToRootViewController(animated: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter.attach(self)
+        self.presenter.getScore()
+        self.presenter.getDate()
+        self.presenter.getLearningHistoryArray()
         calendar.delegate = self
         calendar.dataSource = self
         calendar.backgroundColor = UIColor(named: "gold")
         navigationItem.hidesBackButton = true
-        self.presenter.getScore()
     }
 }
 
@@ -44,18 +48,18 @@ extension ResultViewController: ResultViewControllerProtocol {
         self.score.text = learnResult.correctCount
         self.totalScore.text = learnResult.totalCount
     }
+    
+    func setHistoryDays(historyDays: [String]) {
+        self.historyDays = historyDays
+    }
 }
 
 extension ResultViewController: FSCalendarDelegate, FSCalendarDataSource {
     
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         let df = DateFormatter()
-        var eventArray = ["2023/10/04","2023/10/12","2023/10/18"]
-        let today = Date()
-        
         df.dateFormat = "yyyy/MM/dd"
-        eventArray.append(df.string(from: today))
-        if eventArray.first(where: { $0 == df.string(from: date) }) != nil {
+        if self.historyDays.first(where: { $0 == df.string(from: date) }) != nil {
             return 1
         }
         return 0
