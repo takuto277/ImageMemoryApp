@@ -61,6 +61,7 @@
 		99BA75902AAE08D0000AB1A7 /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BA758F2AAE08D0000AB1A7 /* SampleView.swift */; };
 		99BA75942AAE0C60000AB1A7 /* DetailWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BA75922AAE0C60000AB1A7 /* DetailWordViewController.swift */; };
 		99BA75952AAE0C60000AB1A7 /* DetailWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99BA75932AAE0C60000AB1A7 /* DetailWordViewController.xib */; };
+		99BC31DF2AE397EF003ABDA1 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BC31DE2AE397EF003ABDA1 /* UIViewController.swift */; };
 		99D7271E2A5334A400AAB311 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 99D7271D2A5334A400AAB311 /* SDWebImage */; };
 		99D727202A5334A400AAB311 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 99D7271F2A5334A400AAB311 /* SDWebImageMapKit */; };
 		99D727242A55B3B100AAB311 /* DataBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D727232A55B3B100AAB311 /* DataBaseService.swift */; };
@@ -150,6 +151,7 @@
 		99BA758F2AAE08D0000AB1A7 /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
 		99BA75922AAE0C60000AB1A7 /* DetailWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWordViewController.swift; sourceTree = "<group>"; };
 		99BA75932AAE0C60000AB1A7 /* DetailWordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailWordViewController.xib; sourceTree = "<group>"; };
+		99BC31DE2AE397EF003ABDA1 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		99D727232A55B3B100AAB311 /* DataBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseService.swift; sourceTree = "<group>"; };
 		99D727272A72DDB400AAB311 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		99D727282A72DDB400AAB311 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 		993F7C572A2208A500FE8045 /* ImageMemoryApp */ = {
 			isa = PBXGroup;
 			children = (
+				99BC31DD2AE397D9003ABDA1 /* Extension */,
 				99ACF25A2ADD7E4D00A87782 /* Env */,
 				99ACF24B2ACF139300A87782 /* Result */,
 				992598292AC927040074FCE0 /* Learning */,
@@ -400,6 +403,14 @@
 				992598272AC869F30074FCE0 /* DetailWordProtocol.swift */,
 			);
 			path = DetailWord;
+			sourceTree = "<group>";
+		};
+		99BC31DD2AE397D9003ABDA1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				99BC31DE2AE397EF003ABDA1 /* UIViewController.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		99D727212A55B34C00AAB311 /* Data */ = {
@@ -635,6 +646,7 @@
 				99D727392A7F91A200AAB311 /* Converter.swift in Sources */,
 				992598352AC9DA320074FCE0 /* HomeProtocol.swift in Sources */,
 				99BA75892AAC886B000AB1A7 /* EditDetailWordPresenter.swift in Sources */,
+				99BC31DF2AE397EF003ABDA1 /* UIViewController.swift in Sources */,
 				99960C142ADEDD3500FEE780 /* LearnResult.swift in Sources */,
 				994BB85E2A4C86F800715CF4 /* ImageEditScreen.swift in Sources */,
 				991044812AA4555D00C94636 /* CatalogProtocol.swift in Sources */,

@@ -166,6 +166,35 @@ final class DataBaseService {
         }
     }
     
+    func updateWordData(wordData: WordData) -> Bool {
+        guard let database = self.database else { return false}
+        let englishWordName = "WHEN number = \(wordData.number) THEN '\(wordData.englishWordName)'"
+        let japanWordName  = "WHEN number = \(wordData.number) THEN '\(wordData.japanWordName)'"
+        let englishSentence = "WHEN number = \(wordData.number) THEN '\(wordData.englishSentence)'"
+        let japanSentence = "WHEN number = \(wordData.number) THEN '\(wordData.japanSentence)'"
+    
+    let query = """
+        UPDATE wordData
+        SET
+        englishWordName = CASE
+        \(englishWordName)
+        END,
+        japanWordName = CASE
+        \(japanWordName)
+        END,
+        englishSentence = CASE
+        \(englishSentence)
+        END,
+        japanSentence = CASE
+        \(japanSentence)
+        END
+        WHERE
+        number IN (\(wordData.number));
+        """
+    
+    return database.executeUpdate(query, withArgumentsIn: [])
+    }
+    
     func getWordData(number: Int) throws -> WordData {
         guard let database = self.database else {
             throw myError.case1

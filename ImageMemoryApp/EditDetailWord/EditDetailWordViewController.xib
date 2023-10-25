@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -65,7 +66,7 @@
                                         </imageView>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eHz-2E-dxg">
                                             <rect key="frame" x="39.333333333333343" y="21.333333333333311" width="314.33333333333326" height="42.666666666666657"/>
-                                            <color key="backgroundColor" systemColor="labelColor"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
@@ -157,7 +158,7 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="F94-ID-3nu" firstAttribute="height" secondItem="ANf-MP-Lat" secondAttribute="height" id="FHW-5f-GyZ"/>
                                                 <constraint firstItem="F94-ID-3nu" firstAttribute="centerY" secondItem="ANf-MP-Lat" secondAttribute="centerY" id="MPP-c6-v7I"/>
@@ -170,7 +171,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="labelColor"/>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="ANf-MP-Lat" firstAttribute="centerY" secondItem="87p-GP-AUL" secondAttribute="centerY" id="7vs-rj-Po3"/>
                                         <constraint firstItem="ANf-MP-Lat" firstAttribute="centerX" secondItem="87p-GP-AUL" secondAttribute="centerX" id="PJz-j8-pK2"/>
@@ -183,10 +184,10 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fja-4m-UDd">
                                             <rect key="frame" x="59" y="34.000000000000028" width="275" height="272.66666666666674"/>
-                                            <color key="backgroundColor" systemColor="labelColor"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </imageView>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="labelColor"/>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="fja-4m-UDd" firstAttribute="centerX" secondItem="CdU-lf-rbY" secondAttribute="centerX" id="8b6-3f-3Yw"/>
                                         <constraint firstItem="fja-4m-UDd" firstAttribute="centerY" secondItem="CdU-lf-rbY" secondAttribute="centerY" id="a9u-bV-5Hb"/>
@@ -224,6 +225,7 @@
                             </constraints>
                         </view>
                     </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="kkO-yJ-qp0" firstAttribute="leading" secondItem="vUJ-BW-h3c" secondAttribute="leading" id="1vX-oE-lKF"/>
                         <constraint firstItem="kkO-yJ-qp0" firstAttribute="width" secondItem="1zT-mr-LDa" secondAttribute="width" id="MJr-0I-n0x"/>
@@ -255,16 +257,13 @@
             <color red="0.72200000286102295" green="0.62699997425079346" blue="0.3449999988079071" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemCyanColor">
-            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.1960784314" green="0.67843137249999996" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

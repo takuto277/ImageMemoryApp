@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,7 +25,7 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vn7-oT-cbi">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="119.33333333333333"/>
-                            <color key="backgroundColor" systemColor="labelColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PpC-dP-m0V">
                             <rect key="frame" x="0.0" y="119.33333333333331" width="393" height="51"/>
@@ -32,7 +33,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qWl-To-q1e">
                                     <rect key="frame" x="0.0" y="0.0" width="196.66666666666666" height="51"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="halfButtonFlame" translatesAutoresizingMaskIntoConstraints="NO" id="xJk-kA-sO9">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="halfButtonFlame" translatesAutoresizingMaskIntoConstraints="NO" id="xJk-kA-sO9">
                                             <rect key="frame" x="0.0" y="0.0" width="196.66666666666666" height="51"/>
                                         </imageView>
                                         <searchBar contentMode="redraw" barStyle="black" placeholder="英単語を検索" translatesAutoresizingMaskIntoConstraints="NO" id="x3l-0j-RiE">
@@ -61,7 +62,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SSq-hl-ZJs">
                                     <rect key="frame" x="196.66666666666663" y="0.0" width="196.33333333333337" height="51"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="halfButtonFlame" translatesAutoresizingMaskIntoConstraints="NO" id="FHT-2o-s3o">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="halfButtonFlame" translatesAutoresizingMaskIntoConstraints="NO" id="FHT-2o-s3o">
                                             <rect key="frame" x="0.0" y="0.0" width="196.33333333333334" height="51"/>
                                         </imageView>
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5zi-e6-gAq">
@@ -101,7 +102,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="PpC-dP-m0V" firstAttribute="height" secondItem="Jox-dW-7yG" secondAttribute="height" multiplier="0.3" id="6XM-3D-cgB"/>
                         <constraint firstItem="vn7-oT-cbi" firstAttribute="centerX" secondItem="Jox-dW-7yG" secondAttribute="centerX" id="A1J-ua-NSz"/>
@@ -118,15 +119,15 @@
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tableViewFlame" translatesAutoresizingMaskIntoConstraints="NO" id="Msr-lR-vwS">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="681.66666666666663"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </imageView>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lIe-rf-YbU">
                             <rect key="frame" x="29.333333333333343" y="51.333333333333314" width="334.33333333333326" height="579.33333333333348"/>
-                            <color key="backgroundColor" systemColor="labelColor"/>
-                            <color key="separatorColor" systemColor="labelColor"/>
-                            <color key="sectionIndexBackgroundColor" systemColor="labelColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </tableView>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="Msr-lR-vwS" firstAttribute="width" secondItem="JMB-HR-Thk" secondAttribute="width" id="5vc-gB-xja"/>
                         <constraint firstItem="lIe-rf-YbU" firstAttribute="width" secondItem="JMB-HR-Thk" secondAttribute="width" multiplier="0.85" id="7xe-gl-yrJ"/>
@@ -158,16 +159,16 @@
         <image name="halfButtonFlame" width="62.666667938232422" height="17"/>
         <image name="tableViewFlame" width="131" height="227"/>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

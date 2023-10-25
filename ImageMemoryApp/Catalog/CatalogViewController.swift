@@ -28,6 +28,7 @@ class CatalogViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: String(describing: CatalogTableViewCell.self), bundle: nil), forCellReuseIdentifier: "CatalogTableViewCell")
+        setDismissKeyboard()
     }
     
     override func viewWillAppear(_ animated: Bool) {

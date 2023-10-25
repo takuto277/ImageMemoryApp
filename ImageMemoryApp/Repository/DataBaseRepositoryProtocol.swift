@@ -15,4 +15,5 @@ protocol DataBaseRepositoryProtocol: AnyObject {
     func insertWordData(wordData: WordData) -> Bool
     func insertLearningHistory(learningHistoryData: LearningHistoryData) async
     func getLearningHistoryDays(year: String) -> [String]
+    func updateWordData(wordData: WordData) -> Bool
 }

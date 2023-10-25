@@ -59,5 +59,8 @@ extension DataBaseRepository: DataBaseRepositoryProtocol {
             print("学習履歴の日付を取得できませんでした。")
             return []
         }
+      
+          func updateWordData(wordData: WordData) -> Bool {
+        return dataBaseService.updateWordData(wordData: wordData)
     }
 }

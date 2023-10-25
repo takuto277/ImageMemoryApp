@@ -35,7 +35,7 @@ class DetailWordViewController: UIViewController {
     }
     
     @IBAction func editButtonPushed(_ sender: Any) {
-        self.presenter.editButtonPushed()
+        self.presenter.editButtonPush()
     }
     
     //MARK: - Life cycle
@@ -72,5 +72,6 @@ extension DetailWordViewController: DetailWordViewControllerProtocol {
     
     func navigationForEditDetailWordVC(wordData: WordData) {
         let editDetailWordViewController = ViewControllerFactory.editdetailWordViewController(wordData, nil, nil)
+        navigationController?.pushViewController(editDetailWordViewController, animated: true)
     }
 }
