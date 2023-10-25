@@ -43,10 +43,14 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let wordData = wordsData?[indexPath.row] else {return UITableViewCell()}
         let cell = tableView.dequeueReusableCell(withIdentifier: "CatalogTableViewCell", for: indexPath) as! CatalogTableViewCell
-        cell.englishLabel.text = wordsData?[indexPath.row].englishWordName
-        cell.japaneseLabel.text = wordsData?[indexPath.row].japanWordName
-        cell.heartImageView.image = UIImage(named: "heart_gold")
+        cell.englishLabel.text = wordData.englishWordName
+        cell.japaneseLabel.text = wordData.japanWordName
+        cell.heartImageView.image = UIImage(named: self.getHeartImage(
+            proficiency: ProficiencyStatus(rawValue: Int(wordData.proficiency) ?? 0) ?? .zero,
+            priorityNumber: PriorityNumberStatus(rawValue: Int(wordData.priorityNumber) ?? 0) ?? .zero
+        ))
         return cell
     }
     
@@ -54,6 +58,27 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
         guard let wordsData = wordsData?[indexPath.row] else { return }
         let detailWordViewController = ViewControllerFactory.detailWordViewController(wordsData, .Catalog)
         navigationController?.pushViewController(detailWordViewController, animated: true)
+    }
+    
+    // 暫定としてここに実装
+    // ハート画像を選択
+    private func getHeartImage(proficiency: ProficiencyStatus, priorityNumber: PriorityNumberStatus) -> String {
+        switch (proficiency, priorityNumber) {
+        case (.two, _):
+            return "heart_gold"
+        case (.zero, .zero), (.one, .zero):
+            return "heart_01"
+        case (.zero, .one), (.one, .one):
+            return "heart_02"
+        case (.zero, .two), (.one, .two):
+            return "heart_03"
+        case (.zero, .three), (.one, .three):
+            return "heart_04"
+        case (.zero, .four), (.one, .four):
+            return "heart_05"
+        default:
+            return "heart_06"
+        }
     }
 }
 
