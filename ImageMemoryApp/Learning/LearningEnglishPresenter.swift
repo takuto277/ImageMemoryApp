@@ -19,6 +19,7 @@ class LearningEnglishPresenter {
     private var isviewFirstLoaded = true
     // 正解画像位置を格納(randoValueがtrueならLeftが正解, falseならRightが正解)
     private var correctImageLocation: Bool = true
+    private let soundResource = SoundResource()
     
     init(_ dataBaseRepository: DataBaseRepositoryProtocol, _ wordDataArray: [WordData], _ fakeImageArray: [String]) {
         self.dataBaseRepository = dataBaseRepository
@@ -42,9 +43,11 @@ extension LearningEnglishPresenter: LearningEnglishProtocol {
     /// - Parameter correction: 選んだ画像の位置(true: 左画像, false: 右画像)
     func confirmCorrection(_ selectedLeft: Bool) {
         if self.correctImageLocation == selectedLeft {
+            self.soundResource?.playCorrenctSound()
             _ = self.updateWordData(.correct)
             self.view?.finishedCurrentWordDataProcess()
         } else {
+            self.soundResource?.playWrongSound()
             _ = self.updateWordData(.incorrect)
             // 解説表示
             self.view?.navigationToDetailWordScreen(self.wordDataArray[self.currentNumber])
@@ -53,12 +56,14 @@ extension LearningEnglishPresenter: LearningEnglishProtocol {
     
     /// 理解済みボタン押下の処理
     func selectedKnowButton() {
+        self.soundResource?.playCorrenctSound()
         _ = self.updateWordData(.know)
         self.view?.finishedCurrentWordDataProcess()
     }
     
     /// 理解していないボタン押下の処理
     func selectedUnknownButton() {
+        self.soundResource?.playWrongSound()
         _ = self.updateWordData(.unknown)
         self.view?.navigationToDetailWordScreen(self.wordDataArray[self.currentNumber])
     }
