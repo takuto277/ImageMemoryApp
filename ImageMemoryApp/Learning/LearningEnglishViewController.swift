@@ -10,6 +10,7 @@ import AVFoundation
 
 class LearningEnglishViewController: UIViewController {
     private let presenter: LearningEnglishProtocol
+    let synthesizer = AVSpeechSynthesizer()
     
     init(_ presenter: LearningEnglishProtocol) {
         self.presenter = presenter
@@ -101,14 +102,15 @@ extension LearningEnglishViewController: LearningEnglishViewControllerProtocol {
             self.wordImageLeft.alpha = 1.0
             self.wordImageRight.alpha = 1.0
         })
+        Thread.sleep(forTimeInterval: 0.5)
         self.presenter.textReading(self.englishSentence.text ?? "")
     }
     
     /// 読み上げ機能
     /// - Parameter text: 読み上げたい英文
     func textReading(_ text: String) {
-        let synthesizer = AVSpeechSynthesizer()
         let utterance = AVSpeechUtterance(string: text)
+        utterance.pitchMultiplier = 1.5
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         synthesizer.speak(utterance)
     }
