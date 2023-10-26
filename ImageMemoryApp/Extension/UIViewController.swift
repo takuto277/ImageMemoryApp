@@ -23,7 +23,7 @@ extension UIViewController {
     }
     
     /// ローディング開始
-    func startLoading() {
+    func startLoading(view: UIView) {
         let activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.center = view.center
         activityIndicator.hidesWhenStopped = true
@@ -32,7 +32,7 @@ extension UIViewController {
     }
     
     /// ローディング終了
-    func stopLoading() {
+    func stopLoading(view: UIView) {
         for subview in view.subviews {
             if let activityIndicator = subview as? UIActivityIndicatorView {
                 activityIndicator.stopAnimating()

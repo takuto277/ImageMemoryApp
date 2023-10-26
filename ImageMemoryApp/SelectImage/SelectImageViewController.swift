@@ -31,12 +31,16 @@ final class SelectImageViewController: UIViewController {
     // MARK: - IBAction
     
     @IBAction func pushSearchButton(_ sender: Any) {
+        // ローディング開始
+        self.startLoading(view: self.view)
         self.imageArray.removeAll()
         if let text = searchTextField.text {
             self.presenter.getImages(with: text) { (hits) in
                 guard let data = hits,
                       data.count != 0 else{
                     DispatchQueue.main.async {
+                        // ローディング終了
+                        self.stopLoading(view: self.view)
                         let alert = UIAlertController(title: "検索にヒットしませんでした", message: nil, preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                         self.present(alert, animated: true, completion: nil)
@@ -50,6 +54,8 @@ final class SelectImageViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
+                    // ローディング終了
+                    self.stopLoading(view: self.view)
                 }
             }
         }
