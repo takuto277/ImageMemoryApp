@@ -78,6 +78,13 @@ class CreateImageViewController: UIViewController {
         navigationController?.pushViewController(editDetailWordViewController, animated: true)
     }
     
+    @IBAction func allDeleteButton(_ sender: Any) {
+        ImageEditScreen.shared.deleteImageAll()
+        self.editScreenView.subviews.forEach { subView in
+            subView.removeFromSuperview()
+        }
+    }
+    
     // MARK: - Life cycle
     
     override func viewDidLoad() {
