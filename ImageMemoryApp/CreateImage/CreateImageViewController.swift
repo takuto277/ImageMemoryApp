@@ -79,10 +79,17 @@ class CreateImageViewController: UIViewController {
     }
     
     @IBAction func allDeleteButton(_ sender: Any) {
-        ImageEditScreen.shared.deleteImageAll()
-        self.editScreenView.subviews.forEach { subView in
-            subView.removeFromSuperview()
+        let alertController = UIAlertController(title: "確認", message: "画像を全て削除してもよろしいですか？", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "はい", style: .default) { (action) in
+            ImageEditScreen.shared.deleteImageAll()
+            self.editScreenView.subviews.forEach { subView in
+                subView.removeFromSuperview()
+            }
         }
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel) { (action) in }
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion:nil)
     }
     
     // MARK: - Life cycle
