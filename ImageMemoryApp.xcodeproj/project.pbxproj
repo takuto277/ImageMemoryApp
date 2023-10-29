@@ -587,6 +587,7 @@
 				99D7271C2A5334A400AAB311 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				99E3CE712A812FDE00F1E2B7 /* XCRemoteSwiftPackageReference "fmdb" */,
 				99ACF2572AD4418F00A87782 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				9995AA5A2AED11820062792E /* XCRemoteSwiftPackageReference "ml-stable-diffusion" */,
 			);
 			productRefGroup = 993F7C562A2208A500FE8045 /* Products */;
 			projectDirPath = "";
@@ -1034,6 +1035,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.0.0;
+			};
+		};
+		9995AA5A2AED11820062792E /* XCRemoteSwiftPackageReference "ml-stable-diffusion" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/ml-stable-diffusion";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
 			};
 		};
 		99ACF2572AD4418F00A87782 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
